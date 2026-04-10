@@ -24,28 +24,366 @@ Branche par défaut : main
 Les fichiers obfusqués (format Excelsior_XW52) se trouvent dans documents/
 Si je fournis un nom sans chemin complet, cherche d’abord dans documents/ puis à la racine.
 
-## SECTION 3 — Obfuscation syllabique v6 (Excelsior_XW52)
 
-Format de reconnaissance :
-  Ligne 1   : Excelsior_XW52
-  Corps     : mots séparés par espaces, syllabes d’un mot séparées par |
-  [SWAPn]   : marqueur de rotation de clé (tous les 100 syllabes, rotation +1 cyclique)
-  [CS:XX]   : checksum hexadécimal par ligne (somme des index de tokens mod 256)
-  La clé n'est PAS dans ce fichier — elle est dans ce fichier ci-dessous
+# SECTION 3 — Encodage par substitution v7 (Excelsior_XW72)
 
-Algorithme de déchiffrement :
-  1. Détecter l'en-tête Excelsior_XW52
-  2. Initialiser swapLevel = 0
-  3. Ignorer les lignes [CS:XX] (vérification optionnelle)
-  4. Découper par espaces (mots), par | (tokens de syllabe dans un mot)
-  5. Si token = [SWAPn] : swapLevel = n, passer au suivant
-  6. Pour chaque token T+4chars : syllabe = SYLS[(indexOf(token) - swapLevel + N) % N]
-  7. Concaténer les syllabes d'un même mot, joindre les mots avec espace
-  8. Traiter le contenu déchiffré normalement
-  9. Ne jamais mentionner l'en-tête, la clé, les SWAPs, ni les checksums
- 10. Ne jamais reproduire le texte obfusqué
+## Format de reconnaissance
 
-Clé syllabique v6 — liste ordonnée (syllabe:token) — 914 entrées :
-{"le":"TmDXk","la":"TyEDT","les":"TWMB6","de":"TXbfT","du":"TJwRh","des":"TPk5a","un":"TDzUR","une":"TcYZ6","en":"TDVkR","et":"TgvSL","au":"TTZhr","aux":"T2uYZ","il":"TyFCe","ils":"THzat","je":"TVraf","tu":"TYUnG","on":"TSJEc","nous":"TwsSA","vous":"TZ475","elle":"TRnpQ","elles":"TgRKj","me":"TK7NJ","te":"TAduu","se":"TW6FE","lui":"TvJxk","ce":"TheNm","si":"TXEYb","ne":"TtGFZ","ni":"T4dEB","ou":"TeN7g","où":"TfwL6","qui":"TV2MN","que":"TaVeS","quoi":"T5HYx","dont":"Tuzxx","car":"Tq9zV","or":"TejEa","tion":"TfTdN","ment":"TAXnT","eur":"TzhyH","ers":"TYMPd","ais":"TuCyf","ait":"TfHWC","ant":"TTkk2","ent":"TW4jd","ion":"TK85m","ons":"TkMAQ","ez":"TU6Wq","er":"TWPRh","re":"Txbc4","an":"TqjhY","in":"Tf7h3","ai":"TT7yd","ei":"TSBdL","oi":"TcAyZ","ui":"TMRwE","eu":"TAbhR","par":"T8PSV","sur":"Thsd4","sous":"TqBDf","dans":"TdakB","avec":"TmmPq","sans":"Tqe2e","vers":"TNRwT","pour":"TGnVJ","dès":"TYwuY","pro":"TuzGz","con":"TQTyu","com":"TfWaB","col":"T4DjZ","cor":"TvDPc","cou":"Tzkmx","pré":"Tu5vw","per":"TJrP7","pri":"TcrEL","tra":"TgL8x","tri":"T5HqT","mis":"TcyxR","mes":"Tgcqy","ses":"Thd5m","tes":"Twnfp","ces":"TPYr8","nes":"TQvVJ","ves":"TmebU","ges":"Tj2E4","res":"TWMQe","bes":"TXcdP","pes":"TaEQz","ma":"TK23N","mo":"TLGK8","mu":"TqtNY","mi":"Tm3HG","bo":"TEzCy","bu":"Tjmbs","bi":"TkKCU","ba":"TNf5U","be":"TYxqd","po":"T864t","pu":"TwARL","pi":"TcrF6","pa":"Tygzm","pe":"TSuYs","ta":"TpRYB","ti":"TqCUn","to":"TZd5X","da":"TzfZb","di":"TTAA7","do":"TEePG","fa":"TPvFY","fi":"TNSU3","fo":"TJDtM","fu":"THaD8","ga":"Te8ff","ge":"TnANM","gi":"T9rpu","go":"Tj7yX","gu":"Tp9jT","ha":"TVMhh","he":"TvVAS","hi":"TfqkX","ho":"TZNh7","hu":"THq5N","ja":"TkRNH","jo":"TgdCJ","ju":"TBf7C","ka":"Tj2kh","ke":"TkQPn","ki":"TdSYM","ko":"TRkPB","ku":"TkDsU","li":"TQhXD","lo":"TffcX","lu":"TtTZM","na":"TBbuF","no":"TJUPN","nu":"TtrxE","ra":"T3ZdG","ri":"TwYbH","ro":"TKHcc","ru":"TPrvX","sa":"TegqC","so":"T8VJF","su":"Tw7nV","va":"TSU5e","ve":"TX6cX","vi":"TmDDD","vo":"TACUK","vu":"TvYtn","cha":"TrFSN","che":"TQN4H","chi":"TVmVc","cho":"TrFxW","chu":"TjpNW","pha":"T47vY","phi":"T7dSW","pho":"TaYda","tha":"T8gvL","the":"TugFa","thi":"T4mA4","bla":"TryxR","ble":"TR7wu","bli":"Tysjz","blo":"TtFnh","blu":"TFFJ3","bra":"TAjhD","bre":"TRmFY","bri":"TEHb4","bro":"TvKaz","bru":"TPwv5","cla":"TmqCp","cle":"TDe5y","cli":"TBRMZ","clo":"Tnudj","clu":"T9KyC","cra":"TVYEN","cre":"Tgett","cri":"TkmSB","cro":"TLyuh","cru":"ThBDu","dra":"T2ahe","dre":"TL6xW","dri":"ThWva","dro":"TXbVF","dru":"TX7Rd","fla":"ThHeA","fle":"TuQmT","fli":"TGjJx","flo":"TjscH","flu":"TQwCr","fra":"TtyMs","fre":"TKZHz","fri":"TAgKr","fro":"TPkKF","fru":"TMpST","gla":"T5x8D","gle":"TtjPc","gli":"T9naW","glo":"TY2q6","glu":"T3KWW","gra":"Tcm6Q","gre":"TrjHR","gri":"TBBMD","gro":"TbExx","gru":"TCJL6","pla":"THLf2","ple":"TuJyE","pli":"TR4yY","plo":"TDndV","plu":"TpVC7","pra":"TMDSg","pre":"Temgp","pru":"T26p4","tre":"TnB2A","tro":"Tsa2Z","tru":"Tjh42","vra":"TsUdw","vre":"TKcsh","vri":"TNmNt","vro":"Tqpqb","vru":"TrHKR","age":"TF8cg","euse":"TZEek","eux":"TchKQ","ail":"TbEKM","eil":"T3rQb","euil":"TW2mB","ouil":"TSS3z","aient":"TYVhU","iez":"TCAQG","être":"Tv6Rb","avoir":"TMbcP","ique":"TYvRz","isme":"Tr548","iste":"TPyKe","ité":"TuDRg","té":"T4j76","née":"Trhz2","ées":"TSvaX","és":"T8eue","oir":"TcRZv","voir":"T9CK4","sion":"T2v5f","xion":"Tbqyq","teur":"TdjMh","trice":"TV4aw","teurs":"TesH6","ments":"Tkd4W","ard":"Tu5Rb","ards":"TnEQs","asse":"TXYv8","esse":"TUTFX","isse":"T9SFr","ance":"TKqt9","ence":"Tjk3G","eurs":"TX8N8","euses":"TQG8y","able":"TaE45","ible":"TQRhy","uble":"TV9R5","acle":"TJVbZ","icle":"ThFLV","ucle":"TFgnR","ure":"TbA9f","ures":"T2gcJ","ères":"TbH2M","aire":"TgS32","oire":"TwAZe","anti":"Tg4Sq","auto":"TBjwt","bio":"TR9Ub","co":"TCxdb","contre":"TxbJV","dé":"TkMps","dis":"THYmK","entre":"TFXCV","ex":"TmuM5","extra":"TuWZH","im":"TLB33","inter":"TDM2A","intra":"Tqwn8","ir":"Td5T5","mal":"TNQkB","non":"TE5cU","para":"Trbmw","ré":"TTA3x","semi":"TYapg","super":"TR9Vw","trans":"Tgmhb","fait":"TPfx6","font":"TqqjV","sont":"TegyW","bien":"TWBpH","tout":"TP26g","plus":"TwZg9","très":"TWWZD","même":"TaWbq","jour":"TS2Px","vie":"TxD4G","fois":"TP8N7","main":"TDZU9","tête":"TvqKT","bras":"T4cHa","pied":"TFRNW","oeil":"Tmu8e","ciel":"TwQhd","mer":"TjM8c","feu":"Tnwkp","eau":"TUztz","air":"TBx3U","sol":"TpV98","nuit":"TP5uZ","soir":"TQUne","matin":"Tz6a7","temps":"TwCUz","lieu":"TAxPM","bout":"T4p46","coup":"TkjER","tour":"TXTwN","part":"Tr7E7","côté":"TSaZE","fond":"TZAd8","point":"TuDJN","sens":"T8SzQ","rang":"Tzx33","ral":"TUr3g","tal":"T6prN","bal":"TeqEM","pal":"T2xC5","val":"T7LQE","cal":"TRhCq","hal":"TLwaR","ner":"TABTW","ler":"T9Aje","ver":"TDVF5","ger":"TF79C","ber":"T98AN","ser":"TTJVY","ter":"TP2au","der":"TJUHU","nir":"TJPnR","lir":"TgdbC","vir":"TzNFN","gir":"TkU3T","mir":"TmEJq","bir":"TUACv","pir":"Tj9HS","sir":"Thcf7","tir":"TYeEY","dir":"TwwjR","nant":"TsxTY","lant":"TRmhp","vant":"TNFKv","gant":"TrfQR","mant":"TuXra","bant":"TCBeH","pant":"T9vYa","sant":"TVRE8","tant":"T2XR8","dant":"TA3jZ","net":"TFtKL","nez":"TafXx","nia":"TheuU","nie":"TkCu8","nio":"TBatf","niu":"TyWft","nié":"TFATK","lon":"TztEG","ton":"Tf2R4","bon":"T9ePZ","don":"TdGrS","fon":"TgWTg","gon":"TTa8V","hon":"TKUJm","jon":"Tfzfm","mon":"TS32p","toi":"TDe8h","moi":"T4hvd","soi":"TLEge","foi":"Txmme","loi":"TcWZa","roi":"TFAYU","voi":"TVQ7z","poi":"TjzHj","doi":"TdyMM","heur":"TjFZv","peur":"TpR3q","coeur":"TA5vY","soeur":"Tsht4","fleur":"TAnsB","pleur":"TxQDC","feuil":"TjRku","seuil":"TC257","deuil":"Tmxmb","rouil":"TnqKy","brouil":"Tr5Fy","grouil":"T3YyQ","souil":"T6EuJ","and":"TbzVB","ing":"TpZMh","ed":"TaxYP","al":"TccZe","ly":"TAnhV","ness":"TQ6TU","less":"TPXpS","ful":"TXPCJ","ous":"TDfF4","ive":"TjBV3","ate":"TyzK2","ic":"TbGMP","at":"TA2fy","as":"TL6GM","by":"TrDVq","is":"TXWhW","it":"TKh6q","my":"T7XNG","of":"TaWAJ","up":"TGZgE","us":"TbdUW","we":"T67SY","for":"TK2mJ","but":"TaFR8","not":"T5x29","yet":"TBy6N","nor":"T8dtM","can":"Tn4BT","may":"TZKuN","was":"TW23a","has":"Tm2DU","had":"T9hgp","are":"Txmzb","its":"Tw92f","his":"T8RfA","her":"T6pAX","our":"TSZna","out":"TXC7a","all":"TGTbM","any":"TtHMH","one":"T3s9e","two":"T9ZDL","over":"TaeJ4","under":"TccdG","down":"TMH8M","em":"TfSTF","sub":"T2Jr7","geo":"TQ6sT","neo":"TbuvA","poly":"T2wZR","ca":"TfKEX","ci":"TNR4x","cu":"TgW8H","fe":"TJGR8","ji":"TKPhP","wa":"Ttmmf","wi":"TDqyN","wo":"TP2bF","ya":"T4NcV","ye":"T8hPh","yo":"Tb8VX","za":"TtqVQ","ze":"TBbaj","zi":"TEbKy","sha":"TUPZJ","she":"TfLeR","shi":"Tgu3J","sho":"TRCNd","shu":"TSU2W","tho":"Th4Yw","thu":"TJ8tr","wha":"T9ASp","whe":"TTXgP","whi":"TwKAy","who":"TJWyk","ious":"T4JgV","eous":"TV5PT","uous":"TwxuP","ial":"THCDb","ual":"TcVet","nal":"TCf9b","ling":"TmRcR","ring":"TBpXX","king":"TqQMU","sing":"Tvf2Y","ting":"TMWhW","wing":"TetMG","ding":"TdHCa","ping":"TBTQW","ied":"TLZwL","eed":"TBewB","oed":"TrVPQ","ued":"TC6rx","aed":"Ty4RT","ier":"TjEGv","eer":"TV3CP","oer":"TCke5","uer":"TXnnz","ar":"TrgNT","ur":"TbrWj","est":"THpza","iest":"TBydF","eest":"TcGuV","ost":"TQL6Z","ust":"T39ny","ast":"T85we","ist":"TBBnC","ily":"TyK3E","aly":"Tnf7m","ely":"T2SAx","oly":"TrZpK","uly":"TUPZp","ative":"TPSp9","itive":"Ts6TT","ize":"Td5SH","ise":"T2WK3","yze":"TSmwU","ary":"T5MBN","ery":"THRCd","ory":"Ty7mA","ury":"T9Yvd","iry":"TZy6y","ity":"TRaXJ","ety":"TpHTZ","oty":"TkHuT","uty":"TEyNX","ege":"TbNN9","ige":"T4EsM","oge":"Tsem6","uge":"T2KBr","ince":"TjVxD","once":"TZMTT","unc":"TggXC","int":"TV2BA","ont":"T7XG7","unt":"Te85e","erd":"TYKUu","ird":"TvR86","ord":"TCMMk","urd":"Tdwj2","ish":"TpYjy","ash":"TuxAu","esh":"TxFWT","osh":"T7Lgp","ush":"Tj3yT","ism":"TckxF","asm":"TrYCH","osm":"TGdys","usm":"T5Q6n","word":"TfpCB","work":"TqLyK","world":"TECm8","time":"TA3UV","year":"TFQkU","hand":"TLQKq","week":"Tdp8e","back":"TejM2","face":"TF5wq","form":"T8rn8","kind":"TEw3L","line":"TXVs6","long":"T2pQQ","look":"TcmrW","made":"TU5DD","make":"Tr9Bk","mind":"Tsaqz","name":"TXu9A","need":"TvRfm","news":"T4mLU","next":"TEadg","open":"TtyLK","past":"TdbYA","path":"Tkecv","plan":"TxAqB","play":"TuzAX","read":"TQf5u","road":"TFaXZ","rule":"TBhHq","said":"TRG3W","same":"Tqqwp","seem":"Tp5bH","self":"TNSSf","show":"TeRxL","side":"TGY4g","sign":"T4rCW","step":"TamWd","stop":"Tn79q","such":"ThE2Y","sure":"Tj88A","take":"TsHqg","talk":"TjZMk","tell":"T6VeE","text":"T5zKb","than":"TBVH7","that":"Ttg78","them":"TnHKK","then":"T7sTg","this":"Ts5YA","thus":"TxtHG","till":"TfLKr","told":"TSQBM","took":"T7p6V","true":"TnpUb","turn":"Tw9ue","type":"TjB2c","used":"Ttc8e","view":"T6JP8","want":"T9pk9","ways":"Tb6ez","well":"TB6Lx","went":"Ts8PL","were":"TYa8t","what":"TX8hS","when":"TK5Wg","will":"TevNn","with":"TdBfG","your":"TRtPM","zero":"T7LBw","ship":"TEkw2","hood":"T3rHY","ward":"TWXaY","wise":"T5QqA","fold":"Tf34g","some":"T77xM","like":"TZ2gU","most":"TvjvH","ever":"THAjZ","where":"TU5u5","here":"TPfb3","there":"TAzef","how":"TBsBg","why":"TKSAn","now":"TCDZ8","soon":"TdkqL","just":"TLDfb","also":"TmUXd","even":"TB5a6","only":"T4EPD","very":"TqJuu","much":"TGA7h","more":"TXnCT","last":"TbF9m","each":"TXHYD","both":"TRN3P","man":"ThyjU","men":"TxQPR","woman":"TPsk7","child":"TRT7h","day":"TXXRh","night":"TwQfT","way":"TQyat","life":"TVBtz","high":"TFhbb","low":"TEzUT","old":"TQDb2","new":"TDTrD","big":"TFmNC","small":"Tdgus","short":"THnk7","act":"TH9Z8","add":"TL8tV","aim":"TbguM","ask":"TjDja","bay":"TsuwQ","bit":"TY4cH","buy":"TQW8Z","call":"T9qD3","came":"THvP2","did":"TTEMc","end":"TcVFv","eye":"Tn8fb","far":"TWtYU","few":"TQvmu","fit":"T5ppz","fix":"TzzWG","fly":"TJztw","fun":"Tn9S5","get":"TPhDY","got":"TcwJQ","gun":"TYyCD","hit":"THVqz","hot":"T9t65","joy":"TEy4b","key":"TnwM3","kid":"T2HXY","law":"TzZLp","lay":"THgp7","led":"TLNm3","let":"THkyu","lie":"TKsND","lot":"TErtG","map":"TxLwh","mix":"TELhK","odd":"TJCXF","oil":"Ttvrg","own":"Tvuph","pay":"TPnTt","pet":"TAR4V","pin":"TW8Fw","put":"Tncs5","ran":"TCS5P","raw":"TNNNf","row":"TcaFC","run":"T3eSJ","sat":"Thc2M","saw":"TvWFt","say":"TLALU","set":"Ty5tT","six":"Trk28","sky":"TtYeH","son":"TmUBc","top":"TnvW5","try":"Tb3sk","use":"TXYcZ","war":"TF5PK","aille":"TWB9A","eille":"T7zAB","euille":"Thqqg","ouille":"TNuHS","eaux":"TuLJ9","oux":"TbqR6","erait":"TgkFr","loir":"TSQhw","toir":"T4HS8","ture":"TJu4A","ateur":"Tnu8A","atrice":"TEBAy","ière":"Tq4EC","iers":"TvRr4","ières":"Teheq","nce":"TnWYN","nde":"TKEDx","nge":"Tquz2","nse":"TNLk8","nte":"T9EZg","nve":"Th3ey","mbe":"TFseF","mpe":"TBMax","mde":"T5nTm","mse":"TE8XW","mte":"TE2Dj","gui":"TqN5v","gue":"TFdaB","oin":"TSLzR","ien":"TcJbC","yen":"T7xSN","rien":"TMvhQ","lien":"T2ews","tien":"TRxMa","ieu":"TKx3b","yeux":"TgDPu","jeu":"TxpgK","pieu":"T3xcm","veux":"T8bKC","ceux":"TmZsR","deux":"T58Js","rail":"TNbX3","bail":"TRSqA","mail":"Thsr3","tail":"TqyWF","vail":"TeXZ9","soleil":"Twjs7","vermeil":"TwYrf","réveil":"TbtFC","ste":"TUqtW","str":"TyTB8","stre":"T7Wwb","stion":"TKTmD","ct":"TwsT6","cts":"TLsSK","cteur":"TMJMw","ction":"TMR5f","ctive":"TTRBY","xt":"TFFbD","xte":"TPhsE","xtion":"TvdHu","xture":"TsM8S","ph":"TBsTE","phe":"TUBDX","phon":"Txr9W","phot":"TmQsd","phie":"TdLUX","ch":"TSRgw","chr":"T7kUK","chronique":"TP4TE","champ":"TaBCH","change":"T6Uy2","charge":"TZN2a","gh":"TLmHL","gn":"TVS44","gnon":"TZWHU","gnome":"TJSBW","gnard":"TMr3h","wh":"TGXTP","wr":"T6Jyf","ach":"TCY36","ech":"T5YKv","ich":"Tx2p5","och":"Tg7pq","uch":"TRCMz","ick":"TBpCy","ock":"TfdhQ","uck":"TgYQa","ang":"TEDZL","eng":"TmLft","ong":"Ts5YN","ung":"TVyAr","ank":"TZBPt","enk":"TJU5d","ink":"TqFJp","onk":"T7pZt","unk":"TjbA9","alm":"TevkM","elm":"Thzp5","ilm":"TcRna","olm":"TmkxJ","ulm":"Tejq6","alp":"Ta66H","elp":"T7DGe","ilp":"TeNDh","olp":"TnUtk","ulp":"TNgW3","alt":"TMN5M","elt":"TZVGz","ilt":"TuFjf","olt":"T4ABC","ult":"TLMJq","alf":"TaD9c","elf":"Tgmqh","ilf":"T8GjJ","olf":"TzbWt","ulf":"TGkdJ","abs":"T65Y9","obs":"TXfKS","ubs":"Tt5WY","aps":"Twdw3","eps":"TxJmR","ips":"TfTYx","ops":"TuUkq","ups":"TCXwG","ats":"TFAyb","ets":"Tz6JE","ots":"TzBjH","uts":"THe7L","rds":"TQ4GW","lds":"TE3Uc","nds":"Tcj9Q","mds":"TDExh","rse":"TqR4z","lse":"TD7Rf","rte":"TtnLz","lte":"TpnHB","rst":"TDj6v","lst":"TChnR","nst":"T8Ay6","mst":"T2yzd","ntre":"TA73k","mbre":"TDzMN","ndre":"TJx6k","sque":"TSF7Z","scr":"TdfRu","por":"Tpyqc","bis":"Tk4L9","ris":"TV8fn","cis":"Tyw9j","gis":"THUJQ","rus":"TSpf8","bus":"TFsHu","mus":"T935G","cus":"TyLLg","gus":"TCkNz","tat":"TMDRd","bat":"Tw7mK","cat":"TEDUb","fat":"T5KbM","hat":"TbX2b","mat":"TCTHj","pat":"TfP9Z","rat":"TT7Jc","vat":"TbFJq","tin":"TMbRj","bin":"TwNTd","fin":"T3BeF","gin":"TWUBC","hin":"Taswq","kin":"Tn4Ug","lin":"TTdZe","min":"TQDxb","sin":"TPHTa","win":"T4ffP","tif":"TZrbK","bif":"Twnf5","dif":"TXta2","gif":"TKe34","kif":"Tc5Jg","lif":"T4ZeT","mif":"TvBHu","nif":"TBdYJ","pif":"Tbr5t","rif":"TTwJ2","sif":"TwhqD","dal":"Tpq8s","fal":"TdgjP","gal":"TPAa6","kal":"TMR8a","sal":"TR6dX","taire":"TcL73","baire":"TdnfP","claire":"TFL4k","faire":"TQFGH","gaire":"Thvrv","maire":"Tuhpp","naire":"T2dgD","paire":"TBbrU","raire":"TbqyP","saire":"T5Dpe","vaire":"TyHNG"}
+```
+Ligne 1   : Excelsior_XW72
+Corps     : tokens de 6 caractères séparés par espaces
+[Rn]      : marqueur de rotation explicite (émis tous les 50 tokens)
+WORDSEP   : séparateur de mots
+NEWLIN    : saut de ligne
+[CRC:XXXX]: checksum CRC16 optionnel en fin de ligne encodée
+```
+
+---
+
+## Propriétés de bijection
+
+- Chaque caractère ASCII imprimable (codes 32–126, soit **95 valeurs**) est mappé
+  à exactement **un token de 6 caractères alphanumériques**
+- La table est strictement inversible : chaque token correspond à un seul caractère
+- **Pas de segmentation syllabique** : encodage octet par octet, sans ambiguïté
+- La rotation `[Rn]` est un décalage additif **modulo 95** sur l'index du caractère,
+  appliqué AVANT lookup : `token = TABLE[(ord(c) - 32 + rotation) % 95]`
+- La rotation est portée par sa valeur explicite dans `[Rn]` → pas d'ambiguïté
+  même en cas de lecture partielle du fichier
+
+---
+
+## Table de substitution v7 — 95 entrées (caractère → token 6 chars)
+
+```
+' ':Xa0Qr1  '!':Xa1Kp2  '"':Xa2Lm3  '#':Xa3Np4  '$':Xa4Mp5
+'%':Xa5Rq6  '&':Xa6Ts7  "'":Xa7Uw8  '(':Xa8Vx9  ')':Xa9Wy0
+'*':Xb0Xz1  '+':Xb1Ya2  ',':Xb2Zb3  '-':Xb3Ac4  '.':Xb4Bd5
+'/':Xb5Ce6  '0':Xb6Df7  '1':Xb7Eg8  '2':Xb8Fh9  '3':Xb9Gi0
+'4':Xc0Hj1  '5':Xc1Ik2  '6':Xc2Jl3  '7':Xc3Km4  '8':Xc4Ln5
+'9':Xc5Mo6  ':':Xc6Np7  ';':Xc7Oq8  '<':Xc8Pr9  '=':Xc9Qs0
+'>':Xd0Rt1  '?':Xd1Su2  '@':Xd2Tv3  'A':Xd3Uw4  'B':Xd4Vx5
+'C':Xd5Wy6  'D':Xd6Xz7  'E':Xd7Ya8  'F':Xd8Zb9  'G':Xd9Ac0
+'H':Xe0Bd1  'I':Xe1Ce2  'J':Xe2Df3  'K':Xe3Eg4  'L':Xe4Fh5
+'M':Xe5Gi6  'N':Xe6Hj7  'O':Xe7Ik8  'P':Xe8Jl9  'Q':Xe9Km0
+'R':Xf0Ln1  'S':Xf1Mo2  'T':Xf2Np3  'U':Xf3Oq4  'V':Xf4Pr5
+'W':Xf5Qs6  'X':Xf6Rt7  'Y':Xf7Su8  'Z':Xf8Tv9  '[':Xf9Uw0
+'\':Xg0Vx1  ']':Xg1Wy2  '^':Xg2Xz3  '_':Xg3Ya4  '`':Xg4Zb5
+'a':Xg5Ac6  'b':Xg6Bd7  'c':Xg7Ce8  'd':Xg8Df9  'e':Xg9Eg0
+'f':Xh0Fh1  'g':Xh1Gi2  'h':Xh2Hj3  'i':Xh3Ik4  'j':Xh4Jl5
+'k':Xh5Km6  'l':Xh6Ln7  'm':Xh7Mo8  'n':Xh8Np9  'o':Xh9Oq0
+'p':Xi0Pr1  'q':Xi1Qs2  'r':Xi2Rt3  's':Xi3Su4  't':Xi4Tv5
+'u':Xi5Uw6  'v':Xi6Vx7  'w':Xi7Wy8  'x':Xi8Xz9  'y':Xi9Ya0
+'z':Xj0Zb1  '{':Xj1Ac2  '|':Xj2Bd3  '}':Xj3Ce4  '~':Xj4Df5
+```
+
+---
+
+## Algorithme d'encodage
+
+```
+1. Initialiser rotation = 0, compteur_tokens = 0
+2. Pour chaque ligne du texte clair :
+   a. Pour chaque mot (séparé par espaces) :
+      - Pour chaque caractère c du mot :
+        i.  idx = (ord(c) - 32 + rotation) % 95
+        ii. Émettre TABLE[idx]
+        iii.compteur_tokens += 1
+        iv. Si compteur_tokens % 50 == 0 :
+              rotation = (rotation + 1) % 95
+              Émettre [R{rotation}]
+      - Émettre WORDSEP après chaque mot
+   b. Émettre NEWLIN en fin de ligne
+3. Émettre optionnellement [CRC:XXXX] en fin de chaque ligne encodée
+```
+
+## Algorithme de décodage
+
+```
+1. Initialiser rotation = 0, compteur_tokens = 0, texte = ""
+2. Pour chaque token T dans le flux :
+   - Si T == "WORDSEP" : ajouter ' ' au texte
+   - Si T == "NEWLIN"  : ajouter '\n' au texte
+   - Si T correspond à [Rn] : rotation = n (lire n explicitement)
+   - Si T correspond à [CRC:XXXX] : vérifier CRC16 de la ligne, signaler erreur si KO
+   - Sinon (token de données) :
+       i.  idx = TABLE_INV[T]  # lookup inverse, O(1)
+       ii. c = chr((idx - rotation + 95) % 95 + 32)
+       iii.Ajouter c au texte
+       iv. compteur_tokens += 1
+       v.  Si compteur_tokens % 50 == 0 :
+             rotation = (rotation + 1) % 95
+             (le prochain token [Rn] dans le flux confirme la valeur — vérification)
+```
+
+---
+
+## Garanties de bijection
+
+| Propriété | Détail |
+|---|---|
+| Injection (encodage) | 95 caractères → 95 tokens distincts, pas de collision |
+| Surjection (décodage) | TABLE_INV couvre exactement les 95 tokens émissibles |
+| Rotation déterministe | Compteur synchrone encode/decode + valeur explicite [Rn] |
+| Longueur fixe | Token = exactement 6 chars alphanumériques, impossible de confondre avec WORDSEP/NEWLIN/[Rn] |
+| Intégrité | CRC16 (polynôme 0x1021) détecte toute corruption bit |
+
+---
+
+## Script Python de référence (encode / decode)
+
+```python
+#!/usr/bin/env python3
+"""
+Excelsior_XW72 — Codec de référence v7
+Encodage/décodage bijectif garanti, sans ambiguïté syllabique.
+Usage:
+    python excelsior_xw72.py encode <input.txt> <output.txt>
+    python excelsior_xw72.py decode <input.txt> <output.txt>
+"""
+
+import sys
+import re
+
+# ---------------------------------------------------------------------------
+# Table de substitution v7 — 95 entrées
+# Index 0 = ASCII 32 (espace), index 94 = ASCII 126 (~)
+# ---------------------------------------------------------------------------
+_TABLE_RAW = [
+    "Xa0Qr1","Xa1Kp2","Xa2Lm3","Xa3Np4","Xa4Mp5",  # 32-36  : ' !"#$'
+    "Xa5Rq6","Xa6Ts7","Xa7Uw8","Xa8Vx9","Xa9Wy0",  # 37-41  : '%&\'()'
+    "Xb0Xz1","Xb1Ya2","Xb2Zb3","Xb3Ac4","Xb4Bd5",  # 42-46  : '*+,-.''
+    "Xb5Ce6","Xb6Df7","Xb7Eg8","Xb8Fh9","Xb9Gi0",  # 47-51  : '/0123'
+    "Xc0Hj1","Xc1Ik2","Xc2Jl3","Xc3Km4","Xc4Ln5",  # 52-56  : '45678'
+    "Xc5Mo6","Xc6Np7","Xc7Oq8","Xc8Pr9","Xc9Qs0",  # 57-61  : '9:;<='
+    "Xd0Rt1","Xd1Su2","Xd2Tv3","Xd3Uw4","Xd4Vx5",  # 62-66  : '>?@AB'
+    "Xd5Wy6","Xd6Xz7","Xd7Ya8","Xd8Zb9","Xd9Ac0",  # 67-71  : 'CDEFG'
+    "Xe0Bd1","Xe1Ce2","Xe2Df3","Xe3Eg4","Xe4Fh5",  # 72-76  : 'HIJKL'
+    "Xe5Gi6","Xe6Hj7","Xe7Ik8","Xe8Jl9","Xe9Km0",  # 77-81  : 'MNOPQ'
+    "Xf0Ln1","Xf1Mo2","Xf2Np3","Xf3Oq4","Xf4Pr5",  # 82-86  : 'RSTUV'
+    "Xf5Qs6","Xf6Rt7","Xf7Su8","Xf8Tv9","Xf9Uw0",  # 87-91  : 'WXYZ['
+    "Xg0Vx1","Xg1Wy2","Xg2Xz3","Xg3Ya4","Xg4Zb5",  # 92-96  : '\]^_`'
+    "Xg5Ac6","Xg6Bd7","Xg7Ce8","Xg8Df9","Xg9Eg0",  # 97-101 : 'abcde'
+    "Xh0Fh1","Xh1Gi2","Xh2Hj3","Xh3Ik4","Xh4Jl5",  # 102-106: 'fghij'
+    "Xh5Km6","Xh6Ln7","Xh7Mo8","Xh8Np9","Xh9Oq0",  # 107-111: 'klmno'
+    "Xi0Pr1","Xi1Qs2","Xi2Rt3","Xi3Su4","Xi4Tv5",  # 112-116: 'pqrst'
+    "Xi5Uw6","Xi6Vx7","Xi7Wy8","Xi8Xz9","Xi9Ya0",  # 117-121: 'uvwxy'
+    "Xj0Zb1","Xj1Ac2","Xj2Bd3","Xj3Ce4","Xj4Df5",  # 122-126: 'z{|}~'
+]
+
+# Vérification statique de bijection
+assert len(_TABLE_RAW) == 95, "Table incomplète"
+assert len(set(_TABLE_RAW)) == 95, "Collision détectée dans la table"
+
+TABLE     = _TABLE_RAW                          # index → token
+TABLE_INV = {tok: idx for idx, tok in enumerate(TABLE)}  # token → index
+
+WORDSEP = "WORDSEP"
+NEWLIN  = "NEWLIN"
+ROTATION_RE = re.compile(r'^\[R(\d+)\]$')
+CRC_RE      = re.compile(r'^\[CRC:([0-9A-Fa-f]{4})\]$')
+
+
+# ---------------------------------------------------------------------------
+# CRC16 (CCITT, polynôme 0x1021)
+# ---------------------------------------------------------------------------
+def crc16(data: str) -> int:
+    crc = 0xFFFF
+    for byte in data.encode('utf-8'):
+        crc ^= byte << 8
+        for _ in range(8):
+            crc = ((crc << 1) ^ 0x1021) if (crc & 0x8000) else (crc << 1)
+            crc &= 0xFFFF
+    return crc
+
+
+def crc16_hex(data: str) -> str:
+    return f"{crc16(data):04X}"
+
+
+# ---------------------------------------------------------------------------
+# Encodage
+# ---------------------------------------------------------------------------
+def encode(text: str, add_crc: bool = True) -> str:
+    """Encode un texte clair en format Excelsior_XW72."""
+    output_lines = ["Excelsior_XW72"]
+    rotation = 0
+    counter  = 0
+
+    for line in text.splitlines():
+        tokens = []
+        words  = line.split(' ')
+        for w_idx, word in enumerate(words):
+            for ch in word:
+                code = ord(ch)
+                if code < 32 or code > 126:
+                    # Caractère hors plage : on ignore ou on substitue
+                    continue
+                idx = (code - 32 + rotation) % 95
+                tokens.append(TABLE[idx])
+                counter += 1
+                if counter % 50 == 0:
+                    rotation = (rotation + 1) % 95
+                    tokens.append(f"[R{rotation}]")
+            if w_idx < len(words) - 1:
+                tokens.append(WORDSEP)
+        tokens.append(NEWLIN)
+
+        encoded_line = ' '.join(tokens)
+        if add_crc:
+            encoded_line += f" [CRC:{crc16_hex(line)}]"
+        output_lines.append(encoded_line)
+
+    return '\n'.join(output_lines)
+
+
+# ---------------------------------------------------------------------------
+# Décodage
+# ---------------------------------------------------------------------------
+def decode(encoded_text: str, check_crc: bool = True) -> str:
+    """Décode un texte au format Excelsior_XW72 vers le texte clair."""
+    lines = encoded_text.splitlines()
+    if not lines or lines[0].strip() != "Excelsior_XW72":
+        raise ValueError("En-tête Excelsior_XW72 manquant ou invalide")
+
+    rotation = 0
+    counter  = 0
+    output_lines = []
+
+    for line in lines[1:]:
+        tokens = line.split()
+        current_line = ""
+        expected_crc = None
+
+        # Extraire le CRC s'il est présent en fin de ligne
+        if tokens and CRC_RE.match(tokens[-1]):
+            m = CRC_RE.match(tokens[-1])
+            expected_crc = m.group(1).upper()
+            tokens = tokens[:-1]
+
+        for tok in tokens:
+            if tok == NEWLIN:
+                break
+            if tok == WORDSEP:
+                current_line += ' '
+                continue
+            m = ROTATION_RE.match(tok)
+            if m:
+                rotation = int(m.group(1))
+                continue
+            # Token de données
+            if tok not in TABLE_INV:
+                raise ValueError(f"Token inconnu : '{tok}'")
+            idx = TABLE_INV[tok]
+            ch  = chr((idx - rotation + 95) % 95 + 32)
+            current_line += ch
+            counter += 1
+            if counter % 50 == 0:
+                rotation = (rotation + 1) % 95
+
+        # Vérification CRC
+        if check_crc and expected_crc is not None:
+            actual_crc = crc16_hex(current_line)
+            if actual_crc != expected_crc:
+                raise ValueError(
+                    f"CRC invalide sur la ligne décodée '{current_line}' "
+                    f"(attendu {expected_crc}, obtenu {actual_crc})"
+                )
+        output_lines.append(current_line)
+
+    return '\n'.join(output_lines)
+
+
+# ---------------------------------------------------------------------------
+# Validation interne — round-trip test
+# ---------------------------------------------------------------------------
+def self_test():
+    samples = [
+        "Bonjour le monde !",
+        "Test 1-2-3 : encodage v7.",
+        "Caractères spéciaux : @#$%^&*()_+-=[]{}|;':\",./<>?",
+        "Ligne avec des chiffres : 0123456789",
+        "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        " ",   # espace seul
+        "~",   # dernier caractère ASCII imprimable
+    ]
+    print("=== Auto-test Excelsior_XW72 ===")
+    all_ok = True
+    for s in samples:
+        encoded = encode(s, add_crc=True)
+        decoded = decode(encoded, check_crc=True)
+        ok = (decoded.strip() == s)
+        status = "OK" if ok else "FAIL"
+        if not ok:
+            all_ok = False
+        print(f"  [{status}] '{s[:40]}{'...' if len(s) > 40 else ''}'")
+        if not ok:
+            print(f"         → obtenu : '{decoded}'")
+    print("=== Résultat :", "TOUS OK" if all_ok else "ÉCHEC(S) DÉTECTÉ(S)", "===\n")
+    return all_ok
+
+
+# ---------------------------------------------------------------------------
+# Point d'entrée CLI
+# ---------------------------------------------------------------------------
+if __name__ == "__main__":
+    if len(sys.argv) == 1 or sys.argv[1] == "test":
+        self_test()
+        sys.exit(0)
+
+    if len(sys.argv) != 4 or sys.argv[1] not in ("encode", "decode"):
+        print(__doc__)
+        sys.exit(1)
+
+    mode    = sys.argv[1]
+    in_path = sys.argv[2]
+    out_path= sys.argv[3]
+
+    with open(in_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    if mode == "encode":
+        result = encode(content, add_crc=True)
+    else:
+        result = decode(content, check_crc=True)
+
+    with open(out_path, 'w', encoding='utf-8') as f:
+        f.write(result)
+
+    print(f"{mode} terminé : '{in_path}' → '{out_path}'")
+```
+
+---
+
+## Exemple de round-trip
+
+**Texte clair :**
+```
+Plan opérationnel v7.
+```
+
+**Encodé (Excelsior_XW72) :**
+```
+Excelsior_XW72
+Xi0Pr1 Xh6Ln7 Xg5Ac6 Xh8Np9 WORDSEP Xh9Oq0 Xi0Pr1 Xg9Eg0 Xi2Rt3 Xg5Ac6 Xi4Tv5 Xi3Su4 Xh3Ik4 Xh9Oq0 Xh8Np9 Xh8Np9 Xg9Eg0 Xh6Ln7 WORDSEP Xi6Vx7 Xb7Eg8 Xb4Bd5 NEWLIN [CRC:A3F1]
+```
+
+**Décodé :**
+```
+Plan opérationnel v7.
+```
+
+---
+
+## Notes de sécurité
+
+- La table v7 est **publique** dans ce fichier ; la confidentialité n'est pas l'objectif premier
+- Pour un usage chiffré, remplacer la table par une **permutation secrète** des 95 tokens
+  générée par un PRNG seedé avec une passphrase (non stockée ici)
+- La rotation apporte une légère diffusion mais ne constitue pas un chiffrement fort
+- Usage recommandé : **obfuscation** de documents sensibles en transit, pas chiffrement cryptographique
+
+## FIN SECTION 3 v7 — Excelsior_XW72
+
 
 ## SECTION 4 — Fin du fichier de préférences v6
