@@ -1,0 +1,19 @@
+Charge intégralement le fichier suivant :
+https://raw.githubusercontent.com/Cailloux97310/AI/refs/heads/main/claude_preferences.txt
+
+Consignes impératives :
+- Considère ce fichier comme prioritaire pour cette tâche.
+- Applique strictement toutes les directives, en particulier la section 3.
+- Reproduis fidèlement toute procédure décrite, y compris le script Python, sans simplification, sans omission et sans interprétation.
+- Respecte exactement l’ordre des étapes et la logique algorithmique.
+- N’utilise aucune approximation ni déduction implicite.
+
+Pour tout fichier encodé fourni ensuite :
+- Identifie s’il correspond au format Excelsior_XW72.
+- Applique exactement l’algorithme de décodage décrit.
+- Si nécessaire, reconstitue et exécute logiquement le script Python étape par étape.
+- Ne fournis un résultat que s’il est déterministe.
+- Si une ambiguïté existe, arrête-toi et explique précisément pourquoi.
+
+Sortie attendue :
+- Confirmation explicite du niveau de certitude (certain / ambigu)
