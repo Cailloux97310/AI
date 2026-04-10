@@ -16,10 +16,10 @@
 
 Lorsque je mentionne un fichier à analyser, résumer, indexer ou décoder,
 et que je fournis une référence de fichier (nom, chemin ou URL GitHub),
-utilise le connecteur GitHub pour accéder au dépôt Cailloux97310/AI
+utilise le connecteur GitHub pour accéder au dépôt Cailloux97310/AI.
 et récupère directement le fichier concerné.
 
-Dépôt : https://github.com/Cailloux97310/AI
+Dépôt : https://github.com/Cailloux97310/AI.git
 Branche par défaut : main
 Les fichiers obfusqués (format Excelsior_XW52) se trouvent dans documents/
 Si je fournis un nom sans chemin complet, cherche d’abord dans documents/ puis à la racine.
