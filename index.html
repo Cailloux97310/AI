@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Vision — Simulateur d'Aménagement IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f5f0e8;
+    --warm: #e8dfc8;
+    --earth: #8b7355;
+    --deep: #2c2416;
+    --accent: #c4873a;
+    --accent2: #6b8c5f;
+    --glass: rgba(245,240,232,0.85);
+    --shadow: rgba(44,36,22,0.15);
+  }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--cream);
+    color: var(--deep);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse at 20% 20%, rgba(196,135,58,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(107,140,95,0.08) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Header */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 2.5rem 3rem 2rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(139,115,85,0.2);
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--deep);
+  }
+
+  .logo-main em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .logo-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-top: 0.35rem;
+  }
+
+  .header-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--earth);
+    opacity: 0.6;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* Main layout */
+  main {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: calc(100vh - 100px);
+  }
+
+  /* Left panel */
+  .panel-left {
+    border-right: 1px solid rgba(139,115,85,0.2);
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .panel-title {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--earth);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .panel-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(139,115,85,0.2);
+  }
+
+  /* Upload zone */
+  .upload-zone {
+    border: 1.5px dashed rgba(139,115,85,0.35);
+    border-radius: 2px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(139,115,85,0.03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .upload-zone:hover, .upload-zone.drag-over {
+    border-color: var(--accent);
+    background: rgba(196,135,58,0.05);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px var(--shadow);
+  }
+
+  .upload-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    opacity: 0.4;
+  }
+
+  .upload-zone p {
+    font-size: 0.75rem;
+    color: var(--earth);
+    line-height: 1.8;
+  }
+
+  .upload-zone strong {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  #fileInput { display: none; }
+
+  /* Preview */
+  .preview-container {
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--warm);
+    min-height: 220px;
+    display: none;
+    flex-direction: column;
+  }
+
+  .preview-container.visible { display: flex; }
+
+  #previewMedia {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+
+  #previewVideo {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: none;
+  }
+
+  .preview-label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--deep);
+    color: var(--cream);
+    padding: 0.3rem 0.6rem;
+    border-radius: 1px;
+  }
+
+  .change-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(245,240,232,0.9);
+    color: var(--earth);
+    padding: 0.3rem 0.6rem;
+    border-radius: 1px;
+    border: 1px solid var(--earth);
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    transition: all 0.2s;
+  }
+  .change-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* Style selector */
+  .style-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+
+  .style-btn {
+    padding: 0.7rem 0.5rem;
+    border: 1.5px solid rgba(139,115,85,0.25);
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--earth);
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .style-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(196,135,58,0.05);
+  }
+
+  .style-btn.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+  }
+
+  .style-emoji { display: block; font-size: 1.2rem; margin-bottom: 0.3rem; }
+
+  /* Budget & Rooms */
+  .row-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .input-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--earth);
+  }
+
+  .input-field, .select-field {
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid rgba(139,115,85,0.25);
+    border-radius: 2px;
+    background: transparent;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--deep);
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .input-field:focus, .select-field:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  /* Custom request */
+  .textarea-field {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1.5px solid rgba(139,115,85,0.25);
+    border-radius: 2px;
+    background: transparent;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--deep);
+    resize: vertical;
+    min-height: 90px;
+    transition: border-color 0.2s;
+    line-height: 1.7;
+  }
+
+  .textarea-field:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .textarea-field::placeholder { color: rgba(139,115,85,0.5); }
+
+  /* CTA Button */
+  .cta-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--deep);
+    color: var(--cream);
+    border: none;
+    border-radius: 2px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .cta-btn:hover::before { transform: translateX(0); }
+  .cta-btn span { position: relative; z-index: 1; }
+
+  .cta-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .cta-btn:disabled::before { display: none; }
+
+  /* Right panel */
+  .panel-right {
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Result area */
+  .result-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Empty state */
+  .empty-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    opacity: 0.5;
+  }
+
+  .empty-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+  }
+
+  .empty-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--earth);
+  }
+
+  .empty-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--earth);
+    line-height: 2;
+    max-width: 280px;
+  }
+
+  /* Loading */
+  .loading-state {
+    flex: 1;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .loading-state.visible { display: flex; }
+
+  .loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid rgba(139,115,85,0.2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--earth);
+  }
+
+  .loading-dots::after {
+    content: '';
+    animation: dots 1.5s steps(4, end) infinite;
+  }
+
+  @keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60% { content: '...'; }
+    80%, 100% { content: ''; }
+  }
+
+  /* Result card */
+  .result-card {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeUp 0.5s ease;
+  }
+
+  .result-card.visible { display: flex; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Section headers in result */
+  .result-section {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.2rem;
+  }
+
+  .result-section-title {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .result-text {
+    font-size: 0.75rem;
+    line-height: 2;
+    color: var(--deep);
+  }
+
+  /* Item list */
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(139,115,85,0.12);
+    font-size: 0.7rem;
+    gap: 1rem;
+  }
+
+  .item-name { color: var(--deep); flex: 1; line-height: 1.5; }
+  .item-price { color: var(--accent); white-space: nowrap; font-size: 0.65rem; }
+
+  /* Budget bar */
+  .budget-visual {
+    background: rgba(139,115,85,0.1);
+    border-radius: 1px;
+    height: 6px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+  }
+
+  .budget-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 1px;
+    transition: width 1s ease;
+  }
+
+  /* Tags */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(107,140,95,0.4);
+    border-radius: 1px;
+    color: var(--accent2);
+    background: rgba(107,140,95,0.06);
+  }
+
+  /* Error */
+  .error-state {
+    display: none;
+    padding: 1.5rem;
+    border: 1px solid rgba(196,135,58,0.3);
+    border-radius: 2px;
+    background: rgba(196,135,58,0.05);
+  }
+
+  .error-state.visible { display: block; }
+  .error-text { font-size: 0.7rem; color: var(--earth); line-height: 1.8; }
+
+  /* Footer note */
+  .footer-note {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    color: rgba(139,115,85,0.4);
+    text-align: center;
+    padding: 1rem 3rem;
+    border-top: 1px solid rgba(139,115,85,0.1);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(139,115,85,0.2); border-radius: 2px; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; }
+    .panel-left { border-right: none; border-bottom: 1px solid rgba(139,115,85,0.2); }
+    header { padding: 1.5rem; }
+    .panel-left, .panel-right { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-main">Maison <em>Vision</em></div>
+    <div class="logo-sub">Simulateur d'aménagement IA</div>
+  </div>
+  <div class="header-tag">
+    Propulsé par Claude AI<br>
+    Design & Décoration Intérieure
+  </div>
+</header>
+
+<main>
+  <!-- LEFT PANEL -->
+  <div class="panel-left">
+    <div class="panel-title">01 — Votre espace</div>
+
+    <!-- Upload zone -->
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept="image/*,video/*">
+      <span class="upload-icon">⌂</span>
+      <p>
+        <strong>Glissez une photo ou vidéo</strong><br>
+        de votre pièce ici<br><br>
+        <span style="opacity:0.6">JPG, PNG, WEBP, MP4 — max 20 Mo</span>
+      </p>
+    </div>
+
+    <!-- Preview -->
+    <div class="preview-container" id="previewContainer">
+      <img id="previewMedia" alt="Aperçu de votre pièce">
+      <video id="previewVideo" controls muted></video>
+      <span class="preview-label">Votre pièce</span>
+      <button class="change-btn" id="changeFileBtn">Changer</button>
+    </div>
+
+    <div class="panel-title">02 — Style souhaité</div>
+
+    <div class="style-grid">
+      <button class="style-btn active" data-style="Scandinave">
+        <span class="style-emoji">🌿</span>Scandinave
+      </button>
+      <button class="style-btn" data-style="Industriel">
+        <span class="style-emoji">⚙️</span>Industriel
+      </button>
+      <button class="style-btn" data-style="Minimaliste">
+        <span class="style-emoji">◻</span>Minimaliste
+      </button>
+      <button class="style-btn" data-style="Bohème">
+        <span class="style-emoji">🪴</span>Bohème
+      </button>
+      <button class="style-btn" data-style="Art Déco">
+        <span class="style-emoji">◆</span>Art Déco
+      </button>
+      <button class="style-btn" data-style="Japandi">
+        <span class="style-emoji">🎋</span>Japandi
+      </button>
+      <button class="style-btn" data-style="Classique">
+        <span class="style-emoji">🏛</span>Classique
+      </button>
+      <button class="style-btn" data-style="Contemporain">
+        <span class="style-emoji">✦</span>Contemporain
+      </button>
+      <button class="style-btn" data-style="Rustique">
+        <span class="style-emoji">🪵</span>Rustique
+      </button>
+    </div>
+
+    <div class="panel-title">03 — Paramètres</div>
+
+    <div class="row-inputs">
+      <div class="input-group">
+        <label class="input-label">Pièce</label>
+        <select class="select-field" id="roomType">
+          <option>Salon</option>
+          <option>Chambre</option>
+          <option>Cuisine</option>
+          <option>Salle de bain</option>
+          <option>Bureau</option>
+          <option>Salle à manger</option>
+          <option>Entrée</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Budget (€)</label>
+        <input type="number" class="input-field" id="budget" placeholder="5000" min="500" step="500">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label class="input-label">Demandes spécifiques (optionnel)</label>
+      <textarea class="textarea-field" id="customRequest" placeholder="Ex: garder le canapé actuel, ajouter plus de rangements, couleurs neutres..."></textarea>
+    </div>
+
+    <div class="panel-title">04 — Clé API Anthropic</div>
+
+    <div class="input-group">
+      <label class="input-label">Clé API (sk-ant-...)</label>
+      <input type="password" class="input-field" id="apiKey" placeholder="sk-ant-api03-..." autocomplete="off">
+      <span style="font-size:0.55rem;color:rgba(139,115,85,0.5);line-height:1.7;margin-top:0.3rem;">
+        Votre clé reste sur votre appareil et n'est jamais transmise ailleurs.<br>
+        Obtenez-la sur <strong style="color:var(--earth)">console.anthropic.com</strong>
+      <span id="apiSavedBadge" style="opacity:0;font-size:0.55rem;color:var(--accent2);letter-spacing:0.15em;text-transform:uppercase;transition:opacity 0.3s;">✓ Clé mémorisée sur cet appareil</span>
+      </span>
+    </div>
+
+    <button class="cta-btn" id="analyzeBtn" disabled>
+      <span>Analyser & Simuler l'aménagement</span>
+    </button>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="panel-right">
+    <div class="panel-title">Résultats de la simulation</div>
+
+    <div class="result-area">
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">✦</div>
+        <div class="empty-title">Votre simulation apparaîtra ici</div>
+        <div class="empty-text">
+          Uploadez une photo de votre pièce,<br>
+          choisissez un style et lancez l'analyse<br>
+          pour obtenir des recommandations personnalisées.
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div class="loading-state" id="loadingState">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Analyse en cours<span class="loading-dots"></span></div>
+      </div>
+
+      <!-- Error -->
+      <div class="error-state" id="errorState">
+        <div class="error-text" id="errorText"></div>
+      </div>
+
+      <!-- Result card -->
+      <div class="result-card" id="resultCard">
+
+        <div class="result-section">
+          <div class="result-section-title">Analyse de votre espace</div>
+          <div class="result-text" id="analysisText"></div>
+        </div>
+
+        <div class="result-section">
+          <div class="result-section-title">Concept & Ambiance</div>
+          <div class="result-text" id="conceptText"></div>
+          <div class="tag-row" id="tagRow"></div>
+        </div>
+
+        <div class="result-section">
+          <div class="result-section-title">Mobilier & Décoration recommandés</div>
+          <div class="item-list" id="itemList"></div>
+        </div>
+
+        <div class="result-section" id="budgetSection">
+          <div class="result-section-title">Estimation budgétaire</div>
+          <div class="result-text" id="budgetText"></div>
+          <div class="budget-visual">
+            <div class="budget-fill" id="budgetFill" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <div class="result-section-title">Conseils prioritaires</div>
+          <div class="result-text" id="tipsText"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="footer-note">
+  Maison Vision utilise l'IA pour analyser votre espace et suggérer des aménagements — les estimations sont indicatives.
+</div>
+
+<script>
+// State
+let selectedFile = null;
+let selectedStyle = 'Scandinave';
+
+// Elements
+const uploadZone = document.getElementById('uploadZone');
+const fileInput = document.getElementById('fileInput');
+const previewContainer = document.getElementById('previewContainer');
+const previewMedia = document.getElementById('previewMedia');
+const previewVideo = document.getElementById('previewVideo');
+const changeFileBtn = document.getElementById('changeFileBtn');
+const analyzeBtn = document.getElementById('analyzeBtn');
+const emptyState = document.getElementById('emptyState');
+const loadingState = document.getElementById('loadingState');
+const errorState = document.getElementById('errorState');
+const resultCard = document.getElementById('resultCard');
+
+// API Key — mémorisation
+const apiKeyInput = document.getElementById('apiKey');
+const STORAGE_KEY = 'maisonvision_apikey';
+try {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) { apiKeyInput.value = saved; setTimeout(()=>{ const b=document.getElementById('apiSavedBadge'); if(b) b.style.opacity='1'; },100); }
+} catch(e) {}
+apiKeyInput.addEventListener('input', () => {
+  try { localStorage.setItem(STORAGE_KEY, apiKeyInput.value.trim()); } catch(e) {}
+  const b=document.getElementById('apiSavedBadge'); if(b) b.style.opacity=apiKeyInput.value.trim()?'1':'0';
+});
+
+// Style buttons
+document.querySelectorAll('.style-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedStyle = btn.dataset.style;
+  });
+});
+
+// Upload zone
+uploadZone.addEventListener('click', () => fileInput.click());
+changeFileBtn.addEventListener('click', () => fileInput.click());
+
+uploadZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  uploadZone.classList.add('drag-over');
+});
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  uploadZone.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+});
+
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files[0]) handleFile(e.target.files[0]);
+});
+
+function handleFile(file) {
+  selectedFile = file;
+  const url = URL.createObjectURL(file);
+  const isVideo = file.type.startsWith('video/');
+
+  uploadZone.style.display = 'none';
+  previewContainer.classList.add('visible');
+
+  if (isVideo) {
+    previewMedia.style.display = 'none';
+    previewVideo.style.display = 'block';
+    previewVideo.src = url;
+  } else {
+    previewVideo.style.display = 'none';
+    previewMedia.style.display = 'block';
+    previewMedia.src = url;
+  }
+
+  analyzeBtn.disabled = false;
+}
+
+// Analyze
+analyzeBtn.addEventListener('click', async () => {
+  if (!selectedFile) return;
+  
+  const isVideo = selectedFile.type.startsWith('video/');
+
+  // Show loading
+  emptyState.style.display = 'none';
+  errorState.classList.remove('visible');
+  resultCard.classList.remove('visible');
+  loadingState.classList.add('visible');
+  analyzeBtn.disabled = true;
+
+  try {
+    const budget = document.getElementById('budget').value;
+    const roomType = document.getElementById('roomType').value;
+    const customRequest = document.getElementById('customRequest').value;
+
+    let messages;
+
+    if (isVideo) {
+      // For video, extract a frame or just prompt without image
+      messages = [{
+        role: 'user',
+        content: [{
+          type: 'text',
+          text: buildPrompt(selectedStyle, roomType, budget, customRequest, null)
+        }]
+      }];
+    } else {
+      // Convert image to base64
+      const base64 = await fileToBase64(selectedFile);
+      const mediaType = selectedFile.type;
+
+      messages = [{
+        role: 'user',
+        content: [
+          {
+            type: 'image',
+            source: {
+              type: 'base64',
+              media_type: mediaType,
+              data: base64
+            }
+          },
+          {
+            type: 'text',
+            text: buildPrompt(selectedStyle, roomType, budget, customRequest, true)
+          }
+        ]
+      }];
+    }
+
+    const apiKey = document.getElementById('apiKey').value.trim();
+    if (!apiKey || !apiKey.startsWith('sk-ant-')) {
+      throw new Error('Clé API invalide. Elle doit commencer par sk-ant-');
+    }
+
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `Tu es un architecte d'intérieur expert et un designer de renom. Tu analyses les espaces et fournis des recommandations d'aménagement précises, créatives et réalistes. Tu réponds UNIQUEMENT en JSON valide sans balises markdown, sans introduction, sans explication. Structure exacte requise.`,
+        messages
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error?.message || 'Erreur API');
+    }
+
+    const rawText = data.content.map(c => c.text || '').join('');
+    const clean = rawText.replace(/```json|```/g, '').trim();
+    const result = JSON.parse(clean);
+
+    displayResult(result, budget);
+
+  } catch (err) {
+    console.error(err);
+    loadingState.classList.remove('visible');
+    errorState.classList.add('visible');
+    document.getElementById('errorText').textContent = 
+      `Une erreur est survenue : ${err.message}. Vérifiez votre connexion et réessayez.`;
+  } finally {
+    analyzeBtn.disabled = false;
+  }
+});
+
+function buildPrompt(style, room, budget, custom, hasImage) {
+  const budgetInfo = budget ? `Budget disponible: ${budget}€` : 'Budget non spécifié';
+  const customInfo = custom ? `Contraintes: ${custom}` : '';
+  const imageInfo = hasImage 
+    ? `Analyse attentivement la photo de ce/cette ${room}.` 
+    : `Imagine un/une ${room} typique à rénover.`;
+  
+  return `${imageInfo}
+Style désiré: ${style}
+Type de pièce: ${room}
+${budgetInfo}
+${customInfo}
+
+Génère une simulation d'aménagement complète. Réponds UNIQUEMENT en JSON avec cette structure exacte:
+{
+  "analysis": "Description de l'espace actuel en 2-3 phrases (points forts et axes d'amélioration)",
+  "concept": "Description poétique et précise du concept d'aménagement proposé en 3-4 phrases",
+  "tags": ["mot-clé 1", "mot-clé 2", "mot-clé 3", "mot-clé 4"],
+  "items": [
+    {"name": "Nom du meuble/objet + description courte", "price": "100-250 €"},
+    {"name": "Nom du meuble/objet + description courte", "price": "80-150 €"},
+    {"name": "Nom du meuble/objet + description courte", "price": "50-100 €"},
+    {"name": "Nom du meuble/objet + description courte", "price": "30-80 €"},
+    {"name": "Nom du meuble/objet + description courte", "price": "20-50 €"}
+  ],
+  "budgetEstimate": "Estimation totale et répartition (mobilier X€, décoration Y€, éclairage Z€)",
+  "budgetPercent": 75,
+  "tips": "3-4 conseils prioritaires numérotés pour transformer la pièce, avec des actions concrètes et des astuces de pro."
+}`;
+}
+
+function displayResult(r, budget) {
+  loadingState.classList.remove('visible');
+
+  document.getElementById('analysisText').textContent = r.analysis;
+  document.getElementById('conceptText').textContent = r.concept;
+  document.getElementById('budgetText').textContent = r.budgetEstimate;
+  document.getElementById('tipsText').innerHTML = r.tips.replace(/\n/g, '<br>');
+
+  // Tags
+  const tagRow = document.getElementById('tagRow');
+  tagRow.innerHTML = '';
+  (r.tags || []).forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'tag';
+    span.textContent = tag;
+    tagRow.appendChild(span);
+  });
+
+  // Items
+  const itemList = document.getElementById('itemList');
+  itemList.innerHTML = '';
+  (r.items || []).forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'item-row';
+    row.innerHTML = `<span class="item-name">${item.name}</span><span class="item-price">${item.price}</span>`;
+    itemList.appendChild(row);
+  });
+
+  // Budget bar
+  const pct = Math.min(100, Math.max(0, r.budgetPercent || 70));
+  setTimeout(() => {
+    document.getElementById('budgetFill').style.width = pct + '%';
+  }, 300);
+
+  resultCard.classList.add('visible');
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+</script>
+
+</body>
+</html>
