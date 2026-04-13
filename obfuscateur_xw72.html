@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Excelsior XW72 — Obfuscateur v7</title>
+<title>Excelsior XW72-1 — Obfuscateur compact</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <style>:root{--bg:#f5f4f0;--sf:#fff;--s2:#f0efe9;--bd:#dddbd3;--b2:#c8c6bc;--tx:#1a1917;--t2:#5c5a54;--t3:#9a9890;--ac:#2c5f8a;--ab:#e8f0f7;--a2:#1a3d5c;--ok:#2d6a4f;--ob:#e8f4ee;--wn:#7a4f1a;--wb:#fdf0e0;--er:#8a2c2c;--eb:#faeaea;--mn:"Courier New",monospace;--ui:system-ui,sans-serif;--r:6px;--rl:10px}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--tx);font-family:var(--ui);font-size:14px;line-height:1.6;min-height:100vh}
 header{background:var(--sf);border-bottom:1px solid var(--bd);padding:1rem 2rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:10}
-.logo{width:36px;height:36px;background:var(--ac);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;flex-shrink:0;text-align:center;line-height:1.2}
+.logo{width:36px;height:36px;background:var(--ac);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700;flex-shrink:0;text-align:center;line-height:1.3}
 header h1{font-size:15px;font-weight:600}header p{font-size:11px;color:var(--t3)}
 .bh{font-size:11px;padding:2px 10px;border-radius:20px;background:var(--ob);color:var(--ok);font-weight:600;margin-left:auto;white-space:nowrap}
 .layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 61px)}
@@ -29,7 +29,6 @@ button{padding:7px 14px;border-radius:var(--r);border:1px solid var(--b2);backgr
 button:hover{background:var(--s2);border-color:var(--ac);color:var(--ac)}button:active{transform:scale(.98)}
 .bp{background:var(--ac);color:#fff;border-color:var(--ac)}.bp:hover{background:var(--a2);border-color:var(--a2);color:#fff}
 .bg{background:var(--ok);color:#fff;border-color:var(--ok)}.bg:hover{background:#1e5038;color:#fff}
-.br2{background:var(--er);color:#fff;border-color:var(--er)}.br2:hover{background:#6a1f1f;color:#fff}
 .badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:600}
 .bs{background:var(--ob);color:var(--ok)}.bw{background:var(--wb);color:var(--wn)}.bd2{background:var(--eb);color:var(--er)}
 .sr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1rem}
@@ -54,18 +53,18 @@ input:focus{border-color:var(--ac)}
 .anon-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px}
 .anon-table th{background:var(--s2);padding:6px 10px;font-size:11px;font-weight:600;color:var(--t2);text-align:left;border-bottom:1px solid var(--bd)}
 .anon-table td{padding:4px 6px;border-bottom:1px solid var(--bd)}
-.anon-table tr:last-child td{border-bottom:none}
 .anon-table input{width:100%;padding:5px 8px;border:1px solid var(--bd);border-radius:var(--r);font-size:11px;font-family:var(--mn);background:var(--sf);color:var(--tx);outline:none}
 .anon-table input:focus{border-color:var(--ac)}
 .anon-table .del-btn{padding:3px 8px;font-size:11px;border:1px solid var(--bd);border-radius:var(--r);cursor:pointer;background:var(--sf);color:var(--t2);transition:all .1s;white-space:nowrap}
 .anon-table .del-btn:hover{background:var(--eb);color:var(--er);border-color:var(--er)}
 .preview-diff{font-family:var(--mn);font-size:11px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--r);padding:10px;max-height:150px;overflow-y:auto;white-space:pre-wrap;word-break:break-word;color:var(--t2)}
 .highlight-repl{background:#fde68a;color:#78350f;border-radius:2px;padding:0 2px}
+.size-badge{display:inline-block;padding:3px 10px;border-radius:var(--r);font-size:11px;font-weight:600;font-family:var(--mn);background:var(--ob);color:var(--ok);margin-left:8px}
 @media(max-width:700px){.layout{grid-template-columns:1fr};aside{border-right:none;border-bottom:1px solid var(--bd)};.ig{grid-template-columns:1fr};.sr{grid-template-columns:repeat(2,1fr)}}</style></head><body>
-<header><div class="logo">XW72</div><div>
-<h1>Excelsior XW72 — Obfuscateur v7</h1>
-<p>Anonymisation · Encodage bijectif caractère par caractère · Rotation [Rn] · CRC16 · GitHub Cailloux97310/AI</p>
-</div><span class="bh">v7 · anonymisation + XW72</span></header>
+<header><div class="logo">XW72&#10;-1</div><div>
+<h1>Excelsior XW72-1 — Obfuscateur compact</h1>
+<p>Ratio 1:1 (1 char → 1 char) · Anonymisation · Rotation /50 · CRC16 · GitHub Cailloux97310/AI</p>
+</div><span class="bh">v8 · ratio 1:1</span></header>
 <div class="layout"><aside>
 <div class="ns"><div class="nl">Outils</div>
 <button class="ni active" onclick="sp('obf')"><span class="dot"></span> Anonymiser &amp; Encoder</button>
@@ -75,72 +74,67 @@ input:focus{border-color:var(--ac)}
 <button class="ni" onclick="sp('setup')"><span class="dot"></span> Mise en place</button>
 <button class="ni" onclick="sp('dir')"><span class="dot"></span> Directive Claude</button>
 </div><div class="ns"><div class="nl">Référence</div>
-<button class="ni" onclick="sp('algo')"><span class="dot"></span> Algorithme XW72</button>
+<button class="ni" onclick="sp('algo')"><span class="dot"></span> Algorithme XW72-1</button>
 <button class="ni" onclick="sp('table')"><span class="dot"></span> Table de substitution</button>
 <button class="ni" onclick="sp('lim')"><span class="dot"></span> Limites</button>
 </div>
-<div class="ib"><strong>Flux v7</strong>
-1. Définir les règles d'anonymisation<br>2. Charger le document<br>3. Anonymiser &amp; Encoder<br>4. Copier pour Claude ou committer sur GitHub</div>
+<div class="ib"><strong>Nouveau : ratio 1:1</strong>
+1 caractère encodé = 1 caractère en sortie. Taille identique à l'original. Aucun overhead de tokens.</div>
 </aside><main>
 <div class="panel active" id="panel-obf">
 <div class="pt">Anonymiser &amp; Encoder</div>
-<div class="ps">Définissez les termes à anonymiser, chargez votre document, puis encodez en une seule opération. L'anonymisation est insensible à la casse.</div>
+<div class="ps">Définissez les termes à anonymiser, chargez votre document. Encodage XW72-1 : 1 char → 1 char, taille identique à l'original.</div>
+<div class="al ag"><strong>Format XW72-1</strong> · ratio 1:1 · rotation tous les 50 chars · CRC16 par ligne · clé chargée depuis Google Drive · non-ASCII pass-through</div>
 <div class="card">
 <div class="ct">Règles d'anonymisation <span style="font-weight:400;font-style:italic;color:var(--t3)">(insensible à la casse)</span></div>
-<div class="al ai" style="margin-bottom:.75rem">Les termes sont remplacés dans l'ordre du tableau avant encodage. Les règles les plus longues sont appliquées en premier pour éviter les substitutions partielles.</div>
+<div class="al ai" style="margin-bottom:.75rem;font-size:12px">Les règles sont triées par longueur décroissante avant application pour éviter les substitutions partielles.</div>
 <table class="anon-table" id="anon-table">
 <thead><tr><th style="width:42%">Terme original</th><th style="width:8%;text-align:center">&#x2192;</th><th style="width:42%">Remplacement</th><th style="width:8%"></th></tr></thead>
-<tbody id="anon-body"></tbody>
-</table>
+<tbody id="anon-body"></tbody></table>
 <div class="br">
-<button onclick="addAnonRow()">+ Ajouter un terme</button>
+<button onclick="addAnonRow()">+ Ajouter</button>
 <button onclick="addAnonRow('Client ACME','[CLIENT_1]')">Exemple client</button>
 <button onclick="addAnonRow('Jean Dupont','[PERSONNE_1]')">Exemple nom</button>
-<button onclick="clearAnonRules()">Effacer toutes les règles</button>
-<button onclick="exportRules()">Exporter les règles (.json)</button>
-<button onclick="document.getElementById('import-rules').click()">Importer des règles</button>
+<button onclick="clearAnonRules()">Effacer tout</button>
+<button onclick="exportRules()">Exporter (.json)</button>
+<button onclick="document.getElementById('import-rules').click()">Importer</button>
 </div>
 <input type="file" id="import-rules" style="display:none" accept=".json" onchange="importRules(this.files[0])">
-<div class="sb" id="s-anon"></div>
-</div>
+<div class="sb" id="s-anon"></div></div>
 <div class="dz" id="dz" onclick="document.getElementById('fi').click()">
 <input type="file" id="fi" style="display:none" accept=".txt,.md,.csv,.json,.xml,.html,.docx" onchange="handleFile(this.files[0])">
-<div class="dzi">&#128196;</div><div class="dzt">Glisser un fichier ou cliquer</div><div class="dzs">DOCX (tableaux ASCII) · TXT, MD, CSV, JSON, XML, HTML</div></div>
-<div class="al aw" style="font-size:12px"><strong>Caractères non-ASCII ignorés</strong> à l'encodage (accents, caractères spéciaux). Privilégiez les textes ASCII ou pré-traitez les accents.</div>
+<div class="dzi">&#128196;</div><div class="dzt">Glisser un fichier ou cliquer</div>
+<div class="dzs">DOCX (tableaux ASCII) · TXT, MD, CSV, JSON, XML, HTML</div></div>
 <div class="card"><label class="fl">Texte source (éditable)</label>
 <textarea id="src" rows="7" placeholder="Collez votre texte ici, ou chargez un fichier..."></textarea>
 <div class="br">
 <button onclick="previewAnon()">Aperçu anonymisation</button>
 <button class="bp" onclick="doAnonEncode()">Anonymiser &amp; Encoder</button>
-<button onclick="doEncodeOnly()">Encoder sans anonymisation</button>
+<button onclick="doEncodeOnly()">Encoder uniquement</button>
 <button onclick="clearAll()">Effacer</button>
-</div>
-<div class="sb" id="s-obf"></div>
-</div>
-<div id="preview-sec" style="display:none">
-<div class="card"><div class="ct">Aperçu — texte après anonymisation <span style="font-size:10px;color:var(--t3)">(avant encodage)</span></div>
+</div><div class="sb" id="s-obf"></div></div>
+<div id="preview-sec" style="display:none"><div class="card"><div class="ct">Aperçu après anonymisation</div>
 <div class="preview-diff" id="preview-diff"></div>
 <div style="font-size:11px;color:var(--t3);margin-top:6px"><span style="background:#fde68a;padding:0 4px;border-radius:2px">surligné</span> = termes remplacés</div>
 </div></div>
 <div id="out-sec" style="display:none">
 <div class="sr">
-<div class="sc"><div class="sn" id="st-repl">0</div><div class="sl">termes anonymisés</div></div>
-<div class="sc"><div class="sn" id="st-tok">0</div><div class="sl">tokens XW72</div></div>
-<div class="sc"><div class="sn" id="st-rot">0</div><div class="sl">rotations [Rn]</div></div>
-<div class="sc"><div class="sn" id="st-chr">0</div><div class="sl">caractères</div></div>
+<div class="sc"><div class="sn" id="st-repl">0</div><div class="sl">anonymisés</div></div>
+<div class="sc"><div class="sn" id="st-chr">0</div><div class="sl">chars encodés</div></div>
+<div class="sc"><div class="sn" id="st-ratio">1:1</div><div class="sl">ratio taille</div></div>
+<div class="sc"><div class="sn" id="st-crc">0</div><div class="sl">lignes CRC</div></div>
 </div>
-<div class="card"><label class="fl">Texte encodé — format Excelsior_XW72</label>
+<div class="card"><label class="fl">Texte encodé XW72-1 <span id="size-info" class="size-badge"></span></label>
 <textarea id="out" rows="9" readonly></textarea>
-<div class="br">
-<button onclick="copyOut()">Copier</button>
+<div class="br"><button onclick="copyOut()">Copier</button>
 <button class="bp" onclick="copyPrompt()">Copier pour Claude</button>
-<button class="bg" onclick="sp('gh')">&#8599; Committer sur GitHub</button>
-</div><div class="sb" id="s-cp"></div></div></div></div>
+<button class="bg" onclick="sp('gh')">&#8599; Committer sur GitHub</button></div>
+<div class="sb" id="s-cp"></div></div></div></div>
 <div class="panel" id="panel-deo">
-<div class="pt">Décoder un texte</div>
-<div class="ps">Décodage local avec vérification CRC16. Les substitutions d'anonymisation ne sont pas réversées automatiquement (elles ont remplacé les termes avant encodage).</div>
-<div class="card"><label class="fl">Texte encodé (format Excelsior_XW72)</label>
-<textarea id="deo-in" rows="10" placeholder="Collez le texte commencant par Excelsior_XW72..."></textarea>
+<div class="pt">Décoder</div>
+<div class="ps">Décodage avec vérification CRC16. Les substitutions d'anonymisation ne sont pas réversées (elles ont remplacé les termes avant encodage).</div>
+<div class="card"><label class="fl">Texte encodé (format XW72-1)</label>
+<textarea id="deo-in" rows="10" placeholder="Collez le texte commencant par XW72-1..."></textarea>
 <div class="br"><button class="bp" onclick="doDecode()">Décoder et vérifier CRC</button></div>
 <div class="sb" id="s-deo"></div></div>
 <div id="deo-out-sec" style="display:none"><div class="card"><label class="fl">Texte décodé</label>
@@ -148,291 +142,265 @@ input:focus{border-color:var(--ac)}
 <div id="crc-report" style="margin-top:8px;font-size:11px"></div>
 <div class="br"><button onclick="copyDeo()">Copier</button></div></div></div></div>
 <div class="panel" id="panel-gh">
-<div class="pt">Commit GitHub automatique</div>
+<div class="pt">Commit GitHub</div>
 <div class="ps">Dépose le fichier encodé sur <strong>Cailloux97310/AI</strong> via l'API GitHub.</div>
 <div class="al aw"><strong>Sécurité :</strong> saisissez le token manuellement à chaque session. Il n'est jamais sauvegardé ni commité.</div>
 <div class="card"><div class="ct">Configuration</div>
-<label class="fl">Personal Access Token (scope : repo) - kMSnAhHLv2PEq1UZhtXXic0qOdu7Tk0X6fyc</label>
+<label class="fl">Personal Access Token (scope : repo)</label>
 <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
 <label class="fl" style="margin-top:10px">Chemin dans le dépôt</label>
 <input type="text" id="gh-filename" value="documents/encoded.txt">
 <label class="fl" style="margin-top:10px">Message de commit</label>
-<input type="text" id="gh-msg" value="Add XW72 encoded document">
+<input type="text" id="gh-msg" value="Add XW72-1 encoded document">
 <div class="br"><button class="bg" onclick="commitGitHub()">&#8599; Committer sur Cailloux97310/AI</button></div>
-<div class="sb" id="s-gh"></div>
-<div class="gh-log" id="gh-log"></div></div>
-<div class="card"><div class="ct">Aperçu du fichier à committer</div>
-<textarea id="gh-preview" rows="5" readonly style="font-size:10px" placeholder="Encodez un document pour voir l'aperçu..."></textarea></div></div>
+<div class="sb" id="s-gh"></div><div class="gh-log" id="gh-log"></div></div>
+<div class="card"><div class="ct">Aperçu</div>
+<textarea id="gh-preview" rows="5" readonly style="font-size:10px"></textarea></div></div>
 <div class="panel" id="panel-setup">
 <div class="pt">Mise en place</div><div class="ps">Configuration unique.</div>
 <div class="ig">
-<div class="sc2"><div class="snum">1</div><div class="sti">Activer Google Drive</div><div class="sde">Claude → Paramètres → Connecteurs → Google Drive. Requis pour charger <em>claude_preferences.txt</em> contenant la table XW72 et les directives.</div></div>
-<div class="sc2"><div class="snum">2</div><div class="sti">Uploader claude_preferences.txt</div><div class="sde">Uploadez le fichier <em>claude_preferences.txt</em> sur Google Drive. Il contient la table XW72 (Section 3) et les directives comportementales.</div></div>
-<div class="sc2"><div class="snum">3</div><div class="sti">Coller la directive Claude</div><div class="sde">Onglet "Directive Claude" → Copier → claude.ai → Paramètres → Préférences personnelles.</div></div>
-<div class="sc2"><div class="snum">4</div><div class="sti">Définir les règles d'anonymisation</div><div class="sde">Onglet "Anonymiser &amp; Encoder" → Ajouter les termes à masquer et leurs remplacements. Exportez les règles en JSON pour les réutiliser.</div></div>
-<div class="sc2"><div class="snum">5</div><div class="sti">Anonymiser &amp; Encoder</div><div class="sde">Chargez votre document → cliquez "Anonymiser &amp; Encoder". Les termes sont substitués, puis le texte résultant est encodé en XW72.</div></div>
-<div class="sc2"><div class="snum">6</div><div class="sti">Committer sur GitHub</div><div class="sde">Saisissez votre Personal Access Token (scope repo) → committer. Le fichier encodé est déposé dans <em>Cailloux97310/AI/documents/</em>.</div></div>
+<div class="sc2"><div class="snum">1</div><div class="sti">Activer Google Drive</div><div class="sde">Claude → Paramètres → Connecteurs → Google Drive. Requis pour charger <em>claude_preferences.txt</em> contenant la table XW72-1 et les directives.</div></div>
+<div class="sc2"><div class="snum">2</div><div class="sti">Uploader claude_preferences.txt</div><div class="sde">Téléchargez depuis l'onglet "Directive Claude" et uploadez sur Google Drive. Contient la table XW72-1 v8 et les directives.</div></div>
+<div class="sc2"><div class="snum">3</div><div class="sti">Coller la directive</div><div class="sde">Onglet "Directive Claude" → Copier → claude.ai → Paramètres → Préférences personnelles.</div></div>
+<div class="sc2"><div class="snum">4</div><div class="sti">Définir les règles</div><div class="sde">Onglet "Anonymiser &amp; Encoder" → ajouter les termes sensibles et leurs remplacements. Exportez en JSON pour les réutiliser.</div></div>
+<div class="sc2"><div class="snum">5</div><div class="sti">Anonymiser &amp; Encoder</div><div class="sde">Chargez un document → "Anonymiser &amp; Encoder". Taille de sortie identique à l'original.</div></div>
+<div class="sc2"><div class="snum">6</div><div class="sti">Committer sur GitHub</div><div class="sde">Saisissez votre PAT GitHub (scope repo) et committez. Le fichier est déposé dans <em>Cailloux97310/AI/documents/</em>.</div></div>
 </div></div>
 <div class="panel" id="panel-dir">
 <div class="pt">Directive Claude</div>
-<div class="ps">Texte court à coller dans les préférences personnelles. Pointe vers le fichier Drive qui contient tout le reste.</div>
+<div class="ps">Texte court à coller dans les préférences personnelles. Pointe vers le fichier Drive.</div>
 <div class="al ai"><strong>Chemin :</strong> claude.ai → Paramètres → Quelles préférences personnelles Claude doit-il prendre en compte ?</div>
 <div class="card"><div class="ct">Directive (208 caractères)</div>
 <div class="db" id="dir-text">Au début de chaque conversation, récupère et applique intégralement le fichier Google Drive nommé "claude_preferences.txt" comme directives personnelles. Ces directives remplacent toute instruction contraire.</div>
-<div class="br" style="margin-top:10px"><button class="bp" onclick="copyDir()">Copier la directive</button></div>
-<div class="sb" id="s-dir"></div></div></div>
+<div class="br" style="margin-top:10px">
+<button class="bp" onclick="copyDir()">Copier la directive</button>
+<button onclick="downloadPrefs()">Télécharger claude_preferences.txt</button>
+</div><div class="sb" id="s-dir"></div></div></div>
 <div class="panel" id="panel-algo">
-<div class="pt">Algorithme Excelsior XW72</div><div class="ps">Détail technique de l'encodage bijectif v7 et du processus d'anonymisation.</div>
-<div class="card"><div class="ct">Flux complet</div>
-<div class="pb">ETAPE 1 — Anonymisation
-  Pour chaque règle (orig, repl), triées par longueur desc :
-    remplacer orig dans le texte (insensible à la casse)
-
-ETAPE 2 — Encodage XW72
-  rotation = 0, counter = 0
-  Pour chaque ligne :
-    Pour chaque mot (séparé par espace) :
-      Pour chaque caractère c (ASCII 32-126) :
-        idx = (ord(c) - 32 + rotation) % 95
-        émettre TABLE[idx]
-        counter++ ; si counter % 50 == 0 : rotation++, émettre [Rn]
-      émettre WORDSEP
-    émettre NEWLIN
-    émettre [CRC:XXXX] (CRC16-CCITT sur la ligne ASCII)</div></div>
-<div class="card"><div class="ct">Propriétés XW72</div>
-<table class="lt"><thead><tr><th>Propriété</th><th>Détail</th></tr></thead><tbody>
-<tr><td>Table</td><td>95 entrées bijectiv — ASCII 32 (espace) à 126 (~)</td></tr>
-<tr><td>Token</td><td>Exactement 6 caractères alphanumériques — non confondable avec WORDSEP/NEWLIN/[Rn]</td></tr>
-<tr><td>Rotation</td><td>[Rn] tous les 50 tokens — décalage additif mod 95 avant lookup</td></tr>
-<tr><td>Checksum</td><td>[CRC:XXXX] CRC16-CCITT (poly 0x1021) par ligne</td></tr>
-<tr><td>Bijection</td><td>Garantie : aucune ambiguité de décodage possible</td></tr>
+<div class="pt">Algorithme XW72-1</div><div class="ps">Encodage compact 1:1 — aucun overhead de tokens pour Claude.</div>
+<div class="card"><div class="ct">Avantage v8 vs v7 (6-char tokens)</div>
+<table class="lt"><thead><tr><th>Critère</th><th>XW72 (v7)</th><th>XW72-1 (v8)</th></tr></thead><tbody>
+<tr><td>Taille de sortie</td><td>~7x la taille originale</td><td><strong>1:1 — identique</strong></td></tr>
+<tr><td>Tokens Claude consommés</td><td>~7x plus</td><td><strong>Identique à l'original</strong></td></tr>
+<tr><td>Séparateurs nécessaires</td><td>WORDSEP, NEWLIN</td><td><strong>Aucun</strong> (espaces et newlines encodés)</td></tr>
+<tr><td>Bijection</td><td>Garantie</td><td>Garantie</td></tr>
+<tr><td>Rotation anti-analyse</td><td>Tous les 50 tokens</td><td>Tous les 50 chars</td></tr>
+<tr><td>CRC intégrité</td><td>Par ligne</td><td>Par ligne</td></tr>
 </tbody></table></div>
-<div class="card"><div class="ct">Anonymisation — détail</div>
-<div style="font-size:12px;color:var(--t2);line-height:1.9">
-<strong>Ordre d'application :</strong> les règles sont triées par longueur décroissante avant application. Cela évite qu'une règle courte ("Jean") ne masque le début d'une règle longue ("Jean Dupont").<br><br>
-<strong>Insensibilité à la casse :</strong> "acme", "ACME", "Acme" sont tous remplacés. Le remplacement est inséré tel quel (sans adaptation de casse).<br><br>
-<strong>Persistance :</strong> les règles peuvent être exportées en JSON et réimportées à la session suivante.</div></div></div>
+<div class="card"><div class="ct">Format du fichier encodé</div>
+<div class="pb">XW72-1
+&lt;ligne 1 encodée&gt;
+XXXX
+&lt;ligne 2 encodée&gt;
+XXXX
+...</div>
+<div style="font-size:12px;color:var(--t2);margin-top:10px;line-height:1.9">
+<strong>Ligne 1 :</strong> en-tête fixe XW72-1<br>
+<strong>Lignes paires :</strong> contenu encodé, même longueur que l'original<br>
+<strong>Lignes impaires :</strong> CRC16 de la ligne précédente, préfixé par chr(2) (STX)<br>
+<strong>Non-ASCII :</strong> caractères hors ASCII 32-126 pass-through (non substitués)<br>
+<strong>Rotation :</strong> implicite — les deux parties comptent les chars encodés et font tourner à 50</div></div>
+<div class="card"><div class="ct">Flux complet</div>
+<div class="pb">ETAPE 1 - Anonymisation (optionnelle)
+  Tri des règles par longueur desc
+  Remplacement insensible à la casse
+
+ETAPE 2 - Encodage XW72-1
+  rotation = 0, counter = 0
+  Pour chaque ligne du texte :
+    Pour chaque char c :
+      Si ord(c) hors [32,126] : conserver c (pass-through)
+      Sinon : idx=(ord(c)-32+rotation)%95, émettre TABLE[idx]
+              counter++, si counter%50==0 : rotation++
+    Stocker la ligne encodée
+    Stocker chr(2)+CRC16(ascii_chars_de_la_ligne)</div></div></div>
 <div class="panel" id="panel-table">
-<div class="pt">Table de substitution XW72</div><div class="ps">95 entrées bijectiv — ASCII 32–126 vers tokens de 6 caractères.</div>
+<div class="pt">Table de substitution XW72-1</div><div class="ps">95 entrées bijectiv — ASCII 32-126 vers chars distincts.</div>
 <div class="card"><div id="table-render" style="font-family:var(--mn);font-size:11px;line-height:2;color:var(--t2)">Chargement...</div></div></div>
 <div class="panel" id="panel-lim">
-<div class="pt">Limites &amp; sécurité</div><div class="ps">Niveau de protection de la v7 avec anonymisation.</div>
+<div class="pt">Limites &amp; sécurité</div>
 <div class="card"><table class="lt"><thead><tr><th>Aspect</th><th>État</th><th>Commentaire</th></tr></thead><tbody>
-<tr><td>Bijection XW72</td><td><span class="badge bs">Garantie</span></td><td>Aucune ambiguité — encodage octet par octet</td></tr>
-<tr><td>Anonymisation des termes</td><td><span class="badge bs">Effective</span></td><td>Termes remplacés avant encodage — absents du fichier encodé</td></tr>
-<tr><td>Frontières de mots/lignes</td><td><span class="badge bs">Explicites</span></td><td>WORDSEP et NEWLIN non confondables avec les tokens de données</td></tr>
-<tr><td>Corruption détectée</td><td><span class="badge bs">CRC16</span></td><td>Par ligne, détecte toute altération</td></tr>
-<tr><td>Règles d'anonymisation</td><td><span class="badge bw">Attention</span></td><td>Stockées en mémoire de session uniquement — exportez-les en JSON pour les conserver</td></tr>
-<tr><td>Caractères non-ASCII</td><td><span class="badge bw">Ignorés</span></td><td>Accents et caractères spéciaux éliminés à l'encodage</td></tr>
-<tr><td>Chiffrement fort</td><td><span class="badge bd2">Non</span></td><td>Obfuscation — pour usage chiffré, remplacer la table par une permutation secrète</td></tr>
-<tr><td>Token GitHub</td><td><span class="badge bs">Protégé</span></td><td>Saisi manuellement, jamais persisté ni commité</td></tr>
+<tr><td>Ratio taille</td><td><span class="badge bs">1:1</span></td><td>Taille encodée = taille originale (hors en-tête et lignes CRC)</td></tr>
+<tr><td>Bijection</td><td><span class="badge bs">Garantie</span></td><td>95 chars → 95 substituts distincts</td></tr>
+<tr><td>Anonymisation</td><td><span class="badge bs">Effective</span></td><td>Termes remplacés avant encodage</td></tr>
+<tr><td>CRC16 par ligne</td><td><span class="badge bs">Actif</span></td><td>Détecte toute corruption</td></tr>
+<tr><td>Non-ASCII</td><td><span class="badge bw">Pass-through</span></td><td>Les accents, émoji etc. ne sont pas substitués</td></tr>
+<tr><td>Chiffrement</td><td><span class="badge bd2">Non</span></td><td>Obfuscation — table publique dans claude_preferences.txt</td></tr>
+<tr><td>Token GitHub</td><td><span class="badge bs">Protégé</span></td><td>Jamais persisté, saisi manuellement à chaque session</td></tr>
 </tbody></table></div></div>
 </main></div>
 <script>
-var TABLE = ["Xa0Qr1", "Xa1Kp2", "Xa2Lm3", "Xa3Np4", "Xa4Mp5", "Xa5Rq6", "Xa6Ts7", "Xa7Uw8", "Xa8Vx9", "Xa9Wy0", "Xb0Xz1", "Xb1Ya2", "Xb2Zb3", "Xb3Ac4", "Xb4Bd5", "Xb5Ce6", "Xb6Df7", "Xb7Eg8", "Xb8Fh9", "Xb9Gi0", "Xc0Hj1", "Xc1Ik2", "Xc2Jl3", "Xc3Km4", "Xc4Ln5", "Xc5Mo6", "Xc6Np7", "Xc7Oq8", "Xc8Pr9", "Xc9Qs0", "Xd0Rt1", "Xd1Su2", "Xd2Tv3", "Xd3Uw4", "Xd4Vx5", "Xd5Wy6", "Xd6Xz7", "Xd7Ya8", "Xd8Zb9", "Xd9Ac0", "Xe0Bd1", "Xe1Ce2", "Xe2Df3", "Xe3Eg4", "Xe4Fh5", "Xe5Gi6", "Xe6Hj7", "Xe7Ik8", "Xe8Jl9", "Xe9Km0", "Xf0Ln1", "Xf1Mo2", "Xf2Np3", "Xf3Oq4", "Xf4Pr5", "Xf5Qs6", "Xf6Rt7", "Xf7Su8", "Xf8Tv9", "Xf9Uw0", "Xg0Vx1", "Xg1Wy2", "Xg2Xz3", "Xg3Ya4", "Xg4Zb5", "Xg5Ac6", "Xg6Bd7", "Xg7Ce8", "Xg8Df9", "Xg9Eg0", "Xh0Fh1", "Xh1Gi2", "Xh2Hj3", "Xh3Ik4", "Xh4Jl5", "Xh5Km6", "Xh6Ln7", "Xh7Mo8", "Xh8Np9", "Xh9Oq0", "Xi0Pr1", "Xi1Qs2", "Xi2Rt3", "Xi3Su4", "Xi4Tv5", "Xi5Uw6", "Xi6Vx7", "Xi7Wy8", "Xi8Xz9", "Xi9Ya0", "Xj0Zb1", "Xj1Ac2", "Xj2Bd3", "Xj3Ce4", "Xj4Df5"];
-
-var TABLE_INV = {};
-TABLE.forEach(function(tok,idx){ TABLE_INV[tok]=idx; });
+var TABLE = ["3", "4", "5", "6", "7", "8", "9", "0", "1", "2", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", " ", "!", "\"", "#", "$"];
+var TABLE_INV = {"3": 0, "4": 1, "5": 2, "6": 3, "7": 4, "8": 5, "9": 6, "0": 7, "1": 8, "2": 9, "N": 10, "O": 11, "P": 12, "Q": 13, "R": 14, "S": 15, "T": 16, "U": 17, "V": 18, "W": 19, "X": 20, "Y": 21, "Z": 22, "A": 23, "B": 24, "C": 25, "D": 26, "E": 27, "F": 28, "G": 29, "H": 30, "I": 31, "J": 32, "K": 33, "L": 34, "M": 35, "h": 36, "i": 37, "j": 38, "k": 39, "l": 40, "m": 41, "n": 42, "o": 43, "p": 44, "q": 45, "r": 46, "s": 47, "t": 48, "u": 49, "v": 50, "w": 51, "x": 52, "y": 53, "z": 54, "a": 55, "b": 56, "c": 57, "d": 58, "e": 59, "f": 60, "g": 61, "%": 62, "&": 63, "'": 64, "(": 65, ")": 66, "*": 67, "+": 68, ",": 69, "-": 70, ".": 71, "/": 72, ":": 73, ";": 74, "<": 75, "=": 76, ">": 77, "?": 78, "@": 79, "[": 80, "\\": 81, "]": 82, "^": 83, "_": 84, "`": 85, "{": 86, "|": 87, "}": 88, "~": 89, " ": 90, "!": 91, "\"": 92, "#": 93, "$": 94};
+var HEADER = "XW72-1";
+var ROTATE_EVERY = 50;
 var GITHUB_REPO = "Cailloux97310/AI";
 var GITHUB_BRANCH = "main";
+
+var PRINTABLE = [];
+for(var _i=32;_i<=126;_i++) PRINTABLE.push(String.fromCharCode(_i));
 
 // ── CRC16 ────────────────────────────────────────────────────────────────────
 function crc16(str){
   var crc=0xFFFF;
   for(var i=0;i<str.length;i++){
-    var b=str.charCodeAt(i)&0xFF; crc^=b<<8;
+    var b=str.charCodeAt(i)&0xFF;crc^=b<<8;
     for(var j=0;j<8;j++){crc=(crc&0x8000)?((crc<<1)^0x1021):(crc<<1);crc&=0xFFFF;}
   }
   return ("0000"+crc.toString(16).toUpperCase()).slice(-4);
 }
 
-// ── ANONYMIZATION ────────────────────────────────────────────────────────────
-var anonRules = [];
-
-function getRules(){
-  var rows = document.querySelectorAll("#anon-body tr");
-  var rules = [];
-  rows.forEach(function(row){
-    var inputs = row.querySelectorAll("input");
-    var orig = inputs[0] ? inputs[0].value.trim() : "";
-    var repl = inputs[1] ? inputs[1].value.trim() : "";
-    if(orig) rules.push({orig:orig, repl:repl});
-  });
-  return rules;
-}
-
-function applyAnon(text, rules){
-  // Sort by length desc to avoid partial matches
-  var sorted = rules.slice().sort(function(a,b){ return b.orig.length - a.orig.length; });
-  var count = 0;
-  sorted.forEach(function(rule){
-    if(!rule.orig) return;
-    var re = new RegExp(rule.orig.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"), "gi");
-    var matches = text.match(re);
-    if(matches) count += matches.length;
-    text = text.replace(re, rule.repl || "");
-  });
-  return {text:text, count:count};
-}
-
-function applyAnonHighlight(text, rules){
-  var sorted = rules.slice().sort(function(a,b){ return b.orig.length - a.orig.length; });
-  // Escape HTML first
-  var escaped = text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-  sorted.forEach(function(rule){
-    if(!rule.orig) return;
-    var re = new RegExp(rule.orig.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"), "gi");
-    var replHtml = '<span class="highlight-repl">' + (rule.repl||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;") + '</span>';
-    escaped = escaped.replace(re, replHtml);
-  });
-  return escaped;
-}
-
-function addAnonRow(orig, repl){
-  orig = orig || ""; repl = repl || "";
-  var tbody = document.getElementById("anon-body");
-  var tr = document.createElement("tr");
-  tr.innerHTML = '<td><input type="text" placeholder="terme original" value="'+orig.replace(/"/g,"&quot;")+'"></td>'
-    + '<td style="text-align:center;color:var(--t3)">&#x2192;</td>'
-    + '<td><input type="text" placeholder="remplacement (ex: [CLIENT_1])" value="'+repl.replace(/"/g,"&quot;")+'"></td>'
-    + '<td><button class="del-btn" onclick="this.closest(\'tr\').remove();st(\'s-anon\',\'\',\'\')">&#x2715;</button></td>';
-  tbody.appendChild(tr);
-  tr.querySelector("input").focus();
-}
-
-function clearAnonRules(){
-  document.getElementById("anon-body").innerHTML = "";
-  document.getElementById("preview-sec").style.display = "none";
-  st("s-anon","R\u00e8gles effac\u00e9es.","info");
-}
-
-function previewAnon(){
-  var src = document.getElementById("src").value;
-  if(!src.trim()){st("s-anon","Aucun texte source.","warn");return;}
-  var rules = getRules();
-  if(!rules.length){st("s-anon","Aucune r\u00e8gle d\'anonymisation.","warn");return;}
-  var highlighted = applyAnonHighlight(src, rules);
-  document.getElementById("preview-diff").innerHTML = highlighted;
-  document.getElementById("preview-sec").style.display = "block";
-  var res = applyAnon(src, rules);
-  st("s-anon", res.count + " occurrence(s) identifi\u00e9e(s) \u00e0 remplacer.", "info");
-}
-
-function exportRules(){
-  var rules = getRules();
-  if(!rules.length){st("s-anon","Aucune r\u00e8gle \u00e0 exporter.","warn");return;}
-  var blob = new Blob([JSON.stringify(rules,null,2)],{type:"application/json"});
-  var a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "anonymisation_rules.json";
-  a.click();
-  st("s-anon","R\u00e8gles export\u00e9es.","ok");
-}
-
-function importRules(file){
-  if(!file) return;
-  var r = new FileReader();
-  r.onload = function(e){
-    try{
-      var rules = JSON.parse(e.target.result);
-      document.getElementById("anon-body").innerHTML="";
-      rules.forEach(function(rule){ addAnonRow(rule.orig||"", rule.repl||""); });
-      st("s-anon", rules.length+" r\u00e8gle(s) import\u00e9e(s).","ok");
-    }catch(err){st("s-anon","Fichier JSON invalide.","err");}
-  };
-  r.readAsText(file,"UTF-8");
-}
-
-// ── ENCODER XW72 ─────────────────────────────────────────────────────────────
+// ── ENCODER XW72-1 ───────────────────────────────────────────────────────────
 function encodeXW72(text){
-  var outLines=["Excelsior_XW72"];
-  var rotation=0,counter=0,totalTokens=0,totalRot=0;
-  text.split("\n").forEach(function(line){
-    var tokens=[],asciiLine="";
-    var words=line.split(" ");
-    words.forEach(function(word,wi){
-      var wa="";
-      for(var ci=0;ci<word.length;ci++){
-        var code=word.charCodeAt(ci);
-        if(code<32||code>126) continue;
-        wa+=word[ci];
-        var idx=(code-32+rotation)%95;
-        tokens.push(TABLE[idx]);
-        counter++;totalTokens++;
-        if(counter%50===0){rotation=(rotation+1)%95;tokens.push("[R"+rotation+"]");totalRot++;}
-      }
-      asciiLine+=wa;
-      if(wi<words.length-1){tokens.push("WORDSEP");asciiLine+=" ";}
-    });
-    tokens.push("NEWLIN");
-    outLines.push(tokens.join(" ")+" [CRC:"+crc16(asciiLine)+"]");
+  var outParts = [HEADER+"\n"];
+  var rotation=0,counter=0,totalChars=0,totalLines=0;
+  var inputLines = text.split("\n");
+  inputLines.forEach(function(line){
+    var enc="",asciiChars="";
+    for(var i=0;i<line.length;i++){
+      var code=line.charCodeAt(i);
+      if(code<32||code>126){enc+=line[i];continue;}// pass-through non-ASCII
+      var idx=(code-32+rotation)%95;
+      enc+=TABLE[idx];
+      asciiChars+=line[i];
+      counter++;totalChars++;
+      if(counter%ROTATE_EVERY===0) rotation=(rotation+1)%95;
+    }
+    outParts.push(enc+"\n");
+    outParts.push("\x02"+crc16(asciiChars)+"\n");
+    totalLines++;
   });
-  return {text:outLines.join("\n"),tokens:totalTokens,rotations:totalRot,lines:text.split("\n").length};
+  return {text:outParts.join("").trimEnd(),chars:totalChars,lines:totalLines};
 }
 
-function doAnonEncode(){
-  var src = document.getElementById("src").value;
-  if(!src.trim()){st("s-obf","Aucun texte.","warn");return;}
-  var rules = getRules();
-  var anon = rules.length ? applyAnon(src, rules) : {text:src, count:0};
-  var res = encodeXW72(anon.text);
-  document.getElementById("out").value = res.text;
-  document.getElementById("st-repl").textContent = anon.count;
-  document.getElementById("st-tok").textContent = res.tokens;
-  document.getElementById("st-rot").textContent = res.rotations;
-  document.getElementById("st-chr").textContent = res.text.length;
-  document.getElementById("out-sec").style.display = "block";
-  document.getElementById("gh-preview").value = res.text;
-  var msg = "";
-  if(rules.length) msg = anon.count+" terme(s) anonymis\u00e9(s) \u00b7 ";
-  msg += res.tokens+" tokens XW72 \u00b7 "+res.rotations+" rotation(s)";
-  st("s-obf", msg, "ok");
-}
-
-function doEncodeOnly(){
-  var src = document.getElementById("src").value;
-  if(!src.trim()){st("s-obf","Aucun texte.","warn");return;}
-  var res = encodeXW72(src);
-  document.getElementById("out").value = res.text;
-  document.getElementById("st-repl").textContent = 0;
-  document.getElementById("st-tok").textContent = res.tokens;
-  document.getElementById("st-rot").textContent = res.rotations;
-  document.getElementById("st-chr").textContent = res.text.length;
-  document.getElementById("out-sec").style.display = "block";
-  document.getElementById("gh-preview").value = res.text;
-  st("s-obf", res.tokens+" tokens XW72 encod\u00e9s (sans anonymisation)","ok");
-}
-
-// ── DECODER XW72 ─────────────────────────────────────────────────────────────
+// ── DECODER XW72-1 ───────────────────────────────────────────────────────────
 function decodeXW72(text){
-  var lines=text.trim().split("\n");
-  if(!lines[0]||lines[0].trim()!=="Excelsior_XW72") throw new Error("En-tete Excelsior_XW72 manquant");
+  var lines=text.split("\n");
+  if(!lines[0]||lines[0].trim()!==HEADER) throw new Error("En-tete XW72-1 manquant");
   var rotation=0,counter=0,outLines=[],crcOk=0,crcFail=0;
-  var ROT_RE=/^\[R(\d+)\]$/,CRC_RE=/^\[CRC:([0-9A-Fa-f]{4})\]$/;
-  for(var li=1;li<lines.length;li++){
-    var tokens=lines[li].split(" "),cur="",expCrc=null;
-    if(tokens.length&&CRC_RE.test(tokens[tokens.length-1])){
-      expCrc=CRC_RE.exec(tokens[tokens.length-1])[1].toUpperCase();
-      tokens=tokens.slice(0,-1);
+  var li=1;
+  while(li<lines.length){
+    var encLine=lines[li]||""; li++;
+    var expCrc=null;
+    if(li<lines.length&&lines[li].charCodeAt(0)===2){
+      expCrc=lines[li].slice(1); li++;
     }
-    for(var ti=0;ti<tokens.length;ti++){
-      var tok=tokens[ti];
-      if(tok==="NEWLIN") break;
-      if(tok==="WORDSEP"){cur+=" ";continue;}
-      var rm=ROT_RE.exec(tok);
-      if(rm){rotation=parseInt(rm[1]);continue;}
-      if(!TABLE_INV.hasOwnProperty(tok)) continue;
-      var idx=TABLE_INV[tok];
-      cur+=String.fromCharCode((idx-rotation+95)%95+32);
+    var dec="",asciiDec="";
+    for(var i=0;i<encLine.length;i++){
+      var code=encLine.charCodeAt(i);
+      if(code<32||code>126){dec+=encLine[i];continue;}
+      var ch=encLine[i];
+      if(!TABLE_INV.hasOwnProperty(ch)){dec+=ch;continue;}
+      var idx=TABLE_INV[ch];
+      var orig=String.fromCharCode((idx-rotation+95)%95+32);
+      dec+=orig; asciiDec+=orig;
       counter++;
-      if(counter%50===0) rotation=(rotation+1)%95;
+      if(counter%ROTATE_EVERY===0) rotation=(rotation+1)%95;
     }
-    if(expCrc){if(crc16(cur)===expCrc)crcOk++;else crcFail++;}
-    outLines.push(cur);
+    if(expCrc){if(crc16(asciiDec)===expCrc)crcOk++;else crcFail++;}
+    outLines.push(dec);
   }
   return {text:outLines.join("\n"),crcOk:crcOk,crcFail:crcFail};
 }
 
+// ── ANONYMIZATION ────────────────────────────────────────────────────────────
+function getRules(){
+  var rows=document.querySelectorAll("#anon-body tr"),rules=[];
+  rows.forEach(function(row){
+    var inp=row.querySelectorAll("input");
+    var orig=inp[0]?inp[0].value.trim():"",repl=inp[1]?inp[1].value.trim():"";
+    if(orig) rules.push({orig:orig,repl:repl});
+  });
+  return rules;
+}
+function applyAnon(text,rules){
+  var sorted=rules.slice().sort(function(a,b){return b.orig.length-a.orig.length;});
+  var count=0;
+  sorted.forEach(function(rule){
+    if(!rule.orig) return;
+    var re=new RegExp(rule.orig.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
+    var m=text.match(re);if(m) count+=m.length;
+    text=text.replace(re,rule.repl||"");
+  });
+  return {text:text,count:count};
+}
+function applyAnonHighlight(text,rules){
+  var sorted=rules.slice().sort(function(a,b){return b.orig.length-a.orig.length;});
+  var esc=text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  sorted.forEach(function(rule){
+    if(!rule.orig) return;
+    var re=new RegExp(rule.orig.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");
+    var rh='<span class="highlight-repl">'+(rule.repl||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+"</span>";
+    esc=esc.replace(re,rh);
+  });
+  return esc;
+}
+function addAnonRow(orig,repl){
+  orig=orig||"";repl=repl||"";
+  var tbody=document.getElementById("anon-body"),tr=document.createElement("tr");
+  tr.innerHTML='<td><input type="text" placeholder="terme original" value="'+orig.replace(/"/g,"&quot;")+'"></td>'
+    +'<td style="text-align:center;color:var(--t3)">&#x2192;</td>'
+    +'<td><input type="text" placeholder="remplacement" value="'+repl.replace(/"/g,"&quot;")+'"></td>'
+    +'<td><button class="del-btn" onclick="this.closest(\'tr\').remove()">&#x2715;</button></td>';
+  tbody.appendChild(tr);tr.querySelector("input").focus();
+}
+function clearAnonRules(){document.getElementById("anon-body").innerHTML="";st("s-anon","R\u00e8gles effac\u00e9es.","info");}
+function previewAnon(){
+  var src=document.getElementById("src").value;
+  if(!src.trim()){st("s-anon","Aucun texte.","warn");return;}
+  var rules=getRules();
+  if(!rules.length){st("s-anon","Aucune r\u00e8gle.","warn");return;}
+  document.getElementById("preview-diff").innerHTML=applyAnonHighlight(src,rules);
+  document.getElementById("preview-sec").style.display="block";
+  st("s-anon",applyAnon(src,rules).count+" occurrence(s) identifi\u00e9e(s).","info");
+}
+function exportRules(){
+  var rules=getRules();if(!rules.length){st("s-anon","Aucune r\u00e8gle.","warn");return;}
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(rules,null,2)],{type:"application/json"}));
+  a.download="anonymisation_rules.json";a.click();st("s-anon","Export\u00e9.","ok");
+}
+function importRules(file){
+  if(!file) return;
+  var r=new FileReader();
+  r.onload=function(e){
+    try{
+      var rules=JSON.parse(e.target.result);
+      document.getElementById("anon-body").innerHTML="";
+      rules.forEach(function(rule){addAnonRow(rule.orig||"",rule.repl||"");});
+      st("s-anon",rules.length+" r\u00e8gle(s) import\u00e9e(s).","ok");
+    }catch(err){st("s-anon","JSON invalide.","err");}
+  };
+  r.readAsText(file,"UTF-8");
+}
+
+// ── HANDLERS ─────────────────────────────────────────────────────────────────
+function doAnonEncode(){
+  var src=document.getElementById("src").value;
+  if(!src.trim()){st("s-obf","Aucun texte.","warn");return;}
+  var rules=getRules(),anon=rules.length?applyAnon(src,rules):{text:src,count:0};
+  var res=encodeXW72(anon.text);
+  _showEncoded(res,anon.count,src.length);
+}
+function doEncodeOnly(){
+  var src=document.getElementById("src").value;
+  if(!src.trim()){st("s-obf","Aucun texte.","warn");return;}
+  var res=encodeXW72(src);
+  _showEncoded(res,0,src.length);
+}
+function _showEncoded(res,anonCount,origLen){
+  document.getElementById("out").value=res.text;
+  document.getElementById("st-repl").textContent=anonCount;
+  document.getElementById("st-chr").textContent=res.chars;
+  document.getElementById("st-ratio").textContent="1:1";
+  document.getElementById("st-crc").textContent=res.lines;
+  document.getElementById("out-sec").style.display="block";
+  document.getElementById("gh-preview").value=res.text;
+  document.getElementById("size-info").textContent=res.chars+" chars encod\u00e9s";
+  var msg=anonCount?anonCount+" terme(s) anonymis\u00e9(s) \u00b7 ":"";
+  msg+=res.chars+" chars encod\u00e9s \u00b7 ratio 1:1 \u00b7 "+res.lines+" ligne(s) CRC";
+  st("s-obf",msg,"ok");
+}
 function doDecode(){
   var src=document.getElementById("deo-in").value.trim();
   if(!src) return;
@@ -440,45 +408,43 @@ function doDecode(){
     var res=decodeXW72(src);
     document.getElementById("deo-out").value=res.text;
     document.getElementById("deo-out-sec").style.display="block";
-    var rep=document.getElementById("crc-report");
     var msg=res.crcOk+" ligne(s) CRC valid\u00e9e(s)";
-    if(res.crcFail>0) msg+=" \u00b7 "+res.crcFail+" CRC invalide(s)";
-    rep.innerHTML="<span style='color:"+(res.crcFail>0?"var(--er)":"var(--ok)")+"'>"+msg+"</span>";
+    if(res.crcFail>0) msg+=" \u00b7 "+res.crcFail+" invalide(s)";
+    document.getElementById("crc-report").innerHTML="<span style='color:"+(res.crcFail>0?"var(--er)":"var(--ok)")+"'>"+msg+"</span>";
     st("s-deo","Texte d\u00e9cod\u00e9.","ok");
   }catch(e){st("s-deo","Erreur : "+e.message,"err");}
 }
 
-// ── FILE HANDLER ─────────────────────────────────────────────────────────────
-function stripInner(html){return html.replace(/<br\s*\/?>/gi," ").replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&nbsp;/g," ").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();}
+// ── FILE HANDLER ──────────────────────────────────────────────────────────────
+function stripInner(h){return h.replace(/<br\s*\/?>/gi," ").replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&nbsp;/g," ").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();}
 function renderAsciiTable(th){var rowRe=/<tr[^>]*>([\s\S]*?)<\/tr>/gi,cellRe=/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/gi,rows=[],m,cm;while((m=rowRe.exec(th))!==null){var cells=[],rh=m[1];cellRe.lastIndex=0;while((cm=cellRe.exec(rh))!==null)cells.push(stripInner(cm[1]));if(cells.length)rows.push(cells);}if(!rows.length)return "";var mc=rows.reduce(function(x,r){return Math.max(x,r.length);},0);rows.forEach(function(r){while(r.length<mc)r.push("");});var wd=[];for(var c=0;c<mc;c++)wd[c]=rows.reduce(function(x,r){return Math.max(x,r[c]?r[c].length:1);},1);function sep(){return "+"+wd.map(function(w){return "-".repeat(w+2);}).join("+")+"+"; }function rrow(r){return "|"+r.map(function(cell,i){var s=cell||"";return " "+s+" ".repeat(wd[i]-s.length)+" ";}).join("|")+"|";}var out=[sep()];rows.forEach(function(r,i){out.push(rrow(r));if(i===0)out.push(sep());});out.push(sep());return out.join("\n");}
 function htmlToText(html){var tc=0;var result=html.replace(/<table[\s\S]*?<\/table>/gi,function(t){tc++;return "\n\n"+renderAsciiTable(t)+"\n\n";});result=result.replace(/<h[1-6][^>]*>/gi,"\n\n").replace(/<\/h[1-6]>/gi,"\n\n").replace(/<br\s*\/?>/gi,"\n").replace(/<\/(p|div|li)>/gi,"\n").replace(/<li[^>]*>/gi,"  - ").replace(/<[^>]+>/g,"").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&nbsp;/g," ").replace(/&quot;/g,'"').replace(/\n{3,}/g,"\n\n").trim();return {text:result,tableCount:tc};}
-
 function handleFile(file){
   if(!file) return;
   var ext=file.name.split(".").pop().toLowerCase();
   st("s-obf","Lecture de "+file.name+"...","info");
   if(["txt","md","csv","json","xml"].indexOf(ext)>=0){var r=new FileReader();r.onload=function(e){document.getElementById("src").value=e.target.result;st("s-obf","Charg\u00e9 : "+file.name,"ok");};r.readAsText(file,"UTF-8");}
   else if(ext==="html"){var r2=new FileReader();r2.onload=function(e){var res=htmlToText(e.target.result);document.getElementById("src").value=res.text;st("s-obf","HTML : "+res.tableCount+" tableau(x)","ok");};r2.readAsText(file,"UTF-8");}
-  else if(ext==="docx"){var r3=new FileReader();r3.onload=function(e){mammoth.convertToHtml({arrayBuffer:e.target.result}).then(function(result){var res=htmlToText(result.value);document.getElementById("src").value=res.text;st("s-obf","DOCX : "+file.name+" \u00b7 tableaux ASCII","ok");}).catch(function(){st("s-obf","Erreur DOCX","err");});};r3.readAsArrayBuffer(file);}
+  else if(ext==="docx"){var r3=new FileReader();r3.onload=function(e){mammoth.convertToHtml({arrayBuffer:e.target.result}).then(function(result){var res=htmlToText(result.value);document.getElementById("src").value=res.text;st("s-obf","DOCX : "+file.name,"ok");}).catch(function(){st("s-obf","Erreur DOCX","err");});};r3.readAsArrayBuffer(file);}
   else{st("s-obf","Format non pris en charge.","warn");}
 }
 
-// ── GITHUB ───────────────────────────────────────────────────────────────────
+// ── GITHUB ────────────────────────────────────────────────────────────────────
 function commitGitHub(){
   var token=document.getElementById("gh-token").value.trim();
   var filename=document.getElementById("gh-filename").value.trim();
   var message=document.getElementById("gh-msg").value.trim();
   var content=document.getElementById("out").value;
-  if(!token){st("s-gh","Token GitHub requis.","warn");return;}
-  if(!content){st("s-gh","Encodez un document en premier.","warn");return;}
+  if(!token){st("s-gh","Token requis.","warn");return;}
+  if(!content){st("s-gh","Encodez d'abord.","warn");return;}
   if(!filename){st("s-gh","Nom de fichier requis.","warn");return;}
-  st("s-gh","Connexion \u00e0 GitHub...","info");
+  st("s-gh","Connexion...","info");
   var log=document.getElementById("gh-log");log.style.display="block";log.textContent="V\u00e9rification...";
   var apiBase="https://api.github.com/repos/"+GITHUB_REPO+"/contents/"+filename;
   var headers={"Authorization":"token "+token,"Accept":"application/vnd.github.v3+json","Content-Type":"application/json"};
   fetch(apiBase,{method:"GET",headers:headers}).then(function(r){return r.json();})
-    .then(function(existing){
-      var sha=existing.sha||null;
+    .then(function(ex){
+      var sha=ex.sha||null;
       var b64=btoa(unescape(encodeURIComponent(content)));
       var body={message:message,content:b64,branch:GITHUB_BRANCH};
       if(sha) body.sha=sha;
@@ -491,9 +457,89 @@ function commitGitHub(){
         var url=result.content.html_url||("https://github.com/"+GITHUB_REPO+"/blob/"+GITHUB_BRANCH+"/"+filename);
         st("s-gh","Commit r\u00e9ussi.","ok");
         log.innerHTML="Disponible :<br><a href='"+url+"' target='_blank' style='color:var(--ac)'>"+url+"</a>";
-      }else{st("s-gh","Erreur : "+(result.message||"inconnue"),"err");log.textContent=JSON.stringify(result,null,2);}
+      }else{st("s-gh","Erreur : "+(result.message||"?"),"err");log.textContent=JSON.stringify(result,null,2);}
     })
-    .catch(function(err){st("s-gh","Erreur r\u00e9seau : "+err,"err");log.textContent=err.toString();});
+    .catch(function(err){st("s-gh","Erreur : "+err,"err");log.textContent=err.toString();});
+}
+
+// ── PREFERENCES DOWNLOAD ──────────────────────────────────────────────────────
+function downloadPrefs(){
+  var tableJson=JSON.stringify(TABLE);
+  var tableInvJson=JSON.stringify(TABLE_INV);
+  var content=[
+    "# Claude \u2014 Pr\u00e9f\u00e9rences personnelles v8",
+    "# Fichier de r\u00e9f\u00e9rence charg\u00e9 via Google Drive \u00e0 chaque conversation",
+    "# Version : 8.0 \u2014 Encodage XW72-1 (ratio 1:1, 1 char -> 1 char)",
+    "# Ne pas partager ce fichier",
+    "",
+    "## SECTION 1 \u2014 Directives g\u00e9n\u00e9rales",
+    "",
+    "- R\u00e9pondre comme un ing\u00e9nieur senior : r\u00e9ponses directes, pr\u00e9cises, sans fioritures",
+    "- Formatage sobre sans ic\u00f4nes inutiles sauf demande explicite",
+    "- \u00c9viter : absolument, certainement, bien s\u00fbr, il est important de noter",
+    "- En fin de r\u00e9ponse : proposer am\u00e9liorations ou strat\u00e9gies alternatives",
+    "- Ne jamais utiliser les \u00e9changes pour entra\u00eener le mod\u00e8le",
+    "- Tous les \u00e9changes restent priv\u00e9s et confidentiels",
+    "",
+    "## SECTION 2 \u2014 GitHub (Cailloux97310/AI)",
+    "",
+    "Lorsque je mentionne un fichier \u00e0 analyser, r\u00e9sumer, indexer ou d\u00e9coder,",
+    "et que je fournis une r\u00e9f\u00e9rence de fichier (nom, chemin ou URL GitHub),",
+    "utilise le connecteur GitHub pour acc\u00e9der au d\u00e9p\u00f4t Cailloux97310/AI",
+    "et r\u00e9cup\u00e8re directement le fichier concern\u00e9.",
+    "",
+    "D\u00e9p\u00f4t : https://github.com/Cailloux97310/AI",
+    "Branche par d\u00e9faut : main",
+    "Les fichiers encod\u00e9s (format XW72-1) se trouvent dans documents/",
+    "Si je fournis un nom sans chemin complet, cherche d\u2019abord dans documents/ puis \u00e0 la racine.",
+    "",
+    "## SECTION 3 \u2014 Encodage compact XW72-1 (ratio 1:1)",
+    "",
+    "### Format de reconnaissance",
+    "",
+    "```",
+    "Ligne 1                : XW72-1",
+    "Lignes paires (2,4,...): contenu encod\u00e9 (m\u00eame longueur que l'original)",
+    "Lignes impaires (3,5,.): CRC16 de la ligne pr\u00e9c\u00e9dente, pr\u00e9fix\u00e9 par chr(2) (STX)",
+    "```",
+    "",
+    "### Propri\u00e9t\u00e9s",
+    "",
+    "- Encodage 1 caract\u00e8re -> 1 caract\u00e8re : taille identique \u00e0 l'original",
+    "- Table de substitution fixe de 95 entr\u00e9es (ASCII 32-126)",
+    "- Rotation additive tous les 50 caract\u00e8res ASCII encod\u00e9s : rotation = (rotation+1) % 95",
+    "- CRC16-CCITT par ligne pour d\u00e9tection de corruption",
+    "- Les caract\u00e8res non-ASCII passent en clair (non substitu\u00e9s)",
+    "- Espaces et sauts de ligne sont encod\u00e9s normalement (dans la table)",
+    "",
+    "### Algorithme de d\u00e9chiffrement",
+    "",
+    "```",
+    "1. V\u00e9rifier ligne 1 == XW72-1",
+    "2. rotation=0, counter=0",
+    "3. Pour chaque paire (encoded_line, crc_line) :",
+    "   a. crc_line commence par chr(2) = STX",
+    "   b. Pour chaque char c de encoded_line :",
+    "      - Si ord(c) hors [32,126] : conserver c (pass-through)",
+    "      - Sinon : idx=TABLE_INV[c]",
+    "               orig=chr((idx - rotation + 95) % 95 + 32)",
+    "               counter++ ; si counter%50==0 : rotation=(rotation+1)%95",
+    "   c. V\u00e9rifier CRC16 sur les chars ASCII d\u00e9cod\u00e9s",
+    "```",
+    "",
+    "### Table XW72-1 (index -> char encod\u00e9, TABLE[i] = substitut de ASCII(i+32))",
+    "",
+    "TABLE = "+tableJson,
+    "",
+    "### Table inverse (char encod\u00e9 -> index)",
+    "",
+    "TABLE_INV = "+tableInvJson,
+    "",
+    "## SECTION 4 \u2014 Fin du fichier de pr\u00e9f\u00e9rences v8"
+  ].join("\n");
+  var blob=new Blob([content],{type:"text/plain;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="claude_preferences.txt";a.click();
+  st("s-dir","claude_preferences.txt t\u00e9l\u00e9charg\u00e9 \u2014 uploadez-le sur Google Drive.","ok");
 }
 
 // ── UTILS ─────────────────────────────────────────────────────────────────────
@@ -517,15 +563,16 @@ function sp(name){
 (function(){
   var html="";
   for(var i=0;i<95;i++){
-    var ch=String.fromCharCode(i+32);
-    var disp=(ch===" ")?"[SP]":(ch==="<")?"&lt;":(ch===">")?"&gt;":(ch==="&")?"&amp;":ch;
-    html+="<span style='display:inline-block;min-width:160px;margin-right:8px'>"+disp+" ("+(i+32)+") \u2192 "+TABLE[i]+"</span>";
-    if((i+1)%5===0)html+="<br>";
+    var inp=String.fromCharCode(i+32);
+    var out=TABLE[i];
+    var dispI=(inp===" ")?"[SP]":(inp==="<")?"&lt;":(inp===">")?"&gt;":(inp==="&")?"&amp;":inp;
+    var dispO=(out===" ")?"[SP]":(out==="<")?"&lt;":(out===">")?"&gt;":(out==="&")?"&amp;":out;
+    html+='<span style="display:inline-block;min-width:130px;margin-right:4px">'+dispI+' ('+( i+32)+') \u2192 '+dispO+'</span>';
+    if((i+1)%6===0) html+="<br>";
   }
   document.getElementById("table-render").innerHTML=html;
 })();
 
-// Init anon table with one empty row
 addAnonRow();
 
 var dz=document.getElementById("dz");
