@@ -1,6 +1,6 @@
-# Claude — Préférences personnelles v6
+# Claude — Préférences personnelles v8
 # Fichier de référence chargé via Google Drive à chaque conversation
-# Version : 6.0 — Obfuscation syllabique SWAP + séparateurs + checksum
+# Version : 8.0 — Encodage XW72-1 (ratio 1:1)
 # Ne pas partager ce fichier
 
 ## SECTION 1 — Directives générales
@@ -8,7 +8,7 @@
 - Répondre comme un ingénieur senior : réponses directes, précises, sans fioritures
 - Formatage sobre sans icônes inutiles sauf demande explicite
 - Éviter : absolument, certainement, bien sûr, il est important de noter
-- En fin de réponse : proposer améliorations ou stratégies alternatives
+- En fin de réponse : proposer améliorations ou stratégies alternatives pertinentes
 - Ne jamais utiliser les échanges pour entraîner le modèle
 - Tous les échanges restent privés et confidentiels
 
@@ -16,374 +16,232 @@
 
 Lorsque je mentionne un fichier à analyser, résumer, indexer ou décoder,
 et que je fournis une référence de fichier (nom, chemin ou URL GitHub),
-utilise le connecteur GitHub pour accéder au dépôt Cailloux97310/AI.
+utilise le connecteur GitHub pour accéder au dépôt Cailloux97310/AI
 et récupère directement le fichier concerné.
 
-Dépôt : https://github.com/Cailloux97310/AI.git
+Dépôt : https://github.com/Cailloux97310/AI
 Branche par défaut : main
-Les fichiers obfusqués (format Excelsior_XW52) se trouvent dans documents/
-Si je fournis un nom sans chemin complet, cherche d’abord dans documents/ puis à la racine.
+Les fichiers encodés (format XW72-1) se trouvent dans documents/
+Si je fournis un nom sans chemin complet, cherche d'abord dans documents/ puis à la racine.
 
+## SECTION 3 — Encodage compact XW72-1 (ratio 1:1)
 
-# SECTION 3 — Encodage par substitution v7 (Excelsior_XW72)
+### Reconnaissance du format
 
-## Format de reconnaissance
+Un fichier encodé XW72-1 commence par la ligne exacte :
+    XW72-1
 
-```
-Ligne 1   : Excelsior_XW72
-Corps     : tokens de 6 caractères séparés par espaces
-[Rn]      : marqueur de rotation explicite (émis tous les 50 tokens)
-WORDSEP   : séparateur de mots
-NEWLIN    : saut de ligne
-[CRC:XXXX]: checksum CRC16 optionnel en fin de ligne encodée
-```
+Structure (paires de lignes) :
+- Ligne de contenu : texte encodé, même longueur en chars ASCII que l'original
+- Ligne CRC       : commence par le caractère STX (chr(2), valeur décimale 2),
+                    suivie de 4 chars hex = CRC16 de la ligne de contenu décodée
 
----
+Pour identifier une ligne CRC : ord(ligne[0]) == 2
 
-## Propriétés de bijection
+### Vecteurs de référence (validation obligatoire avant tout décodage)
 
-- Chaque caractère ASCII imprimable (codes 32–126, soit **95 valeurs**) est mappé
-  à exactement **un token de 6 caractères alphanumériques**
-- La table est strictement inversible : chaque token correspond à un seul caractère
-- **Pas de segmentation syllabique** : encodage octet par octet, sans ambiguïté
-- La rotation `[Rn]` est un décalage additif **modulo 95** sur l'index du caractère,
-  appliqué AVANT lookup : `token = TABLE[(ord(c) - 32 + rotation) % 95]`
-- La rotation est portée par sa valeur explicite dans `[Rn]` → pas d'ambiguïté
-  même en cas de lecture partielle du fichier
+Les encodages suivants sont produits à rotation=0, counter=0 (début de fichier) :
 
----
+| Texte clair | Encodé    | CRC16 |
+|-------------|-----------|-------|
+| Hello       | l,==@     | DADA  |
+| Test        | x,^_      | 2888  |
+| ABC         | KLM       | F508  |
+| abc         | ()*       | 514A  |
+| 123         | UVW       | 5BCE  |
 
-## Table de substitution v7 — 95 entrées (caractère → token 6 chars)
+IMPORTANT : si tu obtiens un résultat différent pour l'un de ces vecteurs,
+ton application de la table ou de la rotation est incorrecte. Arrête et vérifie.
 
-```
-' ':Xa0Qr1  '!':Xa1Kp2  '"':Xa2Lm3  '#':Xa3Np4  '$':Xa4Mp5
-'%':Xa5Rq6  '&':Xa6Ts7  "'":Xa7Uw8  '(':Xa8Vx9  ')':Xa9Wy0
-'*':Xb0Xz1  '+':Xb1Ya2  ',':Xb2Zb3  '-':Xb3Ac4  '.':Xb4Bd5
-'/':Xb5Ce6  '0':Xb6Df7  '1':Xb7Eg8  '2':Xb8Fh9  '3':Xb9Gi0
-'4':Xc0Hj1  '5':Xc1Ik2  '6':Xc2Jl3  '7':Xc3Km4  '8':Xc4Ln5
-'9':Xc5Mo6  ':':Xc6Np7  ';':Xc7Oq8  '<':Xc8Pr9  '=':Xc9Qs0
-'>':Xd0Rt1  '?':Xd1Su2  '@':Xd2Tv3  'A':Xd3Uw4  'B':Xd4Vx5
-'C':Xd5Wy6  'D':Xd6Xz7  'E':Xd7Ya8  'F':Xd8Zb9  'G':Xd9Ac0
-'H':Xe0Bd1  'I':Xe1Ce2  'J':Xe2Df3  'K':Xe3Eg4  'L':Xe4Fh5
-'M':Xe5Gi6  'N':Xe6Hj7  'O':Xe7Ik8  'P':Xe8Jl9  'Q':Xe9Km0
-'R':Xf0Ln1  'S':Xf1Mo2  'T':Xf2Np3  'U':Xf3Oq4  'V':Xf4Pr5
-'W':Xf5Qs6  'X':Xf6Rt7  'Y':Xf7Su8  'Z':Xf8Tv9  '[':Xf9Uw0
-'\':Xg0Vx1  ']':Xg1Wy2  '^':Xg2Xz3  '_':Xg3Ya4  '`':Xg4Zb5
-'a':Xg5Ac6  'b':Xg6Bd7  'c':Xg7Ce8  'd':Xg8Df9  'e':Xg9Eg0
-'f':Xh0Fh1  'g':Xh1Gi2  'h':Xh2Hj3  'i':Xh3Ik4  'j':Xh4Jl5
-'k':Xh5Km6  'l':Xh6Ln7  'm':Xh7Mo8  'n':Xh8Np9  'o':Xh9Oq0
-'p':Xi0Pr1  'q':Xi1Qs2  'r':Xi2Rt3  's':Xi3Su4  't':Xi4Tv5
-'u':Xi5Uw6  'v':Xi6Vx7  'w':Xi7Wy8  'x':Xi8Xz9  'y':Xi9Ya0
-'z':Xj0Zb1  '{':Xj1Ac2  '|':Xj2Bd3  '}':Xj3Ce4  '~':Xj4Df5
-```
-
----
-
-## Algorithme d'encodage
+### Algorithme de décodage (pas-à-pas non ambigu)
 
 ```
-1. Initialiser rotation = 0, compteur_tokens = 0
-2. Pour chaque ligne du texte clair :
-   a. Pour chaque mot (séparé par espaces) :
-      - Pour chaque caractère c du mot :
-        i.  idx = (ord(c) - 32 + rotation) % 95
-        ii. Émettre TABLE[idx]
-        iii.compteur_tokens += 1
-        iv. Si compteur_tokens % 50 == 0 :
-              rotation = (rotation + 1) % 95
-              Émettre [R{rotation}]
-      - Émettre WORDSEP après chaque mot
-   b. Émettre NEWLIN en fin de ligne
-3. Émettre optionnellement [CRC:XXXX] en fin de chaque ligne encodée
+Initialiser : rotation=0, counter=0, résultat=[]
+
+Lire les lignes du fichier encodé :
+  - Ligne 0 : vérifier == "XW72-1" (sinon erreur)
+  - À partir de la ligne 1, traiter par paires :
+
+    enc_line = lignes[i]
+    Si lignes[i+1] commence par chr(2) :
+        exp_crc = lignes[i+1][1:]   # 4 chars hex
+        i += 2
+    Sinon :
+        exp_crc = None
+        i += 1
+
+    Pour chaque caractère ch de enc_line :
+        code = ord(ch)
+        SI code < 32 OU code > 126 :
+            émettre ch tel quel   (pass-through non-ASCII)
+            NE PAS incrémenter counter
+        SINON :
+            idx      = TABLE_INV[ch]
+            orig     = chr( (idx - rotation + 95) % 95 + 32 )
+            émettre orig
+            counter += 1
+            SI counter % 50 == 0 :
+                rotation = (rotation + 1) % 95
+
+    (optionnel) Vérifier CRC16 sur les chars ASCII décodés de enc_line
+
+Joindre les lignes décodées avec '\n'
 ```
 
-## Algorithme de décodage
+### Table XW72-1 — TABLE[i] = substitut de ASCII(i+32)
 
-```
-1. Initialiser rotation = 0, compteur_tokens = 0, texte = ""
-2. Pour chaque token T dans le flux :
-   - Si T == "WORDSEP" : ajouter ' ' au texte
-   - Si T == "NEWLIN"  : ajouter '\n' au texte
-   - Si T correspond à [Rn] : rotation = n (lire n explicitement)
-   - Si T correspond à [CRC:XXXX] : vérifier CRC16 de la ligne, signaler erreur si KO
-   - Sinon (token de données) :
-       i.  idx = TABLE_INV[T]  # lookup inverse, O(1)
-       ii. c = chr((idx - rotation + 95) % 95 + 32)
-       iii.Ajouter c au texte
-       iv. compteur_tokens += 1
-       v.  Si compteur_tokens % 50 == 0 :
-             rotation = (rotation + 1) % 95
-             (le prochain token [Rn] dans le flux confirme la valeur — vérification)
-```
+TABLE = ["3", "4", "5", "6", "7", "8", "9", "0", "1", "2", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", " ", "!", "\"", "#", "$"]
 
----
+Exemples :
+- TABLE[0]  = '3'   → substitut de ' ' (espace, ASCII 32)
+- TABLE[33] = 'K'   → substitut de 'A' (ASCII 65)
+- TABLE[65] = '('   → substitut de 'a' (ASCII 97)
+- TABLE[94] = '$'   → substitut de '~' (ASCII 126)
 
-## Garanties de bijection
+### Table inverse — TABLE_INV[char_encodé] = index
 
-| Propriété | Détail |
-|---|---|
-| Injection (encodage) | 95 caractères → 95 tokens distincts, pas de collision |
-| Surjection (décodage) | TABLE_INV couvre exactement les 95 tokens émissibles |
-| Rotation déterministe | Compteur synchrone encode/decode + valeur explicite [Rn] |
-| Longueur fixe | Token = exactement 6 chars alphanumériques, impossible de confondre avec WORDSEP/NEWLIN/[Rn] |
-| Intégrité | CRC16 (polynôme 0x1021) détecte toute corruption bit |
+TABLE_INV = {"3": 0, "4": 1, "5": 2, "6": 3, "7": 4, "8": 5, "9": 6, "0": 7, "1": 8, "2": 9, "N": 10, "O": 11, "P": 12, "Q": 13, "R": 14, "S": 15, "T": 16, "U": 17, "V": 18, "W": 19, "X": 20, "Y": 21, "Z": 22, "A": 23, "B": 24, "C": 25, "D": 26, "E": 27, "F": 28, "G": 29, "H": 30, "I": 31, "J": 32, "K": 33, "L": 34, "M": 35, "h": 36, "i": 37, "j": 38, "k": 39, "l": 40, "m": 41, "n": 42, "o": 43, "p": 44, "q": 45, "r": 46, "s": 47, "t": 48, "u": 49, "v": 50, "w": 51, "x": 52, "y": 53, "z": 54, "a": 55, "b": 56, "c": 57, "d": 58, "e": 59, "f": 60, "g": 61, "%": 62, "&": 63, "'": 64, "(": 65, ")": 66, "*": 67, "+": 68, ",": 69, "-": 70, ".": 71, "/": 72, ":": 73, ";": 74, "<": 75, "=": 76, ">": 77, "?": 78, "@": 79, "[": 80, "\\": 81, "]": 82, "^": 83, "_": 84, "`": 85, "{": 86, "|": 87, "}": 88, "~": 89, " ": 90, "!": 91, "\"": 92, "#": 93, "$": 94}
 
----
+### Script Python de référence — encode / decode / self_test
 
-## Script Python de référence (encode / decode)
+Ce script est la source de vérité. En cas de doute sur le décodage,
+exécute-le avec `python xw72.py test` pour valider les vecteurs de référence.
 
 ```python
 #!/usr/bin/env python3
-"""
-Excelsior_XW72 — Codec de référence v7
-Encodage/décodage bijectif garanti, sans ambiguïté syllabique.
+"""XW72-1 Codec v8 — encode/decode/test
 Usage:
-    python excelsior_xw72.py encode <input.txt> <output.txt>
-    python excelsior_xw72.py decode <input.txt> <output.txt>
+    python xw72.py test
+    python xw72.py encode input.txt output.txt
+    python xw72.py decode input.txt output.txt
 """
-
 import sys
-import re
 
-# ---------------------------------------------------------------------------
-# Table de substitution v7 — 95 entrées
-# Index 0 = ASCII 32 (espace), index 94 = ASCII 126 (~)
-# ---------------------------------------------------------------------------
-_TABLE_RAW = [
-    "Xa0Qr1","Xa1Kp2","Xa2Lm3","Xa3Np4","Xa4Mp5",  # 32-36  : ' !"#$'
-    "Xa5Rq6","Xa6Ts7","Xa7Uw8","Xa8Vx9","Xa9Wy0",  # 37-41  : '%&\'()'
-    "Xb0Xz1","Xb1Ya2","Xb2Zb3","Xb3Ac4","Xb4Bd5",  # 42-46  : '*+,-.''
-    "Xb5Ce6","Xb6Df7","Xb7Eg8","Xb8Fh9","Xb9Gi0",  # 47-51  : '/0123'
-    "Xc0Hj1","Xc1Ik2","Xc2Jl3","Xc3Km4","Xc4Ln5",  # 52-56  : '45678'
-    "Xc5Mo6","Xc6Np7","Xc7Oq8","Xc8Pr9","Xc9Qs0",  # 57-61  : '9:;<='
-    "Xd0Rt1","Xd1Su2","Xd2Tv3","Xd3Uw4","Xd4Vx5",  # 62-66  : '>?@AB'
-    "Xd5Wy6","Xd6Xz7","Xd7Ya8","Xd8Zb9","Xd9Ac0",  # 67-71  : 'CDEFG'
-    "Xe0Bd1","Xe1Ce2","Xe2Df3","Xe3Eg4","Xe4Fh5",  # 72-76  : 'HIJKL'
-    "Xe5Gi6","Xe6Hj7","Xe7Ik8","Xe8Jl9","Xe9Km0",  # 77-81  : 'MNOPQ'
-    "Xf0Ln1","Xf1Mo2","Xf2Np3","Xf3Oq4","Xf4Pr5",  # 82-86  : 'RSTUV'
-    "Xf5Qs6","Xf6Rt7","Xf7Su8","Xf8Tv9","Xf9Uw0",  # 87-91  : 'WXYZ['
-    "Xg0Vx1","Xg1Wy2","Xg2Xz3","Xg3Ya4","Xg4Zb5",  # 92-96  : '\]^_`'
-    "Xg5Ac6","Xg6Bd7","Xg7Ce8","Xg8Df9","Xg9Eg0",  # 97-101 : 'abcde'
-    "Xh0Fh1","Xh1Gi2","Xh2Hj3","Xh3Ik4","Xh4Jl5",  # 102-106: 'fghij'
-    "Xh5Km6","Xh6Ln7","Xh7Mo8","Xh8Np9","Xh9Oq0",  # 107-111: 'klmno'
-    "Xi0Pr1","Xi1Qs2","Xi2Rt3","Xi3Su4","Xi4Tv5",  # 112-116: 'pqrst'
-    "Xi5Uw6","Xi6Vx7","Xi7Wy8","Xi8Xz9","Xi9Ya0",  # 117-121: 'uvwxy'
-    "Xj0Zb1","Xj1Ac2","Xj2Bd3","Xj3Ce4","Xj4Df5",  # 122-126: 'z{|}~'
-]
+TABLE     = ["3", "4", "5", "6", "7", "8", "9", "0", "1", "2", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", " ", "!", "\"", "#", "$"]
+TABLE_INV = {"3": 0, "4": 1, "5": 2, "6": 3, "7": 4, "8": 5, "9": 6, "0": 7, "1": 8, "2": 9, "N": 10, "O": 11, "P": 12, "Q": 13, "R": 14, "S": 15, "T": 16, "U": 17, "V": 18, "W": 19, "X": 20, "Y": 21, "Z": 22, "A": 23, "B": 24, "C": 25, "D": 26, "E": 27, "F": 28, "G": 29, "H": 30, "I": 31, "J": 32, "K": 33, "L": 34, "M": 35, "h": 36, "i": 37, "j": 38, "k": 39, "l": 40, "m": 41, "n": 42, "o": 43, "p": 44, "q": 45, "r": 46, "s": 47, "t": 48, "u": 49, "v": 50, "w": 51, "x": 52, "y": 53, "z": 54, "a": 55, "b": 56, "c": 57, "d": 58, "e": 59, "f": 60, "g": 61, "%": 62, "&": 63, "'": 64, "(": 65, ")": 66, "*": 67, "+": 68, ",": 69, "-": 70, ".": 71, "/": 72, ":": 73, ";": 74, "<": 75, "=": 76, ">": 77, "?": 78, "@": 79, "[": 80, "\\": 81, "]": 82, "^": 83, "_": 84, "`": 85, "{": 86, "|": 87, "}": 88, "~": 89, " ": 90, "!": 91, "\"": 92, "#": 93, "$": 94}
+assert len(TABLE)==95 and len(set(TABLE))==95, "Table invalide"
 
-# Vérification statique de bijection
-assert len(_TABLE_RAW) == 95, "Table incomplète"
-assert len(set(_TABLE_RAW)) == 95, "Collision détectée dans la table"
+HEADER       = "XW72-1"
+ROTATE_EVERY = 50
 
-TABLE     = _TABLE_RAW                          # index → token
-TABLE_INV = {tok: idx for idx, tok in enumerate(TABLE)}  # token → index
-
-WORDSEP = "WORDSEP"
-NEWLIN  = "NEWLIN"
-ROTATION_RE = re.compile(r'^\[R(\d+)\]$')
-CRC_RE      = re.compile(r'^\[CRC:([0-9A-Fa-f]{4})\]$')
-
-
-# ---------------------------------------------------------------------------
-# CRC16 (CCITT, polynôme 0x1021)
-# ---------------------------------------------------------------------------
-def crc16(data: str) -> int:
+def crc16(data):
     crc = 0xFFFF
-    for byte in data.encode('utf-8'):
+    for byte in data.encode("utf-8"):
         crc ^= byte << 8
         for _ in range(8):
-            crc = ((crc << 1) ^ 0x1021) if (crc & 0x8000) else (crc << 1)
+            crc = ((crc<<1)^0x1021) if (crc&0x8000) else (crc<<1)
             crc &= 0xFFFF
-    return crc
+    return f"{crc:04X}"
 
-
-def crc16_hex(data: str) -> str:
-    return f"{crc16(data):04X}"
-
-
-# ---------------------------------------------------------------------------
-# Encodage
-# ---------------------------------------------------------------------------
-def encode(text: str, add_crc: bool = True) -> str:
-    """Encode un texte clair en format Excelsior_XW72."""
-    output_lines = ["Excelsior_XW72"]
+def encode(text):
+    out = [HEADER]
     rotation = 0
     counter  = 0
-
-    for line in text.splitlines():
-        tokens = []
-        words  = line.split(' ')
-        for w_idx, word in enumerate(words):
-            for ch in word:
-                code = ord(ch)
-                if code < 32 or code > 126:
-                    # Caractère hors plage : on ignore ou on substitue
-                    continue
-                idx = (code - 32 + rotation) % 95
-                tokens.append(TABLE[idx])
-                counter += 1
-                if counter % 50 == 0:
-                    rotation = (rotation + 1) % 95
-                    tokens.append(f"[R{rotation}]")
-            if w_idx < len(words) - 1:
-                tokens.append(WORDSEP)
-        tokens.append(NEWLIN)
-
-        encoded_line = ' '.join(tokens)
-        if add_crc:
-            encoded_line += f" [CRC:{crc16_hex(line)}]"
-        output_lines.append(encoded_line)
-
-    return '\n'.join(output_lines)
-
-
-# ---------------------------------------------------------------------------
-# Décodage
-# ---------------------------------------------------------------------------
-def decode(encoded_text: str, check_crc: bool = True) -> str:
-    """Décode un texte au format Excelsior_XW72 vers le texte clair."""
-    lines = encoded_text.splitlines()
-    if not lines or lines[0].strip() != "Excelsior_XW72":
-        raise ValueError("En-tête Excelsior_XW72 manquant ou invalide")
-
-    rotation = 0
-    counter  = 0
-    output_lines = []
-
-    for line in lines[1:]:
-        tokens = line.split()
-        current_line = ""
-        expected_crc = None
-
-        # Extraire le CRC s'il est présent en fin de ligne
-        if tokens and CRC_RE.match(tokens[-1]):
-            m = CRC_RE.match(tokens[-1])
-            expected_crc = m.group(1).upper()
-            tokens = tokens[:-1]
-
-        for tok in tokens:
-            if tok == NEWLIN:
-                break
-            if tok == WORDSEP:
-                current_line += ' '
+    for line in text.split("\n"):
+        enc = []
+        ascii_chars = ""
+        for ch in line:
+            code = ord(ch)
+            if code < 32 or code > 126:
+                enc.append(ch)
                 continue
-            m = ROTATION_RE.match(tok)
-            if m:
-                rotation = int(m.group(1))
-                continue
-            # Token de données
-            if tok not in TABLE_INV:
-                raise ValueError(f"Token inconnu : '{tok}'")
-            idx = TABLE_INV[tok]
-            ch  = chr((idx - rotation + 95) % 95 + 32)
-            current_line += ch
+            idx = (code - 32 + rotation) % 95
+            enc.append(TABLE[idx])
+            ascii_chars += ch
             counter += 1
-            if counter % 50 == 0:
+            if counter % ROTATE_EVERY == 0:
                 rotation = (rotation + 1) % 95
+        out.append("".join(enc))
+        out.append("\x02" + crc16(ascii_chars))
+    return "\n".join(out)
 
-        # Vérification CRC
-        if check_crc and expected_crc is not None:
-            actual_crc = crc16_hex(current_line)
-            if actual_crc != expected_crc:
-                raise ValueError(
-                    f"CRC invalide sur la ligne décodée '{current_line}' "
-                    f"(attendu {expected_crc}, obtenu {actual_crc})"
-                )
-        output_lines.append(current_line)
+def decode(text, check_crc=True):
+    lines = text.split("\n")
+    if not lines or lines[0] != HEADER:
+        raise ValueError("En-tete XW72-1 manquant")
+    rotation = 0
+    counter  = 0
+    result   = []
+    crc_errors = []
+    li = 1
+    line_num = 0
+    while li < len(lines):
+        enc_line = lines[li]; li += 1
+        exp_crc = None
+        if li < len(lines) and lines[li] and ord(lines[li][0]) == 2:
+            exp_crc = lines[li][1:]; li += 1
+        dec = []
+        ascii_dec = ""
+        for ch in enc_line:
+            code = ord(ch)
+            if code < 32 or code > 126:
+                dec.append(ch)
+                continue
+            if ch not in TABLE_INV:
+                raise ValueError(f"Token inconnu: {repr(ch)}")
+            idx = TABLE_INV[ch]
+            orig = chr((idx - rotation + 95) % 95 + 32)
+            dec.append(orig)
+            ascii_dec += orig
+            counter += 1
+            if counter % ROTATE_EVERY == 0:
+                rotation = (rotation + 1) % 95
+        decoded_line = "".join(dec)
+        if check_crc and exp_crc:
+            actual = crc16(ascii_dec)
+            if actual != exp_crc:
+                crc_errors.append(f"Ligne {line_num}: attendu {exp_crc}, obtenu {actual}")
+        result.append(decoded_line)
+        line_num += 1
+    if crc_errors:
+        print("AVERTISSEMENT CRC:", "; ".join(crc_errors), file=sys.stderr)
+    return "\n".join(result)
 
-    return '\n'.join(output_lines)
-
-
-# ---------------------------------------------------------------------------
-# Validation interne — round-trip test
-# ---------------------------------------------------------------------------
 def self_test():
-    samples = [
-        "Bonjour le monde !",
-        "Test 1-2-3 : encodage v7.",
-        "Caractères spéciaux : @#$%^&*()_+-=[]{}|;':\",./<>?",
-        "Ligne avec des chiffres : 0123456789",
-        "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        " ",   # espace seul
-        "~",   # dernier caractère ASCII imprimable
-    ]
-    print("=== Auto-test Excelsior_XW72 ===")
+    REF = [["Hello", "l,==@", "DADA"], ["Test", "x,^_", "2888"], ["ABC", "KLM", "F508"], ["abc", "()*", "514A"], ["123", "UVW", "5BCE"]]
+    print("=== Auto-test XW72-1 ===")
     all_ok = True
+    print("[1] Vecteurs de reference fixes")
+    for plain, expected_enc, expected_crc in REF:
+        rot=0; cnt=0; enc_chars=[]
+        for ch in plain:
+            code=ord(ch)
+            if code<32 or code>126: enc_chars.append(ch); continue
+            idx=(code-32+rot)%95; enc_chars.append(TABLE[idx])
+            cnt+=1
+            if cnt%ROTATE_EVERY==0: rot=(rot+1)%95
+        got="".join(enc_chars)
+        cr=crc16(plain)
+        ok_enc=(got==expected_enc); ok_crc=(cr==expected_crc)
+        ok=ok_enc and ok_crc; all_ok=all_ok and ok
+        print(f"  [{'OK' if ok else 'FAIL'}] {plain!r:8s} -> {got!r:10s} (attendu {expected_enc!r})  CRC={cr} [{'OK' if ok_crc else 'FAIL'}]")
+    print("[2] Round-trip complet")
+    samples=[
+        "Fichier confidentiel. Test 1-2-3.",
+        "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "0123456789 !@#$%&*()_+-=[]{}|;:,./<>?",
+        "Ligne 1\nLigne 2\nLigne 3",
+        " ", "~",
+    ]
     for s in samples:
-        encoded = encode(s, add_crc=True)
-        decoded = decode(encoded, check_crc=True)
-        ok = (decoded.strip() == s)
-        status = "OK" if ok else "FAIL"
-        if not ok:
-            all_ok = False
-        print(f"  [{status}] '{s[:40]}{'...' if len(s) > 40 else ''}'")
-        if not ok:
-            print(f"         → obtenu : '{decoded}'")
-    print("=== Résultat :", "TOUS OK" if all_ok else "ÉCHEC(S) DÉTECTÉ(S)", "===\n")
+        enc=encode(s); dec=decode(enc,check_crc=True)
+        ok=(dec==s); all_ok=all_ok and ok
+        print(f"  [{'OK' if ok else 'FAIL'}] {s[:55]!r}")
+        if not ok: print(f"         obtenu: {dec!r}")
+    print(f"=== RESULTAT: {'TOUS OK' if all_ok else 'ECHEC(S)'} ===")
     return all_ok
 
+if __name__=="__main__":
+    if len(sys.argv)<2 or sys.argv[1]=="test":
+        ok=self_test(); sys.exit(0 if ok else 1)
+    if len(sys.argv)!=4 or sys.argv[1] not in ("encode","decode"):
+        print(__doc__); sys.exit(1)
+    mode,in_path,out_path=sys.argv[1],sys.argv[2],sys.argv[3]
+    with open(in_path,"r",encoding="utf-8") as f: content=f.read()
+    result=encode(content) if mode=="encode" else decode(content)
+    with open(out_path,"w",encoding="utf-8") as f: f.write(result)
+    print(f"{mode} termine: {in_path!r} -> {out_path!r}")
 
-# ---------------------------------------------------------------------------
-# Point d'entrée CLI
-# ---------------------------------------------------------------------------
-if __name__ == "__main__":
-    if len(sys.argv) == 1 or sys.argv[1] == "test":
-        self_test()
-        sys.exit(0)
-
-    if len(sys.argv) != 4 or sys.argv[1] not in ("encode", "decode"):
-        print(__doc__)
-        sys.exit(1)
-
-    mode    = sys.argv[1]
-    in_path = sys.argv[2]
-    out_path= sys.argv[3]
-
-    with open(in_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-    if mode == "encode":
-        result = encode(content, add_crc=True)
-    else:
-        result = decode(content, check_crc=True)
-
-    with open(out_path, 'w', encoding='utf-8') as f:
-        f.write(result)
-
-    print(f"{mode} terminé : '{in_path}' → '{out_path}'")
 ```
 
----
-
-## Exemple de round-trip
-
-**Texte clair :**
-```
-Plan opérationnel v7.
-```
-
-**Encodé (Excelsior_XW72) :**
-```
-Excelsior_XW72
-Xi0Pr1 Xh6Ln7 Xg5Ac6 Xh8Np9 WORDSEP Xh9Oq0 Xi0Pr1 Xg9Eg0 Xi2Rt3 Xg5Ac6 Xi4Tv5 Xi3Su4 Xh3Ik4 Xh9Oq0 Xh8Np9 Xh8Np9 Xg9Eg0 Xh6Ln7 WORDSEP Xi6Vx7 Xb7Eg8 Xb4Bd5 NEWLIN [CRC:A3F1]
-```
-
-**Décodé :**
-```
-Plan opérationnel v7.
-```
-
----
-
-## Notes de sécurité
-
-- La table v7 est **publique** dans ce fichier ; la confidentialité n'est pas l'objectif premier
-- Pour un usage chiffré, remplacer la table par une **permutation secrète** des 95 tokens
-  générée par un PRNG seedé avec une passphrase (non stockée ici)
-- La rotation apporte une légère diffusion mais ne constitue pas un chiffrement fort
-- Usage recommandé : **obfuscation** de documents sensibles en transit, pas chiffrement cryptographique
-
-## FIN SECTION 3 v7 — Excelsior_XW72
-
-
-## SECTION 4 — Fin du fichier de préférences v6
+## SECTION 4 — Fin du fichier de préférences v8
