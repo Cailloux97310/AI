@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<LOC_MEAS>
+  <HEADER>
+    <SATELLITE> </SATELLITE>
+    <INTERFACE_SPECIFICATION>
+      <SCHEMA_NAME> </SCHEMA_NAME>
+      <SCHEMA_VERSION> </SCHEMA_VERSION>
+    </INTERFACE_SPECIFICATION>
+    <PRODUCTION_DATE> </PRODUCTION_DATE>
+    <PRODUCER> </PRODUCER>
+    <CONSUMER> </CONSUMER>
+    <CONFIDENTIALITY>
+      <LEVEL> </LEVEL>
+      <VISIBILITY> </VISIBILITY>
+    </CONFIDENTIALITY>
+  </HEADER>
+  <DATA>
+    <tdm version="1.0" id="CCSDS_TDM_VERS">
+      <header>
+        <COMMENT> </COMMENT>
+        <CREATION_DATE> </CREATION_DATE>
+        <ORIGINATOR> </ORIGINATOR>
+      </header>
+      <body>
+        <segment>
+          <metadata>
+			<COMMENT> </COMMENT>
+            <TIME_SYSTEM></TIME_SYSTEM>
+            <START_TIME></START_TIME>
+            <STOP_TIME></STOP_TIME>
+            <PARTICIPANT_1></PARTICIPANT_1>
+            <PARTICIPANT_2></PARTICIPANT_2>
+			<PARTICIPANT_3> </PARTICIPANT_3>
+			<PARTICIPANT_4> </PARTICIPANT_4>
+			<PARTICIPANT_5> </PARTICIPANT_5>
+            <MODE> </MODE>
+			<PATH> </PATH>
+			<TRANSMIT_BAND> </TRANSMIT_BAND>
+			<RECEIVE_BAND> </RECEIVE_BAND>
+			<TURNAROUND_NUMERATOR> </TURNAROUND_NUMERATOR>
+			<TURNAROUND_DENOMINATOR> </TURNAROUND_DENOMINATOR>
+            <TIMETAG_REF></TIMETAG_REF>
+            <INTEGRATION_INTERVAL></INTEGRATION_INTERVAL>
+            <INTEGRATION_REF></INTEGRATION_REF>
+			<FREQ_OFFSET>  </FREQ_OFFSET>
+			<RANGE_MODE>  </RANGE_MODE>
+			<RANGE_MODULUS>  </RANGE_MODULUS>
+			<RANGE_UNITS>  </RANGE_UNITS>
+            <ANGLE_TYPE> </ANGLE_TYPE>
+			<REFERENCE_FRAME> </REFERENCE_FRAME>
+			<TRANSMIT_DELAY_1> </TRANSMIT_DELAY_1>
+			<TRANSMIT_DELAY_2> </TRANSMIT_DELAY_2>
+			<TRANSMIT_DELAY_3> </TRANSMIT_DELAY_3>
+			<TRANSMIT_DELAY_4> </TRANSMIT_DELAY_4>
+			<TRANSMIT_DELAY_5> </TRANSMIT_DELAY_5>
+			<RECEIVE_DELAY_1> </RECEIVE_DELAY_1>	
+			<RECEIVE_DELAY_2> </RECEIVE_DELAY_2>
+			<RECEIVE_DELAY_3> </RECEIVE_DELAY_3>	
+			<RECEIVE_DELAY_4> </RECEIVE_DELAY_4>	
+			<RECEIVE_DELAY_5> </RECEIVE_DELAY_5>			
+            <DATA_QUALITY> </DATA_QUALITY>
+			<CORRECTION_ANGLE_1> </CORRECTION_ANGLE_1>
+			<CORRECTION_ANGLE_2> </CORRECTION_ANGLE_2>
+			<CORRECTION_DOPPLER> </CORRECTION_DOPPLER>
+			<CORRECTION_RANGE> </CORRECTION_RANGE>
+			<CORRECTION_RECEIVE> </CORRECTION_RECEIVE> 
+			<CORRECTION_TRANSMIT> </CORRECTION_TRANSMIT>
+			<CORRECTION_APPLIED> </CORRECTION_APPLIED>
+          </metadata>
+          <data>
+			<COMMENT> </COMMENT>
+			<observation>
+              <EPOCH> </EPOCH>
+              <ANGLE_1> </ANGLE_1>
+            </observation>
+			<observation>
+              <EPOCH> </EPOCH>
+              <ANGLE_2> </ANGLE_2>
+            </observation>						
+			<observation>
+              <EPOCH> </EPOCH>
+              <DOPPLER_INTEGRATED> </DOPPLER_INTEGRATED>
+            </observation>			
+			<observation>
+              <EPOCH> </EPOCH>
+              <PRESSURE> </PRESSURE>
+            </observation>				
+			<observation>
+              <EPOCH> </EPOCH>
+              <RANGE> </RANGE>
+            </observation>		
+			<observation>
+              <EPOCH> </EPOCH>
+              <RECEIVE_FREQ> </RECEIVE_FREQ>
+            </observation>			
+			<observation>
+              <EPOCH> </EPOCH>
+              <RECEIVE_FREQ_1> </RECEIVE_FREQ_1>
+            </observation>				
+			<observation>
+              <EPOCH> </EPOCH>
+              <RHUMIDITY> </RHUMIDITY>
+            </observation>	
+			<observation>
+              <EPOCH> </EPOCH>
+              <TEMPERATURE> </TEMPERATURE>
+            </observation>				
+			<observation>
+              <EPOCH> </EPOCH>
+              <TRANSMIT_FREQ_1> </TRANSMIT_FREQ_1>
+            </observation>		
+			<observation>
+              <EPOCH> </EPOCH>
+              <TRANSMIT_FREQ_2> </TRANSMIT_FREQ_2>
+            </observation>				
+          </data>
+        </segment>
+      </body>
+    </tdm>
+  </DATA>
+</LOC_MEAS>
