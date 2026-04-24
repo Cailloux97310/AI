@@ -70,6 +70,7 @@ input:focus{border-color:var(--ac)}
 <button class="ni active" onclick="sp('obf')"><span class="dot"></span> Anonymiser &amp; Encoder</button>
 <button class="ni" onclick="sp('deo')"><span class="dot"></span> Décoder</button>
 <button class="ni" onclick="sp('gh')"><span class="dot"></span> GitHub commit</button>
+<button class="ni" onclick="sp('gd')"><span class="dot"></span> Google Drive commit</button>
 </div><div class="ns"><div class="nl">Configuration</div>
 <button class="ni" onclick="sp('setup')"><span class="dot"></span> Mise en place</button>
 <button class="ni" onclick="sp('dir')"><span class="dot"></span> Directive Claude</button>
@@ -128,7 +129,8 @@ input:focus{border-color:var(--ac)}
 <textarea id="out" rows="9" readonly></textarea>
 <div class="br"><button onclick="copyOut()">Copier</button>
 <button class="bp" onclick="copyPrompt()">Copier pour Claude</button>
-<button class="bg" onclick="sp('gh')">&#8599; Committer sur GitHub</button></div>
+<button class="bg" onclick="sp('gh')">&#8599; GitHub</button>
+<button style="background:#1a73e8;color:#fff;border-color:#1a73e8" onclick="sp('gd')">&#8599; Google Drive</button></div>
 <div class="sb" id="s-cp"></div></div></div></div>
 <div class="panel" id="panel-deo">
 <div class="pt">Décoder</div>
@@ -156,6 +158,37 @@ input:focus{border-color:var(--ac)}
 <div class="sb" id="s-gh"></div><div class="gh-log" id="gh-log"></div></div>
 <div class="card"><div class="ct">Aperçu</div>
 <textarea id="gh-preview" rows="5" readonly style="font-size:10px"></textarea></div></div>
+<div class="panel" id="panel-gd">
+<div class="pt">Commit Google Drive</div>
+<div class="ps">Dépose le fichier encodé sur votre <strong>Google Drive</strong> via l'API Google.</div>
+<div class="al aw"><strong>Sécurité :</strong> OAuth2 via popup Google. Le token n'est jamais persisté au-delà de la session.</div>
+<div class="card"><div class="ct">Authentification Google</div>
+<div style="font-size:12px;color:var(--t2);margin-bottom:10px;line-height:1.7">
+Connectez-vous avec votre compte Google pour autoriser l'accès à votre Drive. Seul le scope <code>drive.file</code> est demandé (accès uniquement aux fichiers créés par cette app).
+</div>
+<label class="fl">Client ID OAuth2 (Google Cloud Console)</label>
+<input type="text" id="gd-client-id" placeholder="xxxxxxxx.apps.googleusercontent.com" style="margin-bottom:10px">
+<div class="br">
+<button class="bp" onclick="gdAuth()">&#128274; Se connecter à Google</button>
+<button onclick="gdSignOut()" id="gd-signout-btn" style="display:none">Déconnexion</button>
+</div>
+<div class="sb" id="s-gd-auth"></div>
+<div id="gd-user-info" style="display:none;font-size:11px;color:var(--ok);margin-top:8px;padding:7px 10px;background:var(--ob);border-radius:var(--r)"></div>
+</div>
+<div class="card"><div class="ct">Destination</div>
+<label class="fl">Nom du fichier sur Drive</label>
+<input type="text" id="gd-filename" value="encoded.txt" style="margin-bottom:10px">
+<label class="fl">Dossier cible (laisser vide = racine Drive)</label>
+<input type="text" id="gd-folder" placeholder="ex : AI/documents  (chemin ou ID de dossier)" style="margin-bottom:10px">
+<div class="br">
+<button class="bg" onclick="commitGoogleDrive()">&#8599; Envoyer sur Google Drive</button>
+</div>
+<div class="sb" id="s-gd"></div>
+<div class="gh-log" id="gd-log"></div>
+</div>
+<div class="card"><div class="ct">Aperçu</div>
+<textarea id="gd-preview" rows="5" readonly style="font-size:10px"></textarea></div>
+</div>
 <div class="panel" id="panel-setup">
 <div class="pt">Mise en place</div><div class="ps">Configuration unique.</div>
 <div class="ig">
@@ -165,6 +198,7 @@ input:focus{border-color:var(--ac)}
 <div class="sc2"><div class="snum">4</div><div class="sti">Définir les règles</div><div class="sde">Onglet "Anonymiser &amp; Encoder" → ajouter les termes sensibles et leurs remplacements. Exportez en JSON pour les réutiliser.</div></div>
 <div class="sc2"><div class="snum">5</div><div class="sti">Anonymiser &amp; Encoder</div><div class="sde">Chargez un document → "Anonymiser &amp; Encoder". Taille de sortie identique à l'original.</div></div>
 <div class="sc2"><div class="snum">6</div><div class="sti">Committer sur GitHub</div><div class="sde">Saisissez votre PAT GitHub (scope repo) et committez. Le fichier est déposé dans <em>Cailloux97310/AI/documents/</em>.</div></div>
+<div class="sc2"><div class="snum">7</div><div class="sti">Committer sur Google Drive</div><div class="sde">Onglet "Google Drive commit" → saisissez votre Client ID OAuth2 (Google Cloud Console, scope <em>drive.file</em>) → authentifiez-vous → choisissez le dossier cible → envoyez. Fonctionne en mode <em>créer ou mettre à jour</em>.</div></div>
 </div></div>
 <div class="panel" id="panel-dir">
 <div class="pt">Directive Claude</div>
@@ -227,6 +261,7 @@ ETAPE 2 - Encodage XW72-1
 <tr><td>Non-ASCII</td><td><span class="badge bw">Pass-through</span></td><td>Les accents, émoji etc. ne sont pas substitués</td></tr>
 <tr><td>Chiffrement</td><td><span class="badge bd2">Non</span></td><td>Obfuscation — table publique dans claude_preferences.txt</td></tr>
 <tr><td>Token GitHub</td><td><span class="badge bs">Protégé</span></td><td>Jamais persisté, saisi manuellement à chaque session</td></tr>
+<tr><td>Token Google Drive</td><td><span class="badge bs">Protégé</span></td><td>OAuth2 en mémoire session uniquement, scope drive.file restreint</td></tr>
 </tbody></table></div></div>
 </main></div>
 <script>
@@ -396,6 +431,7 @@ function _showEncoded(res,anonCount,origLen){
   document.getElementById("st-crc").textContent=res.lines;
   document.getElementById("out-sec").style.display="block";
   document.getElementById("gh-preview").value=res.text;
+  document.getElementById("gd-preview").value=res.text;
   document.getElementById("size-info").textContent=res.chars+" chars encod\u00e9s";
   var msg=anonCount?anonCount+" terme(s) anonymis\u00e9(s) \u00b7 ":"";
   msg+=res.chars+" chars encod\u00e9s \u00b7 ratio 1:1 \u00b7 "+res.lines+" ligne(s) CRC";
@@ -554,12 +590,165 @@ function sp(name){
   document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("active");});
   document.querySelectorAll(".ni").forEach(function(n){n.classList.remove("active");});
   document.getElementById("panel-"+name).classList.add("active");
-  var idx=["obf","deo","gh","setup","dir","algo","table","lim"].indexOf(name);
+  var idx=["obf","deo","gh","gd","setup","dir","algo","table","lim"].indexOf(name);
   var items=document.querySelectorAll(".ni");
   if(idx>=0&&items[idx])items[idx].classList.add("active");
 }
 
-// Init table render
+
+// ── GOOGLE DRIVE ─────────────────────────────────────────────────────────────
+var GD_TOKEN = null;
+
+function gdAuth(){
+  var clientId = document.getElementById("gd-client-id").value.trim();
+  if(!clientId){st("s-gd-auth","Client ID requis.","warn");return;}
+  var redirectUri = window.location.href.split("?")[0].split("#")[0];
+  var scope = "https://www.googleapis.com/auth/drive.file";
+  var authUrl = "https://accounts.google.com/o/oauth2/v2/auth"
+    + "?client_id=" + encodeURIComponent(clientId)
+    + "&redirect_uri=" + encodeURIComponent(redirectUri)
+    + "&response_type=token"
+    + "&scope=" + encodeURIComponent(scope);
+  // Store client ID for token retrieval
+  sessionStorage.setItem("gd_client_id", clientId);
+  var popup = window.open(authUrl, "gdauth", "width=500,height=600,left=200,top=100");
+  // Poll for redirect with token
+  var pollTimer = setInterval(function(){
+    try{
+      var popUrl = popup.location.href;
+      if(popUrl.indexOf(redirectUri) === 0){
+        var hash = popup.location.hash.substring(1);
+        popup.close();
+        clearInterval(pollTimer);
+        var params = {};
+        hash.split("&").forEach(function(p){var kv=p.split("=");params[kv[0]]=decodeURIComponent(kv[1]||"");});
+        if(params.access_token){
+          GD_TOKEN = params.access_token;
+          // Get user info
+          fetch("https://www.googleapis.com/oauth2/v3/userinfo",{headers:{"Authorization":"Bearer "+GD_TOKEN}})
+            .then(function(r){return r.json();})
+            .then(function(u){
+              var info = u.email || u.name || "Connecté";
+              document.getElementById("gd-user-info").textContent = "✓ Connecté : " + info;
+              document.getElementById("gd-user-info").style.display = "block";
+              document.getElementById("gd-signout-btn").style.display = "inline-flex";
+              st("s-gd-auth","Authentification réussie.","ok");
+            }).catch(function(){st("s-gd-auth","Connecté (profil non récupéré).","ok");});
+        } else {
+          st("s-gd-auth","Erreur : " + (params.error || "token non reçu"),"err");
+        }
+      }
+    }catch(e){/* cross-origin, continue polling */}
+    if(popup.closed){clearInterval(pollTimer);}
+  }, 500);
+}
+
+function gdSignOut(){
+  GD_TOKEN = null;
+  document.getElementById("gd-user-info").style.display = "none";
+  document.getElementById("gd-signout-btn").style.display = "none";
+  st("s-gd-auth","Déconnecté.","info");
+}
+
+// Find or create a folder by path (e.g. "AI/documents"), returns folderId
+function gdResolveFolder(pathStr, token, cb){
+  if(!pathStr || !pathStr.trim()){cb(null,"root");return;}
+  var parts = pathStr.trim().split("/").filter(Boolean);
+  var parentId = "root";
+  function nextPart(i){
+    if(i >= parts.length){cb(null, parentId);return;}
+    var name = parts[i];
+    var q = "name='" + name.replace(/'/g,"\\'") + "' and mimeType='application/vnd.google-apps.folder' and '" + parentId + "' in parents and trashed=false";
+    fetch("https://www.googleapis.com/drive/v3/files?q=" + encodeURIComponent(q) + "&fields=files(id,name)",
+      {headers:{"Authorization":"Bearer "+token}})
+      .then(function(r){return r.json();})
+      .then(function(data){
+        if(data.files && data.files.length > 0){
+          parentId = data.files[0].id;
+          nextPart(i+1);
+        } else {
+          // create folder
+          fetch("https://www.googleapis.com/drive/v3/files",{
+            method:"POST",
+            headers:{"Authorization":"Bearer "+token,"Content-Type":"application/json"},
+            body:JSON.stringify({name:name,mimeType:"application/vnd.google-apps.folder",parents:[parentId]})
+          }).then(function(r){return r.json();})
+            .then(function(f){if(f.id){parentId=f.id;nextPart(i+1);}else{cb("Erreur création dossier: "+(f.error&&f.error.message||JSON.stringify(f)),null);}})
+            .catch(function(e){cb(e.toString(),null);});
+        }
+      })
+      .catch(function(e){cb(e.toString(),null);});
+  }
+  nextPart(0);
+}
+
+function commitGoogleDrive(){
+  if(!GD_TOKEN){st("s-gd","Connectez-vous d'abord à Google.","warn");return;}
+  var filename = document.getElementById("gd-filename").value.trim() || "encoded.txt";
+  var folderPath = document.getElementById("gd-folder").value.trim();
+  var content = document.getElementById("out").value;
+  if(!content){st("s-gd","Encodez d'abord le document.","warn");return;}
+  var log = document.getElementById("gd-log");
+  log.style.display = "block";
+  log.textContent = "Résolution du dossier cible...";
+  st("s-gd","Envoi en cours...","info");
+
+  gdResolveFolder(folderPath, GD_TOKEN, function(err, folderId){
+    if(err){st("s-gd","Erreur dossier: "+err,"err");log.textContent=err;return;}
+    log.textContent = "Recherche du fichier existant...";
+    var parentId = folderId || "root";
+    var q = "name='" + filename.replace(/'/g,"\\'") + "' and '" + parentId + "' in parents and trashed=false";
+    fetch("https://www.googleapis.com/drive/v3/files?q=" + encodeURIComponent(q) + "&fields=files(id,name)",
+      {headers:{"Authorization":"Bearer "+GD_TOKEN}})
+      .then(function(r){return r.json();})
+      .then(function(data){
+        var blob = new Blob([content],{type:"text/plain;charset=utf-8"});
+        var existing = data.files && data.files.length > 0 ? data.files[0] : null;
+        if(existing){
+          // Update existing file
+          log.textContent = "Mise à jour du fichier existant...";
+          return fetch("https://www.googleapis.com/upload/drive/v3/files/" + existing.id + "?uploadType=media",{
+            method:"PATCH",
+            headers:{"Authorization":"Bearer "+GD_TOKEN,"Content-Type":"text/plain"},
+            body:blob
+          }).then(function(r){return r.json();})
+            .then(function(f){return {action:"mis à jour", fileId:f.id||existing.id};});
+        } else {
+          // Create new file via multipart
+          log.textContent = "Création du fichier...";
+          var meta = JSON.stringify({name:filename, parents:[parentId]});
+          var boundary = "xw72boundary";
+          var multipart = "--" + boundary + "\r\n"
+            + "Content-Type: application/json; charset=UTF-8\r\n\r\n"
+            + meta + "\r\n"
+            + "--" + boundary + "\r\n"
+            + "Content-Type: text/plain; charset=UTF-8\r\n\r\n"
+            + content + "\r\n"
+            + "--" + boundary + "--";
+          return fetch("https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name,webViewLink",{
+            method:"POST",
+            headers:{"Authorization":"Bearer "+GD_TOKEN,"Content-Type":"multipart/related; boundary="+boundary},
+            body:multipart
+          }).then(function(r){return r.json();})
+            .then(function(f){return {action:"créé", fileId:f.id, link:f.webViewLink};});
+        }
+      })
+      .then(function(res){
+        if(res && res.fileId){
+          var link = res.link || ("https://drive.google.com/file/d/"+res.fileId+"/view");
+          st("s-gd","Fichier "+res.action+" avec succès.","ok");
+          log.innerHTML = "Fichier "+res.action+" :<br><a href='"+link+"' target='_blank' style='color:var(--ac)'>"+link+"</a>";
+        } else {
+          st("s-gd","Erreur inattendue.","err");
+          log.textContent = JSON.stringify(res,null,2);
+        }
+      })
+      .catch(function(e){st("s-gd","Erreur : "+e,"err");log.textContent=e.toString();});
+  });
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
+
 (function(){
   var html="";
   for(var i=0;i<95;i++){
