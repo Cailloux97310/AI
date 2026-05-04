@@ -1,0 +1,7568 @@
+ SPACEBEL SAS 
+
+ 
+
+C:\Users\sds\AppData\Local\Temp\JPGCEBE.tmp
+STONES 
+
+ 
+
+ 
+
+Simulator Team 
+
+CNG-MR-Z57-1727-SPB 
+
+Edition 
+
+: 05 
+
+Date 
+
+: 23/06/2025 
+
+ 
+
+Révision 
+
+: 00 
+
+Date 
+
+: 23/06/2025 
+
+Réf. : CDO/MR/1727 
+
+ 
+
+ 
+
+Code diffusion 
+
+ : E 
+
+MANUEL DE REFERENCE 
+GUIDE DE CONFIGURATION DE STONES 
+
+
+
+ 
+
+Rédigé par : 
+
+Equipe Simulation SPACEBEL SAS 
+
+le : 27/06/2025 
+
+ 
+
+Validé par : 
+
+DESCHAMPS Sophie SPACEBEL SAS 
+
+le : 27/06/2025 
+
+ 
+
+Pour application : 
+
+VERHOYEN Pierre SPACEBEL SAS 
+
+le : 27/06/2025 
+
+ 
+
+
+
+ 
+
+
+BORDEREAU D'INDEXATION 
+
+CONFIDENTIALITE : 
+DLP 23/06/2035 
+
+MOTS CLES : SBB, STONES, simulateur 
+
+TITRE DU DOCUMENT : 
+
+Manuel de référence 
+
+Guide de configuration de STONES 
+
+AUTEUR(S) : 
+
+Equipe Simulation SPACEBEL SAS 
+
+RESUME : Ce document constitue le guide de configuration de STONES et son environnement. 
+
+DOCUMENTS RATTACHES : Ce document vit seul. 
+
+LOCALISATION : 
+CDO/MR 
+
+VOLUME : 1 
+
+NBRE TOTAL DE PAGES : !Syntax 
+Error, GDOCNBPAG 
+
+DONT PAGES LIMINAIRES : 7 
+
+NBRE DE PAGES SUPPL. : 0 
+
+DOCUMENT COMPOSITE : N 
+
+ 
+
+LANGUE : FR 
+
+GESTION DE CONF. : NG 
+
+RESP. GEST. CONF. : 
+
+CAUSE D'EVOLUTION : STONES v6 
+
+CONTRAT : Néant 
+
+SYSTEME HOTE : 
+Microsoft Word 16.0 (16.0.10417) 
+C:\Users\sds\AppData\Roaming\Microsoft\Templates\GDOC_4.3.1.2\GDOC_4312_Freeware\GDOC_
+4312_Freeware\MODELES_GDOC\ModeleGDOCIndus.dot 
+Version GDOC : v4.3.1.2 
+Base projet : \\spb-tse-dc19.spacebel.fr\Public\Outils\Gdoc\cdo-stones.mdb 
+
+
+
+
+
+
+DIFFUSION INTERNE 
+
+Nom 
+
+Sigle 
+
+Bpi 
+
+Observations 
+
+DESCHAMPS Sophie 
+
+SPACEBEL SAS 
+
+ 
+
+ 
+
+VERHOYEN Pierre 
+
+SPACEBEL SAS 
+
+ 
+
+ 
+
+Equipe Simulation 
+
+SPACEBEL SAS 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+DIFFUSION EXTERNE 
+
+Nom 
+
+Sigle 
+
+Observations 
+
+MANON Frédéric 
+
+DTN/AVI/VS 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+
+MODIFICATION 
+
+Ed. 
+
+Rév. 
+
+Date 
+
+Référence, Auteur(s), Causes d’évolution 
+
+05 
+
+00 
+
+23/06/2025 
+
+CDO/MR/1727 
+
+Equipe Simulation SPACEBEL SAS 
+
+STONES v6 
+
+04 
+
+00 
+
+12/12/2024 
+
+CDO/MR/1727 
+
+Equipe Simulation SPACEBEL SAS 
+
+STONES v5 
+
+03 
+
+00 
+
+16/09/2024 
+
+CDO/MR/1727 
+
+Equipe Simulation SPACEBEL SAS 
+
+STONES v4 
+
+02 
+
+00 
+
+18/04/2024 
+
+CDO/MR/1727 
+
+Equipe Simulation SPACEBEL SAS 
+
+Les évolutions apportées sont : 
+
+- Rédaction du fichier "interfaces.jsonc" 
+
+- Synchronisation au SG_TPS 
+
+- Suppression du besoin de PASSERELLE itérative 
+
+- Prise en compte des FEPS CNES 
+
+- Ajout de la description de formats d'entrée 
+
+01 
+
+00 
+
+27/02/2024 
+
+CDO/MR/1727 
+
+Equipe Simulation SPACEBEL SAS 
+
+Création du document 
+
+
+
+
+SOMMAIRE 
+
+GLOSSAIRE ET LISTE DES PARAMETRES AC & AD .................................................................................................................... 1 
+1. GENERALITES ................................................................................................................................................................. 2 
+1.1. DOCUMENTS DE REFERENCE .................................................................................................................................................. 2 
+1.2. DOCUMENTS APPLICABLES .................................................................................................................................................... 2 
+2. INTRODUCTION .............................................................................................................................................................. 3 
+2.1. CONTEXTE ......................................................................................................................................................................... 3 
+2.2. OBJET DU DOCUMENT .......................................................................................................................................................... 3 
+3. ENVIRONNEMENT SYSTEME........................................................................................................................................... 4 
+3.1. SYSTEME D’EXPLOITATION .................................................................................................................................................... 4 
+3.2. DEPENDANCE LOGICIEL......................................................................................................................................................... 4 
+3.3. DROITS ............................................................................................................................................................................. 4 
+4. DEPLOIEMENT DE STONES ............................................................................................................................................. 5 
+4.1. PRODUIT ........................................................................................................................................................................... 5 
+4.2. INSTALLATION .................................................................................................................................................................... 5 
+4.3. INITIALISATION ET LANCEMENT .............................................................................................................................................. 6 
+4.3.1. Sourcer l’environnement ........................................................................................................................................ 6 
+4.3.2. Lancement.............................................................................................................................................................. 6 
+5. WORKSPACE .................................................................................................................................................................. 7 
+5.1. REGLES D’ORGANISATION ET DE NOMMAGE ............................................................................................................................. 7 
+5.2. UNITES ............................................................................................................................................................................. 7 
+5.3. STRUCTURATION ................................................................................................................................................................. 8 
+5.4. ROLES ET FORMATS ............................................................................................................................................................. 9 
+5.4.1. Généralités ............................................................................................................................................................. 9 
+5.4.2. Fichier workspace.jsonc ....................................................................................................................................... 10 
+5.4.2.1. Emplacement ...................................................................................................................................................................... 10 
+5.4.2.2. Rôles ................................................................................................................................................................................... 10 
+5.4.2.3. Structure ............................................................................................................................................................................. 10 
+5.4.2.4. Exemple .............................................................................................................................................................................. 11 
+5.4.3. Fichier mission.jsonc ............................................................................................................................................ 12 
+5.4.3.1. Emplacement ...................................................................................................................................................................... 12 
+5.4.3.2. Rôles ................................................................................................................................................................................... 12 
+5.4.3.3. Structure ............................................................................................................................................................................. 12 
+5.4.3.4. Source de temps ................................................................................................................................................................. 14 
+5.4.3.5. Timezones ........................................................................................................................................................................... 14 
+5.4.3.6. Decriptions des systèmes ................................................................................................................................................... 14 
+5.4.3.6.1. Radars .......................................................................................................................................................................... 15 
+5.4.3.6.2. Stations TM .................................................................................................................................................................. 15 
+5.4.3.6.3. Stations TC ................................................................................................................................................................... 15 
+5.4.3.6.4. Véhicule........................................................................................................................................................................ 15 
+5.4.3.7. Exemple .............................................................................................................................................................................. 15 
+5.4.4. Fichier flight.jsonc ................................................................................................................................................ 17 
+5.4.4.1. Emplacement ...................................................................................................................................................................... 17 
+5.4.4.2. Rôles ................................................................................................................................................................................... 17 
+5.4.4.3. Structure ............................................................................................................................................................................. 18 
+5.4.4.4. Exemple .............................................................................................................................................................................. 18 
+5.4.5. Fichier interfaces.jsonc ......................................................................................................................................... 19 
+5.4.5.1. Emplacement ...................................................................................................................................................................... 19 
+5.4.5.2. Rôles ................................................................................................................................................................................... 19 
+5.4.5.3. Structure ............................................................................................................................................................................. 19 
+5.4.5.3.1. Interface SCRIPTOR ...................................................................................................................................................... 20 
+5.4.5.3.2. Interface SG_TPS .......................................................................................................................................................... 20 
+5.4.5.3.3. Interface EIR ................................................................................................................................................................. 21 
+5.4.5.3.4. Interface CORTEX ......................................................................................................................................................... 22 
+5.4.5.3.5. Interface LOC_STREAM_SIMPLE .................................................................................................................................. 26 
+5.4.5.3.6. Interface TM_STREAM_SIMPLE ................................................................................................................................... 27 
+5.4.6. Description des systèmes ..................................................................................................................................... 28 
+5.4.6.1. Emplacement ...................................................................................................................................................................... 28 
+5.4.6.2. Rôles ................................................................................................................................................................................... 28 
+5.4.6.3. Structure ............................................................................................................................................................................. 28 
+5.4.6.3.1. Radars .......................................................................................................................................................................... 29 
+5.4.6.3.2. Stations TM .................................................................................................................................................................. 33 
+5.4.6.3.3. Stations TC ................................................................................................................................................................... 42 
+5.4.6.3.4. Véhicule........................................................................................................................................................................ 45 
+5.4.7. Fichier scenario.py ............................................................................................................................................... 49 
+5.4.7.1. Emplacement ...................................................................................................................................................................... 49 
+5.4.7.2. Rôle ..................................................................................................................................................................................... 49 
+5.4.7.3. Exemple .............................................................................................................................................................................. 49 
+5.4.8. Données d’entrée ................................................................................................................................................. 49 
+5.4.8.1. Trajectoires AES .................................................................................................................................................................. 50 
+5.4.8.2. Masques.............................................................................................................................................................................. 50 
+5.4.8.3. Diagrammes ........................................................................................................................................................................ 50 
+5.5. CONTRAINTES ET BESOINS ................................................................................................................................................... 50 
+6. INTERFACES EXTERNES ................................................................................................................................................. 51 
+6.1. SCRIPTOR ..................................................................................................................................................................... 51 
+6.2. SG_TPS ......................................................................................................................................................................... 51 
+6.2.1. Généralité ............................................................................................................................................................ 51 
+6.2.2. Synchronisation .................................................................................................................................................... 51 
+6.3. LIAISONS EIR ................................................................................................................................................................... 52 
+6.4. LIAISONS CORTEX ........................................................................................................................................................... 52 
+6.4.1. Généralités ........................................................................................................................................................... 52 
+6.4.2. Connexions ........................................................................................................................................................... 52 
+6.4.3. Représentativité ................................................................................................................................................... 52 
+6.5. FLUX SIMPLIFIES ................................................................................................................................................................ 53 
+6.5.1. LOC_STREAM_SIMPLE et TM_STREAM_SIMPLE .................................................................................................. 53 
+6.5.2. Données ............................................................................................................................................................... 53 
+6.5.2.1. Paramètres ......................................................................................................................................................................... 54 
+6.5.2.2. Ephémérides ....................................................................................................................................................................... 54 
+6.5.3. Format d’une trame ............................................................................................................................................. 54 
+ANNEXE A : SCHEMAS DES FICHIERS XML DIAGRAMMES A.1 
+
+ANNEXE B : FORMAT DES FICHIERS MASQUES B.1 
+
+ 
+
+ 
+
+
+GLOSSAIRE ET LISTE DES PARAMETRES AC & AD 
+
+BASILES 
+
+Base d'Applications pour SImulateurs et Logiciels d'Etude de Systèmes complexes 
+
+CDO 
+
+Centre Des Opérations 
+
+CSG 
+
+Centre Spatial Guyanais 
+
+RF 
+
+Radio Fréquence 
+
+RHEL 
+
+Red Hat Enterprise Linux 
+
+Simulator 
+
+Executable allowing to represent the behavior of a set of physical phenomenons 
+
+STONES 
+
+Simulator Training Operational Numerical Environment System 
+
+TC 
+
+TéléCommande = TCH 
+
+TCNF 
+
+TéléCommande de Neutralisation de Flanquement 
+
+TM 
+
+TéléMesure 
+
+TSAR 
+
+Télécommande Sauvegarde ARiane 
+
+UTC 
+
+TUC : Temps Universel Coordonné 
+
+XML 
+
+eXtensible Markup Language 
+
+
+
+ 
+
+Liste des paramètres AC : 
+
+Liste des paramètres AD : 
+
+ 
+
+
+1. GENERALITES 
+
+1.1. DOCUMENTS DE REFERENCE 
+
+DR1 Installation Manual - Basiles 
+Simulator Team, 27/11/2023, Édit. 03, Rév. 07 
+BASIL-MI-SG-1032-SPB 
+
+DR2 CORTEX Serie - Command Ranging & Telemetry Unit - TCP-IP Ethernet Interface 
+SAFRAN, 15/04/2021, Édit. 3, Rév. 37 
+STI_100013_CRT 
+
+
+
+1.2. DOCUMENTS APPLICABLES 
+
+Aucun. 
+
+ 
+
+
+2. INTRODUCTION 
+
+2.1. CONTEXTE 
+
+STONES est un simulateur d’environnement du CDO. Il a pour objectif de modéliser numériquement tous les moyens 
+qui sont en interface avec le CDO de façon à placer le CDO et les opérateurs dans des conditions comparables aux 
+conditions de mise en service réelles. 
+
+2.2. OBJET DU DOCUMENT 
+
+Ce document constitue le guide de configuration du simulateur STONES et de son environnement. 
+
+
+3. ENVIRONNEMENT SYSTEME 
+
+3.1. SYSTEME D’EXPLOITATION 
+
+L’OS de référence du projet STONES est le suivant : RHEL 8.6 
+
+Ce système d’exploitation doit être installé suivant la procédure d’installation donné dans le DR1 (Installation Manual 
+- Basiles). 
+
+3.2. DEPENDANCE LOGICIEL 
+
+STONES est un simulateur de BASILES. 
+
+BASILES est une infrastructure permettant de concevoir, développer et mettre en oeuvre des simulations de 
+systèmes complexes, qu’elles soient à évolution continue, événementielle ou par agent, intégrant ou non des 
+équipements matériels. Conçus à l’origine pour la simulation numérique des satellites, les composants de BASILES 
+ont été éprouvés sur de nombreuses missions spatiales, pour le dimensionnement des satellites, les qualifications 
+technique et opérationnelle du système spatial dans sa globalité. 
+
+BASILES est autonome et intègre un ensemble d’outil dont boost_1_79_0. 
+
+3.3. DROITS 
+
+Pour garantir le bon fonctionnement de STONES, il est essentiel qu’il dispose des droits d’accès appropriés : cela 
+inclut les droits de lecture, d'écriture et d'exécution. 
+
+
+4. DEPLOIEMENT DE STONES 
+
+4.1. PRODUIT 
+
+Le simulateur est disponible dans deux archives distinctes : STONES_<version>.tar.gz ou 
+STONES_<version>_SCRIPTOR_DR-SF.tar.gz. Les procédures de déploiement et de lancement sont les mêmes. 
+Il suffit simplement de remplacer STONES_<version>.tar.gz par STONES_<version>_SCRIPTOR_DR-SF.tar.gz, et 
+STONES_<version> par STONES_<version>_SCRIPTOR_DR-SF dans les procédures. 
+
+4.2. INSTALLATION 
+
+La procédure de déploiement du simulateur STONES est la suivante : 
+
+1. Déploiement de l’infrastructure BASILES 
+• Archive nécessaire : Basiles_4.3_binaire_RH8.3_64b.tar.gz 
+• Procédure : 
+o Copier l’archive BASILES dans l’emplacement cible : 
+o Décompresser l’archive : 
+
+
+
+
+
+ 
+
+$ cd <emplacement_cible> 
+
+$ cp -r <access_path>/Basiles_4.3_binaire_RH8.3_64b.tar.gz . 
+
+ 
+
+ 
+
+$ tar xvzf Basiles_4.3_binaire_RH8.3_64b.tar.gz 
+
+2. Déploiement du simulateur STONES 
+• Archive nécessaire : STONES_<version>.tar.gz 
+• Procédure : 
+o Copier l’archive STONES dans l’emplacement cible : 
+o Décompresser l’archive : 
+o Déploiement de la configuration : 
+
+
+
+
+
+ 
+
+$ cd <emplacement_cible> 
+
+$ cp -r <access_path>/STONES_<version>.tar.gz . 
+
+ 
+
+ 
+
+$ tar xvzf STONES_<version>.tar.gz 
+
+ 
+
+ 
+
+$ cd STONES_<version>/qualite/installation/basiles 
+
+$ cp -f basiles.rc <emplacement_cible>/Basiles_4.3_binaire_RH8.3_64b 
+
+$ mkdir -p <emplacement_cible>/Basiles_4.3_binaire_RH8.3_64b/.basiles 
+
+$ cp -f IHM_preferences.cfg 
+<emplacement_cible>/Basiles_4.3_binaire_RH8.3_64b/.basiles 
+
+
+4.3. INITIALISATION ET LANCEMENT 
+
+4.3.1. Sourcer l’environnement 
+
+La procédure de sourcer l’environnement doit être réalisée à chaque fois que l’utilisateur se trouve dans un nouveau 
+contexte : nouveau terminal ou bien après avoir redémarré son système. 
+
+La procédure de sourcer l’environnement est la suivante : 
+
+$ export CDO_BASILES_DIR=<emplacement_cible>/Basiles_4.3_binaire_RH8.3_64b 
+
+$ source <emplacement_cible>/STONES_<version>/stones_env.rc 
+
+La variable d’environnement CDO_BASILES_DIR doit contenir un chemin absolu. 
+
+4.3.2. Lancement 
+
+Pour utiliser le simulateur STONES, il suffit de lancer son exécution dans un terminal via la commande suivante : 
+
+ 
+
+$ stones <emplacement_cible/Workspace> 
+
+ 
+
+ 
+
+
+5. WORKSPACE 
+
+Comme tout simulateur opérant via BASILES, le simulateur STONES dispose de son propre dossier de travail et 
+d’une structuration prédéfinie. Cette structure n’a pas vocation à être manipulée par un système autre que BASILES 
+lui-même. 
+
+Le WORKSPACE est un dossier distinct de STONES, qui possède une organisation de fichiers et de répertoire bien 
+définie. 
+
+Ce chapitre décrit les principes liés à ce dossier WORKSPACE. 
+
+5.1. REGLES D’ORGANISATION ET DE NOMMAGE 
+
+Afin de garantir l’intégrité du Workspace et de faciliter la bonne compréhension de celui-ci, plusieurs règles doivent 
+obligatoirement être appliquées : 
+
+• Nommage 
+o Les fichiers workspace.jsonc, interfaces.jsonc, mission.jsonc, flight.jsonc et 
+scenario.py doivent impérativement conserver ces noms. 
+o Les fichiers de description des systèmes ont impérativement un nom de la forme 
+« <nature_du_système>_<code_du_système>.jsonc » où : 
+▪ Nature_du_système : correspond à la nature du système (radar, stationTM, stationTC, 
+launcher) 
+▪ Code_du_système : code unique du moyen (BR1, BR2, AMZ, TCNF, VEGAC, …) 
+
+
+
+o Le nom du fichier AES doit se terminer par « _aes » ou « _AES » et ne doit pas avoir d’extension. 
+
+
+
+
+
+ 
+
+• Emplacement 
+o Les données communes à tous les systèmes sont placées dans Systems/Common/Data 
+o Les données spécifiques à chaque type de système (radars, stationTC, stationTM, launcher) sont 
+placées dans un sous-dossier Data du dossier dédié au type de système : 
+▪ Systems/Radars 
+▪ Systems/Stations_TC 
+▪ Systems/Stations_TM 
+▪ Systems/Vehicles 
+
+
+
+
+
+
+
+
+5.2. UNITES 
+
+Les unités à utiliser sont les unités SI (Système International) : 
+
+• Distance : mètres [m] 
+• Masse : kilogrammes [kg] 
+• Durée : secondes [s] 
+• Intensité électrique : Ampère [A] 
+• Tension électrique : Volts [V] 
+• Angle : radian [rad] 
+• Fréquence : Hertz [Hz] 
+• Force : Newton [N] 
+• Pression : Pascal [Pa] 
+• Energie : joules [J] 
+
+
+
+• Puissance : Watts [W] 
+• Température : Degrés Celsius [°C] 
+
+
+Les unités informatiques utilisées sont les suivantes : 
+
+• Quantités : bits [b], octets [o], kilo-octets [ko], méga-octets [Mo], giga-octets [Go] 
+• Un kilo-octet vaut 1024 octets. 
+
+
+D’autres unités peuvent être utilisées lorsque leur usage se justifie. 
+
+5.3. STRUCTURATION 
+
+Un WORKSPACE STONES est structuré via un fichier workspace.jsonc qui constitue un point d’entrée. 
+
+Trois sous-dossiers doivent être présents : 
+
+• Mission : contient les informations et données spécifiques à la mission qui sera simulées par STONES. Ces 
+données sont en partie fournies par l’opérateur responsable de l’essai. 
+• Systems : contient les informations et données des différents systèmes pouvant être simulés dans STONES. 
+Ces descriptions et données sont potentiellement communes à tous les essais réalisés avec STONES. Un 
+opérateur n’a pas à renseigner ces informations. Celles-ci doivent être disponibles. 
+• Results : contient les jeux de résultats produits par les différents essais réalisés. 
+
+
+La Figure 1 suivante donne un aperçu de la structure du WORKSPACE STONES. 
+
+Les règles générales suivantes sont appliquées : 
+
+• Le fichier workspace.jsonc doit se situer à la racine du WORKSPACE, 
+• Les données communes à tous les systèmes sont placées dans Systems/Common/Data 
+• Les données spécifiques à chaque type de système (radars, stations TC, stations TM, etc.) sont placées 
+dans un sous-dossier Data du dossier dédié au type de système. Par exemple pour les radars : 
+Systems/Radars/Data. 
+• Les fichiers descriptifs des systèmes sont composés de trois parties : 
+o Un préfixe (avant ‘_’) rappelant la nature du système : « radar », « stationTM », « stationTC » ou 
+« launcher ». 
+o Un suffixe (après ‘_’) fournissant l’identifiant unique du système : BR1, BR2, TSAR, VEGAC, etc. 
+o Une extension : « .jsonc » 
+
+
+
+
+
+
+ 
+
+Figure 1 : Structuration générale d'un WORKSPACE STONES. 
+
+5.4. ROLES ET FORMATS 
+
+5.4.1. Généralités 
+
+Les fichiers structurés sont utilisés dans le WORKSPACE STONES : 
+
+• Le fichier workspace.jsonc constitue le point d’entrée du WORKSPACE, 
+• Le fichier mission.jsonc décrit la mission qui sera simulée par STONES, 
+• Le fichier flight.jsonc décrit les spécificités liées au vol à simuler, 
+• Les fichiers descriptifs de chaque système composant l’environnement de suivi du CSG (radars, stations 
+TM, stations TC, etc.). 
+
+
+Ces fichiers font usage du format JSON-C. Ce format correspond à une structuration classique de type JSON, 
+
+
+augmentée de la capacité d’ajouter des commentaires. L’adjonction de commentaires est un besoin impératif pour 
+simplifier l’écriture et la validation de ces fichiers. Les commentaires sont délimités par les balises « /* » et « */ ». 
+
+Comme pour un format JSON classique, les données sont structurées sous la forme de : 
+
+• Noeuds objets : contiennent une sous-structure, 
+• Noeuds tableau : contiennent un tableau de sous-donnée (objets, tableaux, ou valeurs), 
+• Noeuds valeur : contiennent une valeur (entière, réelle, chaîne de caractère, une valeur booléenne). 
+
+
+Les noeuds sont identifiés par un nom composé des caractères suivants : 
+
+• a-z 
+• A-Z 
+• 0-9 
+• @ _ - , : ; ! / \ [ ] ( ) # & $ § % < > 
+
+
+5.4.2. Fichier workspace.jsonc 
+
+5.4.2.1. Emplacement 
+
+Le fichier workspace.jsonc est obligatoire et doit être situé à la racine du WORKSPACE. 
+
+5.4.2.2. Rôles 
+
+Ce fichier a pour rôle la spécification des informations suivantes : 
+
+• Format du WORKSPACE : Un format est associé à une version de STONES et permet à ce dernier de 
+garantir la compatibilité de la structure du WORKSPACE par rapport à la version de STONES. 
+• Id du WORKSPACE : Métadonnées associées au créateur du fichier. 
+• Adresse des fichiers mission.jsonc et interfaces.jsonc : Adresses relatives au WORKSPACE vers le fichier. 
+• Métadonnées supplémentaires : Ensemble de métadonnées libres permettant une description plus en détail 
+du WORKSPACE. 
+
+
+5.4.2.3. Structure 
+
+ 
+
+Figure 2 : Structure du fichier workspace.jsonc 
+
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+format 
+
+ 
+
+Contient les entiers majeur/mineur qui définit le format du WORKSPACE. 
+
+ 
+
+type 
+
+ 
+
+Renseigne le type de WORKSPACE en question. Doit être « STONES ». 
+
+ 
+
+major 
+
+ 
+
+Numéro majeur décrivant la version du format utilisé par ce WORKSPACE 
+
+ 
+
+minor 
+
+ 
+
+Numéro mineur décrivant la version du format utilisé par ce WORKSPACE. 
+
+id 
+
+ 
+
+Contient l’origine (string) et la date (ISO) 
+
+ 
+
+origin 
+
+ 
+
+Valeur laissée libre. Doit être un STRING. 
+
+ 
+
+date 
+
+ 
+
+Valeur laissée libre. Doit être au format ISO YYYY-MM-DDTHH:mm:ssZ 
+
+@mission 
+
+ 
+
+Contient l’adresse relative au WORKSPACE vers le fichier mission.jsonc 
+
+@interfaces 
+
+ 
+
+Contient l’adresse relative au WORKSPACE vers le fichier interfaces.jsonc 
+
+metadata 
+
+X 
+
+Tableau contenant des objets clef/valeur supplémentaires. 
+
+
+
+ 
+
+5.4.2.4. Exemple 
+
+ 
+
+{ 
+
+ /* Format version number of the workspace */ 
+
+ /* This defines the format of the whole workspace */ 
+
+ "format": { 
+
+ "type": "STONES", 
+
+ "major": 3, 
+
+ "minor": 0 
+
+ }, 
+
+ 
+
+ /* Identification of this workspace */ 
+
+ "id": { 
+
+ "origin": "Mission_v1.0", 
+
+ "date": "2024-01-01T12:00:00Z" 
+
+ }, 
+
+ 
+
+ /* Mission description */ 
+
+ "@mission": "file://Mission/mission.jsonc", 
+
+ 
+
+ /* Project interfaces */ 
+
+ "@interfaces": "file://interfaces.jsonc", 
+
+ 
+
+ /* Custom metadata associated to this workspace */ 
+
+ "metadata": [ 
+
+ { 
+
+ "key": "name", 
+
+ "value": "value" 
+
+ }, 
+
+ { 
+
+ "key": "another_name", 
+
+ "value": 123456 
+
+ } 
+
+ ] 
+
+} 
+
+
+
+
+5.4.3. Fichier mission.jsonc 
+
+5.4.3.1. Emplacement 
+
+Le fichier mission.jsonc doit se situer dans le dossier Mission. Ce fichier est celui ciblé par le champ @mission du 
+fichier workspace.jsonc. 
+
+5.4.3.2. Rôles 
+
+Ce fichier permet de renseigner les informations suivantes : 
+
+• Dates de l’essai : 
+o Plage temporelle de la simulation : début et fin 
+o Date du T0 
+o La source du temps TU 
+o Le nom de la timezone (dans le cas de l’utilisation de la source Timezone) 
+
+
+
+• Liste des systèmes mis en oeuvre (voir §5.4.3.6 ). 
+• Adresse du fichier de définition du vol 
+• Liste des actions programmées durant l’essai 
+• Adresse du script utilisateur personnalisé 
+
+
+5.4.3.3. Structure 
+
+ 
+
+ 
+
+Figure 3 : Structure du fichier mission.jsonc 
+
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+dates 
+
+ 
+
+Description des dates principales de la mission 
+
+ 
+
+tu_source 
+
+X 
+
+Source du temps TU 
+
+ 
+
+timezone 
+
+X 
+
+Timezone à utiliser lorsque la source TU est timezone 
+
+ 
+
+t0 
+
+ 
+
+Date du T0 au format ISO 
+
+ 
+
+test_span 
+
+ 
+
+Description de l’intervalle de temps couvert par l’essai 
+
+ 
+
+ 
+
+start 
+
+ 
+
+Date de début de l’essai au format ISO ou TD (secondes) 
+
+ 
+
+ 
+
+end 
+
+ 
+
+Date de fin de l’essai au format ISO ou TD (secondes) 
+
+systems 
+
+ 
+
+Contient la description de chaque système mis en oeuvre dans 
+l’essai 
+
+ 
+
+radars 
+
+ 
+
+Liste des descriptions des RADARS (voir §5.4.3.6.1 ) 
+
+ 
+
+stations_tm 
+
+ 
+
+Liste des descriptions des STATIONS TM (voir §5.4.3.6.2 ) 
+
+ 
+
+stations_tc 
+
+ 
+
+Liste des descriptions des STATIONS TC (voir §5.4.3.6.3 ) 
+
+ 
+
+vehicle 
+
+ 
+
+Emplacement de la description du VEHICULE (voir §5.4.3.6.4 ) 
+
+settings 
+
+ 
+
+Contient des paramétrages globaux à la simulation 
+
+ 
+
+tm_pulse_repetition_freq 
+
+X 
+
+Fréquence d’émission des signaux TM (Hz, 10Hz) 
+
+ 
+
+tm_delay_before_los 
+
+X 
+
+Délai avant la détection d’une perte de visibilité TM (s, 0.2s) 
+
+ 
+
+tc_pulse_repetition_freq 
+
+X 
+
+Fréquence d’émission des signaux TC (Hz, 10Hz) 
+
+ 
+
+tc_delay_before_los 
+
+X 
+
+Délai avant la détection d’une perte de visibilité TC (s, 0.2s) 
+
+ 
+
+radar_pulse_repetition_freq 
+
+X 
+
+Fréquence d’émission des signaux radar (Hz, 10Hz) 
+
+ 
+
+radar_delay_before_los 
+
+X 
+
+Délai avant la détection d’une perte de visibilité radar (s, 0.2) 
+
+@flight 
+
+ 
+
+Adresse relative au WORKSPACE vers le fichier décrivant le vol. 
+
+actions [ARRAY] 
+
+X 
+
+Contient une liste d’actions chargées de déclencher des pannes. 
+
+ 
+
+timeline 
+
+ 
+
+Nature de la ligne de temps servant à dater l’événement qui 
+déclenchera l’action (tu ou td) 
+
+ 
+
+date 
+
+ 
+
+Date de l’événement donné en temps TD (secondes) ou en temps 
+TU (date calendaire ISO) 
+
+ 
+
+action 
+
+ 
+
+Indique si l’action démarrage ou s’arrête à cette date (start ou 
+stop) 
+
+ 
+
+failure 
+
+ 
+
+Nom de la panne à déclencher 
+
+ 
+
+target 
+
+ 
+
+Nom du système sur lequel appliquer la panne 
+
+ 
+
+parameters 
+
+ 
+
+Liste des paramètres permettant de configurer la panne. La liste 
+des paramètres est spécifique à la panne spécifiée. 
+
+ 
+
+ 
+
+param_1 
+
+ 
+
+Clef / valeur d’un paramètre de la panne 
+
+ 
+
+ 
+
+param_2 
+
+ 
+
+Clef / valeur d’un paramètre de la panne 
+
+ 
+
+ 
+
+… 
+
+ 
+
+… 
+
+script 
+
+ 
+
+Ensemble de propriétés relatives au script de l’essai. 
+
+ 
+
+path 
+
+ 
+
+Adresse relative au WORKPACE vers le fichier scénario de 
+l’essai (script Python). 
+
+
+
+ 
+
+Important 
+
+
+La configuration des dates de début d’essai dates/test_span/start 
+et du T0 initial dates/t0 
+est 
+: 
+
+
+• Obligatoire si l’interface SG_TPS n’est pas rendue active (cf. §5.4.5) 
+• Optionnelle si l’interface SG_TPS est activée (cf. §5.4.5) 
+
+
+La date de fin d’essai dates/test_span/
+end 
+est toujours obligatoire. 
+
+
+La source de temps TU doit uniquement être renseignée si l’interface SG_TPS n’est pas rendue active (cf. 
+§5.4.5 
+
+
+La timezone doit uniquement être renseignée lorsque la source de temps TU est « 
+timezone 
+». 
+
+
+
+
+
+- Si l’interface SG_TPS est activée, elle sera mise en oeuvre 
+- Sinon, la source « simulation » sera utilisée. 
+
+
+
+
+
+
+
+5.4.3.4. Source de temps 
+
+Le simulateur peut utiliser différentes sources de temps pour se synchroniser : 
+
+ 
+
+Type 
+
+Valeur pour 
+« tu_source » 
+
+Description 
+
+Simulation 
+
+simulation 
+
+Le simulateur est autonome et ne cherche pas à se synchroniser auprès 
+d’une source externe. 
+
+UTC 
+
+utc 
+
+Le simulateur se synchronise via l’horloge système en prenant la date UTC. 
+
+Local 
+
+local 
+
+Le simulateur se synchronise via l’horloge système en prenant la date 
+LOCALE (c’est-à-dire celle associée à la timezone du PC). 
+
+Timezone 
+
+timezone 
+
+Le simulateur se synchronise via l’horloge système en appliquant la 
+timezone demandée via le champ « timezone ». 
+
+absent 
+
+absent 
+
+En l’absence de valeur pour « tu_source » : 
+
+
+
+5.4.3.5. Timezones 
+
+Les valeurs suivantes sont deux exemples de configuration du champ « timezone » pour deux lieux différents : 
+
+• Pour Toulouse, renseigner « Europe/Paris », 
+• Pour Kourou, renseigner « America/Cayenne » 
+
+
+5.4.3.6. Decriptions des systèmes 
+
+La description des systèmes (radars, stations, etc.) se fait au travers des fichiers de description pointé par chacun 
+des systèmes spécifiés dans ce fichier. 
+
+Certains systèmes acceptent qu’une description complémentaire soit fournie au sein du fichier mission. Cette 
+description permet de spécifier des propriétés ou comportements qui ne sont intrinsèquement attaché à un moyen 
+donné, mais plutôt à sa mise en oeuvre dans le cadre de l’essai, ce qui justifie que ces propriétés soient spécifiées 
+au sein de ce fichier mission. 
+
+Lorsqu’un système est mis en oeuvre sans spécifier de propriétés complémentaires, la valeur spécifiée pour le 
+système doit être le chemin vers le fichier de description du système. 
+
+ 
+
+{ 
+
+ … 
+
+ "systems": { 
+
+ … 
+
+ "radars": [ 
+
+ "BR1": "file://Systems/Radars/radar_BR1.jsonc", 
+
+ … 
+
+ ], 
+
+ … 
+
+ … 
+
+} 
+
+
+
+ 
+
+ 
+
+
+
+Lorsqu’un système est mis en oeuvre avec des propriétés complémentaires, la valeur spécifiée pour le système doit 
+être un noeud JSON incluant : 
+
+- Un attribut « specification » pointant vers le fichier de description du système, 
+
+
+
+- L’ensemble des attributs décrivant les propriétés complémentaires souhaitées. 
+
+
+ 
+
+{ 
+
+ … 
+
+ "systems": { 
+
+ … 
+
+ "radars": [ 
+
+ "BR1": { 
+
+ "specification": "file://Systems/Radars/radar_BR1.jsonc", 
+
+ "loc_replay": { 
+
+ "enabled": true, 
+
+ "source": "…", 
+
+ … 
+
+ } 
+
+ } 
+
+ … 
+
+ ], 
+
+ … 
+
+ … 
+
+} 
+
+
+
+Les chapitres ci-dessous décrivent les propriétés spécifiques pouvant être configurées pour chacun des types de 
+systèmes. 
+
+5.4.3.6.1. Radars 
+
+Les RADARS disposent des propriétés complémentaires décrites ci-après. 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Type 
+
+Description 
+
+loc_replay 
+
+X 
+
+ 
+
+Mécanisme de rejeu de fichiers de capture PCAP pour le lien EIR/LOC 
+
+ 
+
+enabled 
+
+ 
+
+booléen 
+
+Indique si le rejeu doit être utilisé (true) ou non (false). 
+
+ 
+
+source 
+
+ 
+
+path 
+
+Chemin vers le fichier PCAP à jouer. 
+
+ 
+
+delay 
+
+X 
+
+réel 
+
+Délai (secondes) à appliquer sur les dates TU des paquets extraits. 
+
+Défaut = 0.0 seconde. 
+
+
+
+5.4.3.6.2. Stations TM 
+
+Aucune propriété complémentaire n’est disponible pour ce type de système. 
+
+5.4.3.6.3. Stations TC 
+
+Aucune propriété complémentaire n’est disponible pour ce type de système. 
+
+5.4.3.6.4. Véhicule 
+
+Aucune propriété complémentaire n’est disponible pour ce type de système. 
+
+5.4.3.7. Exemple 
+
+Configuration d’un essai stand-alone. Les caractéristiques de l’essai présenté ci-dessous sont les suivantes : 
+
+
+- Cet essai spécifie une source de TU « simulation », ainsi qu’une date de H0. Il s’agit donc d’un essai ne 
+faisant pas usage du SG_TPS. 
+- Cet essai spécifie des propriétés complémentaires pour le RADAR BR1 afin de programmer la lecture d’un 
+fichier de paquets capturés PCAP sur le lien sortant EIR/LOC. Ceci implique que le lien EIR a été activé au 
+sein du RADAR (dans son fichier de configuration dédié) et que le lien EIR a été configuré au sein des 
+interfaces du WORKSPACE. 
+
+
+{ 
+
+ /* Mission's dates */ 
+
+ "dates": { 
+
+ "tu_source": "simulation", 
+
+ "t0": "2022-07-13T11:13:17", 
+
+ "test_span": { 
+
+ "start": "2022-07-13T11:10:00", 
+
+ "end": "2022-07-13T16:00:00" 
+
+ } 
+
+ }, 
+
+ 
+
+ /* List of the systems in use for this mission */ 
+
+ "systems": { 
+
+ /* Radar in use */ 
+
+ "radars": [ 
+
+ "BR1": { 
+
+ "specification": "file://Systems/Radars/radar_BR1.jsonc", 
+
+ "loc_replay": { 
+
+ "enabled": true, 
+
+ "source": "file://Mission/Data/BR1_LOC.pcap", 
+
+ "delay": 0.0 
+
+ } 
+
+ }, 
+
+ "BR2": "file://Systems/Radars/radar_BR2.jsonc" 
+
+ ], 
+
+ 
+
+ /* Stations TM in use */ 
+
+ /* This example uses the "no properties override" format */ 
+
+ "stations_tm": [ 
+
+ "SJM": "file://Systems/Stations_TM/station_SJM.jsonc", 
+
+ "MSJM": "file://Systems/Stations_TM/station_MSJM.jsonc", 
+
+ "ASX": "file://Systems/Stations_TM/station_ASX.jsonc", 
+
+ "ASN": "file://Systems/Stations_TM/station_ASN.jsonc", 
+
+ "NN01": "file://Systems/Stations_TM/station_NN01.jsonc", 
+
+ "GAL45": "file://Systems/Stations_TM/station_GAL45.jsonc", 
+
+ "GAL43" : "file://Systems/Stations_TM/station_GAL43.jsonc" 
+
+ ], 
+
+ 
+
+ /* Stations TC in use */ 
+
+ "stations_tc": [ 
+
+ "TSAR": "file://Systems/Stations_TC/station_TSAR.jsonc", 
+
+ "TCNF": "file://Systems/Stations_TC/station_TCNF.jsonc" 
+
+ ], 
+
+ 
+
+ /* Mission's vehicle */ 
+
+ "vehicle": { 
+
+ "type": "VEGA-C", 
+
+ "path": "file://Systems/Vehicles/launcher_vega_c.jsonc" 
+
+ } 
+
+
+
+ 
+
+
+
+
+ }, 
+
+ 
+
+ /* Settings of the simulation */ 
+
+ "settings": { 
+
+ "tm_pulse_repetition_freq": 10, 
+
+ "tm_delay_before_los": 0.2, 
+
+ "tc_pulse_repetition_freq": 10, 
+
+ "tc_delay_before_los": 0.2, 
+
+ "radar_pulse_repetition_freq": 10, 
+
+ "radar_delay_before_los": 0.2 
+
+ }, 
+
+ 
+
+ /* Properties of the flight */ 
+
+ "@flight": "file://Mission/flight_V621PH3N01R03.jsonc", 
+
+ 
+
+ /* Python Script */ 
+
+ "script": { 
+
+ "path": "file://Mission/scenario.py" 
+
+ } 
+
+} 
+
+
+
+ 
+
+
+
+5.4.4. Fichier flight.jsonc 
+
+5.4.4.1. Emplacement 
+
+Le fichier flight.jsonc doit se trouver dans le dossier Mission. Ce fichier est celui ciblé par le champ @flight du 
+fichier mission.jsonc. 
+
+5.4.4.2. Rôles 
+
+Ce fichier permet de renseigner les informations suivantes : 
+
+• Définition de la trajectoire : fichier AES, azimut plate-forme, position de la plate-forme. 
+• Définition du flux de télémétrie : fichier de télémétrie à retransmettre et synchroniser avec l’essai. 
+• Evénements mission : définition des dates et délais des événements mission liés au lanceur. 
+
+
+
+5.4.4.3. Structure 
+
+ 
+
+Figure 4 : Structure du fichier flight.jsonc1 
+
+1 La nomenclature utilisée ici (0), (1), (2), etc., fait référence aux entrées pouvant être insérées dans les tableaux (events, stages, payloads). 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+trajectory 
+
+ 
+
+Spécifie le fichier d’éphéméride à utiliser (AES), l’azimut plate-forme du 
+tir et les coordonnées du pas de tir utilisé. 
+
+ 
+
+ephemeris 
+
+ 
+
+Description du fichier AES. 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Adresse du fichier AES. 
+
+ 
+
+ 
+
+variant 
+
+ 
+
+Type d’AES : « VEGAC » 
+
+ 
+
+azimut_platform 
+
+ 
+
+Valeur de l’azimut plate-forme de la mission (en degrés). 
+
+ 
+
+inertial_release_time 
+
+ 
+
+Instant de la libération de la centrale inertielle (en seconde temps TD). 
+
+ 
+
+launchpad 
+
+ 
+
+Coordonnées du pas de tir du lanceur. 
+
+ 
+
+ 
+
+longitude 
+
+ 
+
+Longitude (degrés, WGS84). 
+
+ 
+
+ 
+
+latitude 
+
+ 
+
+Latitude (degrés, WGS84). 
+
+ 
+
+ 
+
+altitude 
+
+ 
+
+Altitude (mètres, WGS84). 
+
+telemetry 
+
+X 
+
+Contient les paramètres liés à la lecture d’un flux de télémétrie 
+
+ 
+
+source 
+
+ 
+
+Adresse du fichier de télémétrie (format STM SYNC). 
+
+
+
+ 
+
+5.4.4.4. Exemple 
+
+ 
+
+{ 
+
+ /* Flight ephemeris */ 
+
+ "trajectory": { 
+
+ "ephemeris": { 
+
+ "path": "./Mission/Data/V621PH3N01R03_aes", 
+
+ "variant": "VEGAC" 
+
+
+
+ 
+
+ 
+
+
+
+
+ }, 
+
+ "azimut_platform": 33.15125, 
+
+ "inertial_release_time": -2.0, 
+
+ "launchpad": { 
+
+ "longitude": -52.76845, 
+
+ "latitude": 5.24037, 
+
+ "altitude": 0.0 
+
+ } 
+
+ }, 
+
+ 
+
+ /* Telemetry info */ 
+
+ "telemetry": { 
+
+ "source": "./Mission/Data/VV21.stm_sync" 
+
+ } 
+
+} 
+
+
+
+ 
+
+
+
+5.4.5. Fichier interfaces.jsonc 
+
+5.4.5.1. Emplacement 
+
+Le fichier interfaces.jsonc doit se trouver dans le dossier racine du workspace. Ce fichier est celui ciblé par le 
+champ @interfaces du fichier workspace.jsonc. 
+
+5.4.5.2. Rôles 
+
+Ce fichier permet de renseigner les informations relatives aux interfaces réseau en interaction avec STONES : 
+
+• Interface SCRIPTOR, 
+• Service SG_TPS, 
+• Liens CORTEX pour SETTERS STATION, 
+• Liens EIR pour le logiciel EIR, 
+• Flux simplifiés. 
+
+
+Chaque interface est optionnelle. 
+
+5.4.5.3. Structure 
+
+ 
+
+Figure 5: Structure du fichier interfaces.jsonc 
+
+Les chapitres ci-après décrivent la configuration de chacune des interfaces. 
+
+
+5.4.5.3.1. Interface SCRIPTOR 
+
+ 
+
+Figure 6 : Structure du noeud "SCRIPTOR" du fichier interfaces.jsonc 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+enabled 
+
+ 
+
+Indique si l’interface SCRIPTOR doit être rendue disponible. 
+
+host 
+
+X 
+
+Hostname ou Adresse IP du PC SCRIPTOR. 
+
+port 
+
+X 
+
+Port du PC SCRIPTOR 
+
+
+
+Exemple : 
+
+{ 
+
+ /* Configuration du lien avec SCRIPTOR */ 
+
+ "SCRIPTOR": { 
+
+ "enabled": false, 
+
+ "host": "scriptor", 
+
+ "port": 8080, 
+
+ }, 
+
+} 
+
+
+
+5.4.5.3.2. Interface SG_TPS 
+
+ 
+
+Figure 7 : Structure du noeud "SG_TPS" du fichier interfaces.jsonc 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+enabled 
+
+ 
+
+Indique si le simulateur doit se synchroniser avec le SG_TPS. 
+
+shm_filename 
+
+X 
+
+Nom du fichier utilisé pour la communication interprocess avec l’AGENT. 
+
+shm_mutex_filename 
+
+X 
+
+Nom du mutex utilisé pour la communication interprocess avec l’AGENT. 
+
+
+
+Exemple : 
+
+{ 
+
+ /* Configuration du service SG_TPS */ 
+
+ "SG_TPS": { 
+
+ "enabled": true, 
+
+ "shm_filename": "SG_TPS_SHM_DEV", 
+
+ "shm_mutex_filename": "SG_TPS_MUTEX_DEV" 
+
+ } 
+
+} 
+
+
+
+
+5.4.5.3.3. Interface EIR 
+
+ 
+
+Figure 8 : Structure du noeud "EIR" du fichier interfaces.jsonc 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+enabled 
+
+ 
+
+Indique si les liaisons EIR doivent globalement être activées ou non. 
+
+interfaces 
+
+ 
+
+Liste des interfaces EIR disponibles 
+
+ 
+
+EIRx 
+
+ 
+
+Une interface EIR configurée et identifiée par le nom EIRX (ex : EIR3) 
+
+ 
+
+ 
+
+enabled 
+
+ 
+
+Indique si la liaison EIRX doit être activée ou non 
+
+ 
+
+ 
+
+time_source 
+
+X 
+
+Indique si la synchronisation doit être faite sur le TU LOCAL (« local ») 
+ou bien le TU CENTRAL (« central ») 
+
+ 
+
+ 
+
+host 
+
+ 
+
+hostname ou adresse IP du logiciel EIR auquel la liaison EIRX doit se 
+connecter 
+
+ 
+
+ 
+
+loc_port 
+
+ 
+
+numéro de port à utiliser pour émettre les paquets LOC vers le logiciel 
+EIR 
+
+ 
+
+ 
+
+desi_port 
+
+ 
+
+numéro de port de réception des paquets DESI en provenance du 
+logiciel EIR 
+
+ 
+
+ 
+
+desi_period_ms 
+
+X 
+
+période (alignée sur une seconde ronde) de lecture des paquets DESI 
+
+ 
+
+ 
+
+desi_offset_ms 
+
+X 
+
+décalage au sein de la période pour la lecture des paquets DESI 
+
+ 
+
+ 
+
+loc_poll_period_ms 
+
+X 
+
+période (alignée sur une seconde ronde) de préparation des paquets 
+LOC 
+
+
+
+
+ 
+
+ 
+
+loc_poll_offset_ms 
+
+X 
+
+décalage au sein d’une période pour la préparation des paquets LOC 
+
+ 
+
+ 
+
+loc_emit_period_ms 
+
+X 
+
+période (alignée sur une seconde ronde) d’émission des paquets LOC 
+
+ 
+
+ 
+
+loc_emit_offset_ms 
+
+X 
+
+décalage au sein d’une période pour l’émission des paquets LOC 
+
+
+
+ 
+
+Exemple : 
+
+{ 
+
+ "EIR": { 
+
+ "enabled": true, 
+
+ "interfaces": { 
+
+ "EIR5": { 
+
+ "enabled": true, 
+
+ "time_source": "local", 
+
+ "host": "172.20.5.13", 
+
+ "loc_port": 7050, 
+
+ "desi_port": 7051, 
+
+ "desi_period_ms": 100, 
+
+ "desi_offset_ms": 20, 
+
+ "loc_poll_period_ms ": 100, 
+
+ "loc_poll_offset_ms ": 50, 
+
+ "loc_emit_period_ms ": 100, 
+
+ "loc_emit_offset_ms ": 55, 
+
+ } 
+
+ } 
+
+ } 
+
+} 
+
+
+
+ 
+
+5.4.5.3.4. Interface CORTEX 
+
+Le noeud décrivant les liens CORTEX est présenté ci-dessous : 
+
+- Via la vue d’ensemble, faisant apparaître les différentes interfaces configurées et les équipements associés 
+(CRT, etc.). 
+- Via la vue du sous-noeud « links », décrivant la configuration précise de chacun des liens CORTEX simulés 
+pour chaque équipement CORTEX. 
+
+
+
+ 
+
+Figure 9 : Structure du noeud "CORTEX" du fichier interfaces.jsonc 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+enabled 
+
+ 
+
+Indique si les liens CORTEX sont, dans leur totalité, activables (TRUE) ou 
+désactivés (FALSE). 
+
+interfaces 
+
+ 
+
+Liste des interfaces CORTEX configurées. 
+
+ 
+
+CORTEX_XXX 
+
+ 
+
+Exemple d’une interface CORTEX dénommée « CORTEX_XXX » 
+
+ 
+
+ 
+
+enabled 
+
+ 
+
+Indique si l’interface CORTEX associée est activée ou non. 
+
+ 
+
+ 
+
+CRT 
+
+ 
+
+Liste les propriétés des interfaces CORTEX associées à l’équipement CRT 
+de la station TM. 
+
+ 
+
+ 
+
+ 
+
+enabled 
+
+ 
+
+Indique si les liens CORTEX de l’équipement CRT sont activés ou non. 
+
+ 
+
+ 
+
+ 
+
+port_base 
+
+ 
+
+Indique un port de base (exemple : 3000) à partir duquel les ports de 
+chaque lien sont déterminés. 
+
+ 
+
+ 
+
+ 
+
+bound_ip 
+
+ 
+
+Indique le hostname ou l’IP sur laquelle l’écoute doit être faite pour chaque 
+lien. 
+
+ 
+
+ 
+
+ 
+
+links 
+
+ 
+
+Liste les propriétés de l’ensemble des liens simulés pour l’équipement CRT 
+de l’interface CORTEX_XXX. (voir ci-dessous) 
+
+ 
+
+CORTEX_YYY 
+
+ 
+
+Exemple d’une seconde interface CORTEX dénommée « CORTEX_YYY » 
+
+ 
+
+ 
+
+… 
+
+ 
+
+… 
+
+
+
+ 
+
+
+ 
+
+Figure 10 : Structure du noeud "links" d'une interface CORTEX (fichier interfaces.jsonc) 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+MON 
+
+ 
+
+Lien de MONITORING 
+
+ 
+
+enabled 
+
+X 
+
+Indique si ce lien est actif (TRUE par défaut) 
+
+ 
+
+port 
+
+X 
+
+Indique le numéro de port (PORT_BASE + 0 par défaut) 
+
+ 
+
+force_NACK 
+
+X 
+
+Indique si ce lien doit émettre des réponses négatives systématiquement 
+(FALSE par défaut). 
+
+CTRL 
+
+ 
+
+Lien de CONTROL 
+
+ 
+
+enabled 
+
+X 
+
+Indique si ce lien est actif (TRUE par défaut) 
+
+ 
+
+port 
+
+X 
+
+Indique le numéro de port (PORT_BASE + 1 par défaut) 
+
+ 
+
+force_NACK 
+
+X 
+
+Indique si ce lien doit émettre des réponses négatives systématiquement 
+(FALSE par défaut). 
+
+RST 
+
+ 
+
+Lien de RESET 
+
+ 
+
+enabled 
+
+X 
+
+Indique si ce lien est actif (TRUE par défaut) 
+
+ 
+
+port 
+
+X 
+
+Indique le numéro de port (PORT_BASE + 2 par défaut) 
+
+ 
+
+force_NACK 
+
+X 
+
+Indique si ce lien doit émettre des réponses négatives systématiquement 
+(FALSE par défaut). 
+
+LOG 
+
+ 
+
+Lien de LOG 
+
+ 
+
+enabled 
+
+X 
+
+Indique si ce lien est actif (TRUE par défaut) 
+
+ 
+
+port 
+
+X 
+
+Indique le numéro de port (PORT_BASE + 40 par défaut) 
+
+ 
+
+force_NACK 
+
+X 
+
+Indique si ce lien doit émettre des réponses négatives systématiquement 
+(FALSE par défaut). 
+
+TM 
+
+ 
+
+Lien de transmission TM 
+
+ 
+
+enabled 
+
+X 
+
+Indique si ce lien est actif (TRUE par défaut) 
+
+ 
+
+port 
+
+X 
+
+Indique le numéro de port (PORT_BASE + 70 par défaut) 
+
+ 
+
+force_NACK 
+
+X 
+
+Indique si ce lien doit émettre des réponses négatives systématiquement 
+(FALSE par défaut). 
+
+ 
+
+dummy_frames_period 
+
+X 
+
+Durée en nanosecondes d’une période entre deux trames de bourrage 
+(5116000 ns par défaut) 
+
+RAC 
+
+ 
+
+Lien RAC (non simulé) 
+
+ 
+
+enabled 
+
+X 
+
+Indique si des connexions sur ce lien non simulé sont autorisées. 
+
+ 
+
+port 
+
+X 
+
+Indique le numéro de port (voir la documentation CORTEX). 
+
+TCU_1 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+TCU_2 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+SIM_1 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+SIM_2 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+SIM_3 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+RNG 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+MEAS 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+
+
+
+SPA 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+VEC 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+DOP 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+DOP2 
+
+X 
+
+Lien non simulé. Voir « RAC » ci-dessus. 
+
+
+
+ 
+
+Exemple : 
+
+{ 
+
+ "CORTEX": { 
+
+ "enabled": true, 
+
+ "interfaces": { 
+
+ "CORTEX_XXX": { 
+
+ "enabled": true, 
+
+ "CRT": { 
+
+ "enabled": true, 
+
+ "port_base": 3000, 
+
+ "bound_ip": "0.0.0.0", 
+
+ "links ": { 
+
+ "MON" : { 
+
+ "enabled": true, 
+
+ "port": 3000, 
+
+ "force_NACK": false 
+
+ }, 
+
+ "CTRL" : { 
+
+ "enabled": true, 
+
+ "port": 3001, 
+
+ "force_NACK": false 
+
+ }, 
+
+ "RST" : { 
+
+ "enabled": true, 
+
+ "port": 3002, 
+
+ "force_NACK": false 
+
+ }, 
+
+ "LOG" : { 
+
+ "enabled": true, 
+
+ "port": 3040, 
+
+ "force_NACK": false 
+
+ }, 
+
+ "TM" : { 
+
+ "enabled": true, 
+
+ "port": 3070, 
+
+ "force_NACK": false, 
+
+ "dummy_frames_period": 5116000 
+
+ } 
+
+ } 
+
+ } 
+
+ } 
+
+ } 
+
+ } 
+
+} 
+
+
+
+ 
+
+
+5.4.5.3.5. Interface LOC_STREAM_SIMPLE 
+
+ 
+
+Figure 11 : Structure du noeud "LOC_STREAM_SIMPLE" du fichier interfaces.jsonc 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+enabled 
+
+ 
+
+Indique si le ou les liens radars doivent être créer 
+
+host 
+
+ 
+
+hostname ou adresse IP utilisée pour diffuser le flux. 
+
+port 
+
+ 
+
+Premier numéro du port utilisé pour diffuser le flux (1 port par instance radar). 
+
+period 
+
+ 
+
+Période entre deux émission d’un message sur le lien. 
+
+ephemeris 
+
+X 
+
+Liste contenant le chemin des fichiers d’éphémérides. 
+
+parameters 
+
+X 
+
+Liste des paramètres diffusés sur le lien. 
+
+
+
+ 
+
+Exemple : 
+
+{ 
+
+ /* Configuration flux simplifié de LOC */ 
+
+ "LOC_STREAM_SIMPLE": { 
+
+ "enabled": true, 
+
+ "host": "127.0.0.1", 
+
+ "port": 5000, 
+
+ "period": 0.1, 
+
+ "parameters": { 
+
+ "DATE" : "SG_TPS/TimeProvider.currentTD", 
+
+ "SITE" : "Radars/{name}/StationControl.siteTarget", 
+
+ "GISEMENT" : "Radars/{name}/StationControl.gisementTarget", 
+
+ "SPEED_SITE" : "Radars/{name}/Motors/MotorSite.currentSpeed", 
+
+ "SPEED_GISEMENT" : "Radars/{name}/Motors/MotorGisement.currentSpeed", 
+
+ "SNR" : "Radars/{name}/RFControl.receivedSignalPower" 
+
+ } 
+
+ } 
+
+} 
+
+
+
+ 
+
+ 
+
+
+5.4.5.3.6. Interface TM_STREAM_SIMPLE 
+
+ 
+
+Figure 12 : Structure du noeud "TM_STREAM_SIMPLE" du fichier interfaces.jsonc 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+enabled 
+
+ 
+
+Indique si le lien TM doit être créer. 
+
+host 
+
+ 
+
+hostname ou adresse IP utilisée pour diffuser le flux. 
+
+port 
+
+ 
+
+P Numéro du port utilisé pour diffuser le flux. 
+
+period 
+
+ 
+
+Période entre deux émission d’un message sur le lien. 
+
+ephemeris 
+
+X 
+
+Liste contenant le chemin des fichiers d’éphémérides. 
+
+parameters 
+
+X 
+
+Liste des paramètres diffusés sur le lien. 
+
+
+
+Exemple : 
+
+{ 
+
+ /* Configuration flux simplifié TM */ 
+
+ "TM_STREAM_SIMPLE": { 
+
+ "enabled": true, 
+
+ "host": "127.0.0.1", 
+
+ "port": 5100, 
+
+ "period": 1.0, 
+
+ "parameters": { 
+
+ "DATE" : "SG_TPS/TimeProvider.currentTD", 
+
+ 
+
+ /* Position IMU 1 */ 
+
+ "LMS_IMU_1_POS_X": "{name}/Equipements_Trajectoire/IMU/IMU.position(0)", 
+
+ "LMS_IMU_1_POS_Y": "{name}/Equipements_Trajectoire/IMU/IMU.position(1)", 
+
+ "LMS_IMU_1_POS_Z": "{name}/Equipements_Trajectoire/IMU/IMU.position(2)", 
+
+ }, 
+
+ "ephemeris": { 
+
+ "MCAU_PRES_C_ESR1": "./Mission/Data/Ephemeris/MT3SRM_PR11.tsv", 
+
+ "MCAU_PRES_C_ESR2": "./Mission/Data/Ephemeris/MT3SRM_PR11.tsv" 
+
+ } 
+
+ } 
+
+} 
+
+
+
+ 
+
+ 
+
+
+5.4.6. Description des systèmes 
+
+5.4.6.1. Emplacement 
+
+Ce fichier existe pour chaque système amené à être utilisé en simulation. 
+
+Son nom doit être de la forme « <nature_du_système>_<code_du_système>.jsonc » où : 
+
+• Nature_du_système : correspond à la nature du système (radar, stationTM, stationTC, launcher) 
+• Code_du_système : code unique du système (BR1, BR2, AMZ, TCNF, VEGAC, etc.) 
+
+
+Ces fichiers doivent être placés dans le sous-dossier de Systems associé à la nature de chaque système : 
+
+• Systems/Radars 
+• Systems/Stations_TC 
+• Systems/Stations_TM 
+• Systems/Vehicles 
+• … 
+
+
+Les données annexes permettant de caractériser chaque système (par exemple les diagrammes d’antennes) 
+peuvent être placés dans des sous-dossiers de ces dossiers, ou bien dans le dossier Systems/Common. Dans tous 
+les cas, ces données annexes doivent être correctement pointées par leur adresse relative au WORKSPACE au sein 
+des fichiers de configuration des systèmes. 
+
+5.4.6.2. Rôles 
+
+Ces fichiers ont pour rôle de fournir les caractéristiques propres à chaque système. 
+
+5.4.6.3. Structure 
+
+La structure est distincte pour chaque type de système. Les chapitres suivants fournissent une description pour 
+chaque type de système. 
+
+
+
+
+5.4.6.3.1. Radars 
+
+ 
+
+Figure 13 : Structure d'une description de RADAR 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+id 
+
+ 
+
+Identification du système 
+
+ 
+
+type 
+
+ 
+
+RADAR 
+
+ 
+
+unique_id 
+
+ 
+
+Nom du système. 
+
+
+
+
+▪ « BRx » : le sous-protocole utilisé correspond à un radar de type 
+BRETAGNE 
+▪ « AMZ » : le sous-protocole utilisé correspond à un radar de type 
+AMAZONIE 
+
+
+
+
+
+eir 
+
+X 
+
+Si présent, décrit l’interface EIR à utiliser pour connecter ce RADAR à un 
+logiciel EIR 
+
+ 
+
+enabled 
+
+ 
+
+Indique si la liaison EIR doit être active 
+
+ 
+
+id 
+
+ 
+
+ID de l’EIR à utiliser. Cet ID doit correspondre à une interface EIR décrite 
+dans le fichier interfaces.jsonc. 
+
+ 
+
+kind 
+
+ 
+
+Nature du sous-protocole à mettre en oeuvre. Le choix du sous-protocole 
+dépend de la configuration de l’EIR ciblé et du RADAR utilisé. Les choix 
+possibles sont : 
+
+weather 
+
+ 
+
+Caractéristiques météo au niveau de la station 
+
+ 
+
+refraction 
+
+ 
+
+Indique si les effets de réfraction atmosphériques doivent être simulés 
+(true/false) 
+
+ 
+
+temperature 
+
+ 
+
+Température (degrés Celsius) 
+
+ 
+
+humidity 
+
+ 
+
+Humidité (%) 
+
+ 
+
+pressure 
+
+ 
+
+Pression (hPa) 
+
+antennas [ARRAY] 
+
+ 
+
+Liste des antennes disponibles. 
+
+Attention : Seule la première antenne est simulée. 
+
+ 
+
+id 
+
+ 
+
+Identifiant de l’antenne (= main) 
+
+ 
+
+axes 
+
+ 
+
+propriétés mécaniques des axes en gisement et élévation de l’antenne 
+(voir ci-dessous) 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Propriétés de l’axe de gisement 
+
+ 
+
+ 
+
+ 
+
+mode 
+
+X 
+
+Mode d’asservissement (= ideal) 
+
+ 
+
+ 
+
+ 
+
+max_speed 
+
+ 
+
+Vitesse maximum (rad/s) 
+
+ 
+
+ 
+
+ 
+
+boundaries 
+
+X 
+
+Fournit les limites min et max (via les clefs min et max) du mouvement 
+pour cet axe. 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Propriétés de l’axe de site 
+
+ 
+
+ 
+
+ 
+
+mode 
+
+X 
+
+Mode d’asservissement (= ideal) 
+
+ 
+
+ 
+
+ 
+
+max_speed 
+
+ 
+
+Vitesse maximum (rad/s) 
+
+ 
+
+ 
+
+ 
+
+boundaries 
+
+X 
+
+Fournit les limites min et max (via les clefs min et max) du mouvement 
+pour cet axe. 
+
+ 
+
+coordinates 
+
+ 
+
+Coordonnées de la station 
+
+ 
+
+ 
+
+longitude 
+
+ 
+
+Longitude (degrés, WGS84). 
+
+ 
+
+ 
+
+latitude 
+
+ 
+
+Latitude (degrés, WGS84). 
+
+ 
+
+ 
+
+altitude 
+
+ 
+
+Altitude (mètres, WGS84). 
+
+ 
+
+common 
+
+ 
+
+Propriétés communes à l’émission et à la réception 
+
+ 
+
+ 
+
+diagram 
+
+ 
+
+Propriétés du diagramme d’antenne 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le diagramme. 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+ 
+
+mask 
+
+ 
+
+Propriétés du masque station. 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le masque. 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+emitter 
+
+ 
+
+Propriétés de l’émetteur 
+
+ 
+
+ 
+
+gain 
+
+ 
+
+Gain (dB) 
+
+ 
+
+ 
+
+power 
+
+ 
+
+Puissance d’émission (Watt) 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence d’émission (Hz) 
+
+ 
+
+receiver 
+
+ 
+
+Propriétés du récepteur 
+
+ 
+
+ 
+
+gain 
+
+ 
+
+Gain (dB) 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence de réception (Hz) 
+
+ 
+
+ 
+
+bandwidth 
+
+ 
+
+Bande passante (Hz) 
+
+ 
+
+ 
+
+cn0_min 
+
+ 
+
+C/N0 minimum pour réception (dB.Hz) 
+
+
+
+
+ 
+
+ 
+
+loss 
+
+ 
+
+Bruits (dBW) 
+
+ 
+
+ 
+
+angle_3db 
+
+ 
+
+Angle à 3dB de perte. 
+
+
+
+ 
+
+Exemple : 
+
+{ 
+
+ /* Radar identification */ 
+
+ "id": { 
+
+ "type": "RADAR", 
+
+ "unique_id": "AMZ" 
+
+ }, 
+
+ 
+
+ /* Simulation */ 
+
+ "weather": { 
+
+ "refraction": true, 
+
+ "temperature": 20.0, 
+
+ "humidity": 80.0, 
+
+ "pressure": 120.0 
+
+ }, 
+
+ 
+
+ "eir": { 
+
+ "enabled": true, 
+
+ "id": "EIR5", 
+
+ "kind": "AMZ" 
+
+ }, 
+
+ 
+
+ /* Radar antennas */ 
+
+ "antennas": [ 
+
+ { 
+
+ /* Antenna identification */ 
+
+ "id": "main", 
+
+ 
+
+ /* Antenna coordinates */ 
+
+ "coordinates": { 
+
+ "longitude": -52.6806456222, 
+
+ "latitude": 5.1635822027, 
+
+ "altitude": 51.011 
+
+ }, 
+
+ 
+
+ /* Antenna axes properties */ 
+
+ "axes": { 
+
+ "bearing": { 
+
+ "max_speed": 0.52, 
+
+ "boundaries": { 
+
+ "min": 0.0, 
+
+ "max": 1.5 
+
+ 
+
+ } 
+
+ }, 
+
+ "elevation": { 
+
+ "max_speed": 0.52 
+
+ } 
+
+ }, 
+
+ 
+
+
+
+
+ /* Common antenna properties */ 
+
+ "common": { 
+
+ "diagram": { 
+
+ "path": "./Systems/Common/Data/Zero_Mask.xml", 
+
+ "bearing": 0.0, 
+
+ "elevation": 0.0 
+
+ }, 
+
+ "mask": { 
+
+ "path": "./Systems/Common/Data/Station_Mask.xml", 
+
+ "bearing": 0.0, 
+
+ "elevation": 0.0 
+
+ } 
+
+ }, 
+
+ 
+
+ /* Emission properties */ 
+
+ "emitter": { 
+
+ "gain": 1.6, 
+
+ "power": 1000000.0, 
+
+ "frequency": 9990000000 
+
+ }, 
+
+ 
+
+ /* Reception properties */ 
+
+ "receiver": { 
+
+ "gain": 1.6, 
+
+ "frequency": 6665000000, 
+
+ "bandwidth": 1000, 
+
+ "cn0_min": 10.0, 
+
+ "loss ": -110.0 
+
+ } 
+
+ } 
+
+ ] 
+
+} 
+
+
+
+ 
+
+ 
+
+
+5.4.6.3.2. Stations TM 
+
+ 
+
+Figure 14 : Structure d'une description de STATION TM 
+
+
+ 
+
+Figure 15 : Structure de la description de la configuration CORTEX d’une STATION TM 
+("cortex/configuration") 
+
+ 
+
+Figure 16 : Structure de la description d'une configuration d'un AGC pour le CORTEX d'une STATION TM 
+("cortex/configuration/shared_config/agc/agc_config_X") 
+
+ 
+
+Figure 17 : Structure de la description d'une configuration d'un IFR pour le CORTEX d'une STATION TM 
+("cortex/configuration/shared_config/fr/ifr_config_X") 
+
+
+ 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+id 
+
+ 
+
+Identification du système 
+
+ 
+
+type 
+
+ 
+
+STATION_TM 
+
+ 
+
+unique_id 
+
+ 
+
+Nom du système. 
+
+cortex 
+
+X 
+
+Si présent, décrit l’interface CORTEX à utiliser pour 
+connecter cette STATION TM à une instance de SETTERS 
+STATION. 
+
+ 
+
+enabled 
+
+ 
+
+Indique si les liens CORTEX doivent être actives 
+
+ 
+
+id 
+
+ 
+
+ID de l’interface CORTEX à utiliser. Cet ID doit correspondre 
+à une interface CORTEX décrite dans le fichier 
+interfaces.jsonc. 
+
+ 
+
+configuration 
+
+ 
+
+Configuration de l’interface CORTEX 
+
+ 
+
+ 
+
+boot_config 
+
+ 
+
+Adresse du fichier TABLES (format JSON) à charger à 
+l’initialisation. Certaines propriétés sont ensuite définies 
+explicitement dans la configuration (voir ci-après). 
+
+ 
+
+ 
+
+model 
+
+ 
+
+Modèle de l’équipement (exemple : S120513) 
+
+ 
+
+ 
+
+shared_configs 
+
+ 
+
+Liste de configurations partagées pour les systèmes AGC et 
+IFR. 
+
+ 
+
+ 
+
+ 
+
+ifr 
+
+ 
+
+Liste des configurations partagées pour les IFR 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ifr_X 
+
+ 
+
+Exemple d’une configuration d’un IFR dénommée « ifr_X » 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+bandwidth_filter 
+
+ 
+
+Fréquence initiale de filtrage pour l’IFR (en Hz). Les valeurs 
+possibles sont : 5, 10, 15, 30, 50, 100, 150, 300, 500 kHz et 
+1, 1.5, 3, 5, 10, 13 MHz. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+channel_A 
+
+ 
+
+Propriétés du canal A de l’IFR 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+input 
+
+ 
+
+Nom du flux RF à connecter en entrée de ce canal. Le format 
+doit être « rfx » (par exemple « rf1 », « rf2 », etc.). 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence intermédiaire initiale (en Hz) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+channel_B 
+
+ 
+
+Propriétés du canal B de l’IFR 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+input 
+
+ 
+
+Nom du flux RF à connecter en entrée de ce canal. Le format 
+doit être « rfx » (par exemple « rf1 », « rf2 », etc.). 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence intermédiaire initiale (en Hz) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+polarization_combining 
+
+ 
+
+Configuration de la DCU en polarité 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+available 
+
+ 
+
+Indique si cette DCU est disponible 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+activated 
+
+ 
+
+Indique si cette DCU est initialement activée 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+frequency_combining 
+
+ 
+
+Configuration de la DCU en fréquence 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+available 
+
+ 
+
+Indique si cette DCU est disponible 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+activated 
+
+ 
+
+Indique si cette DCU est initialement activée 
+
+ 
+
+ 
+
+ 
+
+agc 
+
+ 
+
+Liste des configurations partagées pour les AGC 
+
+ 
+
+ 
+
+ 
+
+ 
+
+agc_X 
+
+ 
+
+Exemple d’une configuration d’un AGC 
+dénommée « agc_X » 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+available 
+
+ 
+
+Indique si l’AGC est disponible dans l’équipement 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+activated 
+
+ 
+
+Indique si l’AGC est initialement activée 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+range 
+
+ 
+
+Indique le range de l’AGC, en dB (par exemple [-100, 15]) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+target 
+
+ 
+
+Indique la cible visée par l’AGC (en dB) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+time_constant 
+
+ 
+
+Indique la constante de temps de l’AGC (en secondes) 
+
+ 
+
+ 
+
+efc 
+
+ 
+
+Définition et configuration des liens downlinks (RF) et des 
+EFC associés 
+
+ 
+
+ 
+
+ 
+
+common 
+
+ 
+
+Propriétés communes à tous les EFC 
+
+ 
+
+ 
+
+ 
+
+ 
+
+target_if 
+
+ 
+
+Fréquence intermédiaire ciblée (70Mhz) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+bandwidth 
+
+ 
+
+Bande passante des EFC (90Mhz) 
+
+ 
+
+ 
+
+ 
+
+rf1 
+
+ 
+
+Propriété du lien downlink RF1 et de l’EFC associé 
+
+ 
+
+ 
+
+ 
+
+ 
+
+agc 
+
+ 
+
+Nom de la configuration pour l’AGC de ce lien 
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+manual_gain 
+
+ 
+
+Valeur initiale du gain manuel (en dB) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence initiale devant être ramenée à la fréquence IF (en 
+Hz) 
+
+ 
+
+ 
+
+ 
+
+rf2 
+
+ 
+
+Idem que rf1, mais pour le lien downlink RF2 
+
+ 
+
+ 
+
+ 
+
+rf3 
+
+ 
+
+Idem que rf1, mais pour le lien downlink RF3 
+
+ 
+
+ 
+
+ifr 
+
+ 
+
+Définition et configuration des IF Receivers 
+
+ 
+
+ 
+
+ 
+
+ifr1 
+
+ 
+
+Configuration du IFR 1 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+configuration 
+
+ 
+
+Nom de la configuration partagée à appliquer pour cet IFR 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+tm_channel 
+
+ 
+
+Nom du canal TMU en sortie (A-Z) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ifr2 
+
+ 
+
+Voir IFR1 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ifr3 
+
+ 
+
+Voir IFR1 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ifr4 
+
+ 
+
+Voir IFR1 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ifr5 
+
+ 
+
+Voir IFR1 
+
+antennas [ARRAY] 
+
+ 
+
+Liste des antennes disponibles. 
+
+Attention : Seule la première antenne est simulée. 
+
+ 
+
+id 
+
+ 
+
+identifiant de l’antenne (= main) 
+
+ 
+
+axes 
+
+ 
+
+propriétés mécaniques des axes en gisement et élévation de 
+l’antenne (voir ci-dessous) 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Propriétés de l’axe de gisement 
+
+ 
+
+ 
+
+ 
+
+mode 
+
+X 
+
+Mode d’asservissement (= ideal) 
+
+ 
+
+ 
+
+ 
+
+max_speed 
+
+ 
+
+Vitesse maximum (rad/s) 
+
+ 
+
+ 
+
+ 
+
+boundaries 
+
+X 
+
+Fournit les limites min et max (via les clefs min et max) du 
+mouvement pour cet axe. 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Propriétés de l’axe de site 
+
+ 
+
+ 
+
+ 
+
+mode 
+
+X 
+
+Mode d’asservissement (= ideal) 
+
+ 
+
+ 
+
+ 
+
+max_speed 
+
+ 
+
+Vitesse maximum (rad/s) 
+
+ 
+
+ 
+
+ 
+
+boundaries 
+
+X 
+
+Fournit les limites min et max (via les clefs min et max) du 
+mouvement pour cet axe. 
+
+ 
+
+coordinates 
+
+ 
+
+Coordonnées de la station 
+
+ 
+
+ 
+
+longitude 
+
+ 
+
+Longitude (degrés, WGS84). 
+
+ 
+
+ 
+
+latitude 
+
+ 
+
+Latitude (degrés, WGS84). 
+
+ 
+
+ 
+
+altitude 
+
+ 
+
+Altitude (mètres, WGS84). 
+
+ 
+
+receiver 
+
+ 
+
+Propriétés du récepteur 
+
+ 
+
+ 
+
+diagram 
+
+ 
+
+Propriétés du diagramme d’antenne 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le diagramme. 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+ 
+
+mask 
+
+ 
+
+Propriétés du masque station. 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le masque. 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+ 
+
+gain 
+
+ 
+
+Gain (dB) 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence de réception (Hz) 
+
+ 
+
+ 
+
+bandwidth 
+
+ 
+
+Bande passante (Hz) 
+
+ 
+
+ 
+
+cn0_min 
+
+ 
+
+C/N0 minimum pour réception (dB.Hz) 
+
+ 
+
+ 
+
+loss 
+
+ 
+
+Bruits (dBW) 
+
+ 
+
+ 
+
+angle_3db 
+
+ 
+
+Angle à 3dB de perte. 
+
+
+
+Exemple : 
+
+{ 
+
+ 
+
+ /* Station identification */ 
+
+ "id": { 
+
+ "type": "STATION_TM", 
+
+
+
+
+ "unique_id": "GAL43" 
+
+ }, 
+
+ 
+
+ "cortex": { 
+
+ "enabled": true, 
+
+ "id": "CORTEX_GAL43", 
+
+ "configuration": { 
+
+ /* Configuration file to be used at startup of the system */ 
+
+ "boot_config": "./Systems/Stations_TM/Data/CORTEX_BootConfig.json", 
+
+ /* The model can be used by the remote software to determine the RX 
+capabilities. */ 
+
+ "model": "S120513", 
+
+ /* Shared configurations are to be detailed here and used thereafter */ 
+
+ "shared_configs": { 
+
+ /* Configurations for tha Automatic Gain Control */ 
+
+ "agc": { 
+
+ "agc_config_1": { 
+
+ /* Informs whether the AGC is available */ 
+
+ "available": true, 
+
+ /* Initial state of the AGC */ 
+
+ "activated": true, 
+
+ /* [Min, Max] range of the AGC, in dB */ 
+
+ "range": [-100.0, 15.0], 
+
+ /* Target SNR of the AGC, in dB */ 
+
+ "target": -10.0, 
+
+ /* time constant used to simulate the reaction time of the AGC, in 
+seconds */ 
+
+ "time_constant": 0.1 
+
+ } 
+
+ }, 
+
+ /* Configuration of the IF Receiver and the Diversity Combining Units */ 
+
+ "ifr": { 
+
+ "ifr_config_1": { 
+
+ /* Initial bandwidth filter (in Hz): 
+
+ - 5, 10, 15, 30, 50, 100, 150, 300, 500 kHz 
+
+ - 1, 1.5, 3, 5, 10, 13 MHz 
+
+ */ 
+
+ "bandwidth_filter": 1e6, 
+
+ /* Main channel configuration */ 
+
+ "channel_A": { 
+
+ /* Initial channel RF source: rfX to select downlink RF X */ 
+
+ "input": "rf1", 
+
+ /* Initial main frequency */ 
+
+ "frequency": 70e6 
+
+ }, 
+
+ /* Combining Channel configuration */ 
+
+ "channel_B": { 
+
+ /* Initial channel RF source: rfX to select downlink RF X */ 
+
+ "input": "rf2", 
+
+ /* Initial combining frequency */ 
+
+ "frequency": 70e6 
+
+ }, 
+
+ /* Configuration for the polarization DCU */ 
+
+ "polarization_combining": { 
+
+ /* Is the polar combining stage available? */ 
+
+ "available": true, 
+
+ /* Initial state of the polarization combining */ 
+
+
+
+
+ "activated": true 
+
+ }, 
+
+ /* Configuration for the frequency DCU */ 
+
+ "frequency_combining": { 
+
+ /* Is the frequency combining stage available? */ 
+
+ "available": true, 
+
+ /* Initial state of the frequency combining */ 
+
+ "activated": true 
+
+ } 
+
+ }, 
+
+ "ifr_config_2": { 
+
+ /* Initial bandwidth filter (in Hz): 
+
+ - 5, 10, 15, 30, 50, 100, 150, 300, 500 kHz 
+
+ - 1, 1.5, 3, 5, 10, 13 MHz 
+
+ */ 
+
+ "bandwidth_filter": 1e6, 
+
+ /* Main channel configuration */ 
+
+ "channel_A": { 
+
+ /* Initial channel RF source: rfX to select downlink RF X */ 
+
+ "input": "rf1", 
+
+ /* Initial main frequency */ 
+
+ "frequency": 123e6 
+
+ }, 
+
+ /* Combining Channel configuration */ 
+
+ "channel_B": { 
+
+ /* Initial channel RF source: rfX to select downlink RF X */ 
+
+ "input": "rf2", 
+
+ /* Initial combining frequency */ 
+
+ "frequency": 132e6 
+
+ }, 
+
+ /* Configuration for the polarization DCU */ 
+
+ "polarization_combining": { 
+
+ /* Is the polar combining stage available? */ 
+
+ "available": true, 
+
+ /* Initial state of the polarization combining */ 
+
+ "activated": true 
+
+ }, 
+
+ /* Configuration for the frequency DCU */ 
+
+ "frequency_combining": { 
+
+ /* Is the frequency combining stage available? */ 
+
+ "available": true, 
+
+ /* Initial state of the frequency combining */ 
+
+ "activated": true 
+
+ } 
+
+ }, 
+
+ "ifr_config_3": { 
+
+ /* Initial bandwidth filter (in Hz): 
+
+ - 5, 10, 15, 30, 50, 100, 150, 300, 500 kHz 
+
+ - 1, 1.5, 3, 5, 10, 13 MHz 
+
+ */ 
+
+ "bandwidth_filter": 1e6, 
+
+ /* Main channel configuration */ 
+
+ "channel_A": { 
+
+ /* Initial channel RF source: rfX to select downlink RF X */ 
+
+ "input": "rf1", 
+
+ /* Initial main frequency */ 
+
+ "frequency": 143e6 
+
+
+
+
+ }, 
+
+ /* Combining Channel configuration */ 
+
+ "channel_B": { 
+
+ /* Initial channel RF source: rfX to select downlink RF X */ 
+
+ "input": "rf2", 
+
+ /* Initial combining frequency */ 
+
+ "frequency": 134e6 
+
+ }, 
+
+ /* Configuration for the polarization DCU */ 
+
+ "polarization_combining": { 
+
+ /* Is the polar combining stage available? */ 
+
+ "available": true, 
+
+ /* Initial state of the polarization combining */ 
+
+ "activated": true 
+
+ }, 
+
+ /* Configuration for the frequency DCU */ 
+
+ "frequency_combining": { 
+
+ /* Is the frequency combining stage available? */ 
+
+ "available": true, 
+
+ /* Initial state of the frequency combining */ 
+
+ "activated": true 
+
+ } 
+
+ } 
+
+ } 
+
+ }, 
+
+ /* Definition and configuration of the downlinks (RF input signals) through the 
+associated EFC*/ 
+
+ "efc": { 
+
+ "common": { 
+
+ /* Targeted Intermediate frequency */ 
+
+ "target_if": 70e6, 
+
+ /* EFC bandwidth, in Hz */ 
+
+ "bandwidth": 90e6 
+
+ }, 
+
+ /* Configuration of the RF Input 1 */ 
+
+ "rf1": { 
+
+ /* DL AGC configuration to be used */ 
+
+ "agc": "agc_config_1", 
+
+ /* Initial EFC manual gain in dB */ 
+
+ "manual_gain": 0.0, 
+
+ /* Initial EFC local frequency in Hz */ 
+
+ "frequency": 3.123e9 
+
+ }, 
+
+ /* Configuration of the RF Input 2 */ 
+
+ "rf2": { 
+
+ "agc": "agc_config_1", 
+
+ "manual_gain": 0.0, 
+
+ "frequency": 4.123e9 
+
+ }, 
+
+ /* Configuration of the RF Input 3 */ 
+
+ "rf3": { 
+
+ "agc": "agc_config_1", 
+
+ "manual_gain": 0.0, 
+
+ "frequency": 5.123e9 
+
+ } 
+
+ }, 
+
+ /* Definition and configuration of the Intermediate Frequency Receivers */ 
+
+
+
+
+ "ifr": { 
+
+ /* Configuration of the IF Receiver 1 */ 
+
+ "ifr1": { 
+
+ /* IFR DCU configuration to be used */ 
+
+ "configuration": "ifr_config_1", 
+
+ /* Telemetry Channel ID to which this IFR shall provide its data: A-H */ 
+
+ "tm_channel": "A" 
+
+ }, 
+
+ /* Configuration of the IF Receiver 2 */ 
+
+ "ifr2": { 
+
+ "configuration": "ifr_config_2", 
+
+ "tm_channel": "B" 
+
+ }, 
+
+ /* Configuration of the IF Receiver 3 */ 
+
+ "ifr3": { 
+
+ "configuration": "ifr_config_3", 
+
+ "tm_channel": "C" 
+
+ } 
+
+ } 
+
+ } 
+
+ }, 
+
+ 
+
+ /* Station antennas */ 
+
+ "antennas": [ 
+
+ { 
+
+ /* Antenna identification */ 
+
+ "id": "main", 
+
+ 
+
+ /* Antenna coordinates */ 
+
+ "coordinates": { 
+
+ "longitude": -52.63942, 
+
+ "latitude": 5.09872, 
+
+ "altitude": 105.9 
+
+ }, 
+
+ 
+
+ /* Antenna axes properties */ 
+
+ "axes": { 
+
+ "bearing": { 
+
+ "mode": "ideal", 
+
+ "max_speed": 0.0873 
+
+ }, 
+
+ "elevation": { 
+
+ "mode": "ideal", 
+
+ "max_speed": 0.0873, 
+
+ "boundaries": { 
+
+ "min": -1.570795, 
+
+ "max": 1.570795 
+
+ } 
+
+ } 
+
+ }, 
+
+ 
+
+ /* Reception properties */ 
+
+ "receiver": { 
+
+ "diagram": { 
+
+ "path": "./Systems/Common/Data/Zero_Mask.xml", 
+
+ "bearing": 0.0, 
+
+ "elevation": 0.0 
+
+
+
+
+ }, 
+
+ "mask": { 
+
+ "path": "./Systems/Stations_TM/Data/Mask_MGAL.txt", 
+
+ "bearing": 0.0, 
+
+ "elevation": 0.0 
+
+ }, 
+
+ "gain": 1.0, 
+
+ "frequency": 2218000000.0, 
+
+ "bandwidth": 1000.0, 
+
+ "cn0_min": 10.0, 
+
+ "loss": -110.0, 
+
+ "angle_3db": 0.016580628 /* 0.95° */ 
+
+ } 
+
+ } 
+
+ ] 
+
+} 
+
+
+
+ 
+
+
+5.4.6.3.3. Stations TC 
+
+ 
+
+Figure 18 : Structure d'une description de STATION TC 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+id 
+
+ 
+
+Identification du système 
+
+ 
+
+type 
+
+ 
+
+STATION_TC 
+
+
+
+
+ 
+
+unique_id 
+
+ 
+
+Nom du système. 
+
+antennas [ARRAY] 
+
+ 
+
+Liste des antennes disponibles. 
+
+Attention : Seule la première antenne est simulée. 
+
+ 
+
+id 
+
+ 
+
+identifiant de l’antenne (= main) 
+
+ 
+
+axes 
+
+ 
+
+propriétés mécaniques des axes en gisement et élévation de l’antenne 
+(voir ci-dessous) 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Propriétés de l’axe de gisement 
+
+ 
+
+ 
+
+ 
+
+mode 
+
+X 
+
+Mode d’asservissement (= ideal) 
+
+ 
+
+ 
+
+ 
+
+max_speed 
+
+ 
+
+Vitesse maximum (rad/s) 
+
+ 
+
+ 
+
+ 
+
+boundaries 
+
+X 
+
+Fournit les limites min et max (via les clefs min et max) du mouvement 
+pour cet axe. 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Propriétés de l’axe de site 
+
+ 
+
+ 
+
+ 
+
+mode 
+
+X 
+
+Mode d’asservissement (= ideal) 
+
+ 
+
+ 
+
+ 
+
+max_speed 
+
+ 
+
+Vitesse maximum (rad/s) 
+
+ 
+
+ 
+
+ 
+
+boundaries 
+
+X 
+
+Fournit les limites min et max (via les clefs min et max) du mouvement 
+pour cet axe. 
+
+ 
+
+coordinates 
+
+ 
+
+Coordonnées de la station 
+
+ 
+
+ 
+
+longitude 
+
+ 
+
+Longitude (degrés, WGS84). 
+
+ 
+
+ 
+
+latitude 
+
+ 
+
+Latitude (degrés, WGS84). 
+
+ 
+
+ 
+
+altitude 
+
+ 
+
+Altitude (mètres, WGS84). 
+
+ 
+
+emitter 
+
+ 
+
+Propriétés de l’émetteur 
+
+ 
+
+ 
+
+diagram 
+
+ 
+
+Propriétés du diagramme d’antenne 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le diagramme. 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+ 
+
+mask 
+
+ 
+
+Propriétés du masque station. 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le masque. 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+ 
+
+gain 
+
+ 
+
+Gain (dB) 
+
+ 
+
+ 
+
+power 
+
+ 
+
+Puissance d’émission (Watt) 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence d’émission (Hz) 
+
+
+
+ 
+
+Exemple : 
+
+ 
+
+{ 
+
+ /* Station identification */ 
+
+ "id": { 
+
+ "type": "STATION_TC", 
+
+ "unique_id": "TSAR" 
+
+ }, 
+
+ 
+
+ /* Station antennas */ 
+
+ "antennas": [ 
+
+ { 
+
+ /* Antenna identification */ 
+
+ "id": "main", 
+
+ 
+
+ /* Antenna coordinates */ 
+
+ "coordinates": { 
+
+ "longitude": -53.0, 
+
+ "latitude": 6.0, 
+
+
+
+ 
+
+
+
+
+ "altitude": 120.0 
+
+ }, 
+
+ 
+
+ /* Antenna axes properties */ 
+
+ "axes": { 
+
+ "bearing": { 
+
+ "max_speed": 1.570795, 
+
+ "boundaries": { 
+
+ "min": -1.570795, 
+
+ "max": 1.570795 
+
+ } 
+
+ }, 
+
+ "elevation": { 
+
+ "max_speed": 1.570795 
+
+ } 
+
+ }, 
+
+ 
+
+ /* Emission properties */ 
+
+ "emitter": { 
+
+ "diagram": { 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.xml", 
+
+ "bearing": 0.0, 
+
+ "elevation": 0.0 
+
+ }, 
+
+ "mask": { 
+
+ "path": "file://Systems/Common/Data/Station_Mask.xml", 
+
+ "bearing": 0.0, 
+
+ "elevation": 0.0 
+
+ }, 
+
+ "gain": 1.6, 
+
+ "power": 550.0, 
+
+ "frequency": 5999000 
+
+ } 
+
+ } 
+
+ ] 
+
+} 
+
+
+
+ 
+
+
+
+ 
+
+
+5.4.6.3.4. Véhicule 
+
+ 
+
+Figure 19 : Structure d'une description d'un LANCEUR 
+
+ 
+
+Dénomination 
+
+Opt. 
+
+Description 
+
+measurements 
+
+ 
+
+Mensuration du lanceur 
+
+ 
+
+radius 
+
+ 
+
+Rayon du lanceur (en mètres) 
+
+ 
+
+length 
+
+ 
+
+Hauteur du lanceur (en mètres) 
+
+IMU 
+
+ 
+
+Nombre d’équipements IMU 
+
+GNSS 
+
+X 
+
+Nombre d’équipements GNSS (par défaut 1) 
+
+transponders 
+
+ 
+
+Description des propriétés des répondeurs radars RR1 et RR2 
+
+ 
+
+RR1 
+
+ 
+
+Propriétés de RR1 
+
+ 
+
+ 
+
+common 
+
+ 
+
+Propriétés communes à l’émission et à la réception 
+
+ 
+
+ 
+
+ 
+
+diagram 
+
+ 
+
+Propriétés du diagramme d’antenne 
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le diagramme d’antenne 
+
+ 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+ 
+
+ 
+
+mask 
+
+ 
+
+Propriétés du masque station. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+path 
+
+ 
+
+Chemin vers le fichier décrivant le masque. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+bearing 
+
+ 
+
+Décalage à appliquer sur le gisement 
+
+ 
+
+ 
+
+ 
+
+ 
+
+elevation 
+
+ 
+
+Décalage à appliquer sur l’élévation 
+
+ 
+
+ 
+
+emitter 
+
+ 
+
+Propriétés de l’émetteur 
+
+ 
+
+ 
+
+ 
+
+gain 
+
+ 
+
+Gain (dB) 
+
+ 
+
+ 
+
+ 
+
+power 
+
+ 
+
+Puissance d’émission (Watt) 
+
+ 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence d’émission (Hz) 
+
+ 
+
+ 
+
+receiver 
+
+ 
+
+Propriétés du récepteur 
+
+ 
+
+ 
+
+ 
+
+gain 
+
+ 
+
+Gain (dB) 
+
+ 
+
+ 
+
+ 
+
+frequency 
+
+ 
+
+Fréquence de réception (Hz) 
+
+ 
+
+ 
+
+ 
+
+bandwidth 
+
+ 
+
+Bande passante (Hz) 
+
+ 
+
+ 
+
+ 
+
+cn0_min 
+
+ 
+
+C/N0 minimum pour réception (dB.Hz) 
+
+ 
+
+ 
+
+ 
+
+loss 
+
+ 
+
+Bruits (dBW) 
+
+ 
+
+RRx 
+
+ 
+
+Similaire à transponders/RR1 
+
+ 
+
+ 
+
+… 
+
+ 
+
+… x entier naturel 
+
+receivers_tc 
+
+ 
+
+ 
+
+ 
+
+RTC1 
+
+ 
+
+ 
+
+ 
+
+ 
+
+common 
+
+ 
+
+Similaire à transponders/RR1/common 
+
+ 
+
+ 
+
+receiver 
+
+ 
+
+Similaire à transponders/RR1/receiver 
+
+ 
+
+RTCx 
+
+ 
+
+Similaire à receivers_tcs/RTC1 
+
+ 
+
+ 
+
+… 
+
+ 
+
+… x entier naturel 
+
+emitters_tm 
+
+ 
+
+ 
+
+ 
+
+TLM1 
+
+ 
+
+ 
+
+ 
+
+ 
+
+common 
+
+ 
+
+Similaire à transponders/RR1/common 
+
+ 
+
+ 
+
+emitter 
+
+ 
+
+Similaire à transponders/RR1/emitter 
+
+ 
+
+TLMx 
+
+ 
+
+… x entier naturel 
+
+
+
+ 
+
+Exemple : 
+
+ 
+
+{ 
+
+ 
+
+ /* Vehicle type */ 
+
+ 
+
+ "measurements": { 
+
+ "radius": 1.5, 
+
+ 
+
+ "length": 36 
+
+ }, 
+
+ /* Vehicle inertial measurement units */ 
+
+ "IMU": 1, 
+
+ 
+
+ /* Vehicle transponders */ 
+
+ 
+
+ "transponders": { 
+
+ 
+
+ "rr1": { 
+
+ 
+
+ "common": { 
+
+ 
+
+ "diagram": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.txt", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ }, 
+
+ 
+
+ "mask": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.xml", 
+
+ 
+
+ "bearing": 0.0, 
+
+
+
+ 
+
+
+
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "emitter": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "power": 400.0, 
+
+ 
+
+ "frequency": 6666000 
+
+ 
+
+ }, 
+
+ 
+
+ "receiver": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "frequency": 7777000, 
+
+ 
+
+ "bandwidth": 1000, 
+
+ 
+
+ "cn0_min": 10.0, 
+
+ 
+
+ "loss": -110.0 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "rr2": { 
+
+ 
+
+ "common": { 
+
+ 
+
+ "diagram": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.txt", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ }, 
+
+ 
+
+ "mask": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.xml", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "emitter": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "power": 400.0, 
+
+ 
+
+ "frequency": 8888000 
+
+ 
+
+ }, 
+
+ 
+
+ "receiver": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "frequency": 9999000, 
+
+ 
+
+ "bandwidth": 1000, 
+
+ 
+
+ "cn0_min": 10.0, 
+
+ 
+
+ "loss": -110.0 
+
+ 
+
+ } 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ 
+
+ 
+
+ /* Vehicle telecommands receivers */ 
+
+ 
+
+ "receivers": { 
+
+ 
+
+ "rtc1": { 
+
+ 
+
+ "common": { 
+
+ 
+
+ "diagram": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.txt", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ }, 
+
+ 
+
+ "mask": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.xml", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+
+
+
+
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "receiver": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "frequency": 1234000, 
+
+ 
+
+ "bandwidth": 1000, 
+
+ 
+
+ "cn0_min": 10.0, 
+
+ 
+
+ "loss": -110.0 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "rtc2": { 
+
+ 
+
+ "common": { 
+
+ 
+
+ "diagram": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.txt", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ }, 
+
+ 
+
+ "mask": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.xml", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "receiver": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "frequency": 5678000, 
+
+ 
+
+ "bandwidth": 1000, 
+
+ 
+
+ "cn0_min": 10.0 , 
+
+ 
+
+ "loss": -110.0 
+
+ 
+
+ } 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ 
+
+ 
+
+ /* Vehicle telemetry emitters */ 
+
+ 
+
+ "emitters": { 
+
+ 
+
+ "tlm1": { 
+
+ 
+
+ "common": { 
+
+ 
+
+ "diagram": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.txt", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ }, 
+
+ 
+
+ "mask": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.xml", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "emitter": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "power": 400.0, 
+
+ 
+
+ "frequency": 4455660000 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "tlm2": { 
+
+ 
+
+ "common": { 
+
+ 
+
+ "diagram": { 
+
+
+
+
+
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.txt", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ }, 
+
+ 
+
+ "mask": { 
+
+ 
+
+ "path": "file://Systems/Common/Data/Zero_Mask.xml", 
+
+ 
+
+ "bearing": 0.0, 
+
+ 
+
+ "elevation": 0.0 
+
+ 
+
+ } 
+
+ 
+
+ }, 
+
+ 
+
+ "emitter": { 
+
+ 
+
+ "gain": 1.0, 
+
+ 
+
+ "power": 400.0, 
+
+ 
+
+ "frequency": 4455660000 
+
+ 
+
+ } 
+
+ 
+
+ } 
+
+ 
+
+ } 
+
+ 
+
+} 
+
+
+
+ 
+
+
+
+ 
+
+5.4.7. Fichier scenario.py 
+
+5.4.7.1. Emplacement 
+
+Le fichier scenario.py est situé dans le dossier Mission. 
+
+5.4.7.2. Rôle 
+
+Le fichier scenario.py permet à l’auteur de l’essai de scénariser le comportement de la simulation de façon 
+avancée. Il est spécifique à un essai. 
+
+5.4.7.3. Exemple 
+
+ 1 
+
+import STONES 
+
+ 2 
+
+ 
+
+ 3 
+
+# Démarrage du simulateur 
+
+ 4 
+
+STONES.Cmds.action_prog(STONES.TimelineType.TD, date=210, command="cs_bloquer_simu(0)") 
+
+ 5 
+
+cs_controle_tr("OFF") 
+
+ 6 
+
+cs_debloquer_simu() 
+
+
+
+ 
+
+ 
+
+
+
+5.4.8. Données d’entrée 
+
+Les données utilisées en compléments des fichiers description (*.jsonc) sont des données d’entrées qui peuvent 
+être : 
+
+• Fournies de base au sein du CSG et accessible pour tous les simulateurs (par exemple : les diagrammes 
+d’antenne des systèmes sol ou des lanceurs), 
+• Spécifiques à une mission donnée (par exemple : des trajectoires AES). 
+
+
+ 
+
+
+5.4.8.1. Trajectoires AES 
+
+Les trajectoires AES doivent être fournies au format AES VICTOR VEGA-C. 
+
+Les fichiers AES doivent respecter la convention de nommage suivante : 
+
+- Le nom du fichier doit se terminer par « _aes » ou « _AES » et ne doit pas avoir d’extension. 
+
+
+5.4.8.2. Masques 
+
+Les masques sont donnés en format TEXTE. Voir Annexe B pour une description du format et du repère. 
+
+5.4.8.3. Diagrammes 
+
+Les diagrammes sont donnés sous la forme d’un tableau de N x M points situés sur la sphère unitaire (phi / theta 
+ou gisement / élévation ou gisement / site ou longitude / latitude). La valeur de latitude / site / élévation doit être 
+considérée comme une latitude (et non une colatitude). 
+
+Ces diagrammes doivent être fournis au format XML. Celui-ci permet de fournir des informations complémentaires. 
+Son format est donné en annexe. 
+
+Exemple : 
+
+ 1 
+
+<?xml version="1.0" ?> 
+
+ 2 
+
+<!-- 
+
+ 3 
+
+ Format du fichier : 
+
+ 4 
+
+ - Chaque ligne correspond à un Theta fixe (theta = site) 
+
+ 5 
+
+ - Chaque valeur (dans une ligne donnée) correspond à un Phi (phi = gisement) 
+
+ 6 
+
+--> 
+
+ 7 
+
+<root xmlns="http://www.cnes-csg.fr/2022/sbb" xmlns:p="http://www.cnes-csg.fr/2022/sbb-
+processor"> 
+
+ 8 
+
+ <version major="1" minor="0"/> 
+
+ 9 
+
+ <content> 
+
+ 10 
+
+ <schema type="radiation"/> 
+
+ 11 
+
+ <phi max="180.0" min="-180.0" step="1.0"/> 
+
+ 12 
+
+ <theta max="90" min="-90" step="0.5"/> 
+
+ 13 
+
+ <data>-100.0 -98.0 ... -52.0 -50.0</data> 
+
+ 14 
+
+ <data>...</data> 
+
+ 15 
+
+ <data>0.0 .. 0.0</data> 
+
+ 16 
+
+ </content> 
+
+ 17 
+
+</root> 
+
+
+
+ 
+
+ 
+
+
+
+ 
+
+5.5. CONTRAINTES ET BESOINS 
+
+Le WORKSPACE est considéré comme étant complet au lancement de STONES : il doit contenir les données 
+nécessaires et suffisantes à STONES pour pouvoir instancier l’essai. 
+
+La complétude des données est analysée par STONES à son lancement. En cas de données incomplètes, 
+STONES interrompt son initialisation et fournit un rapport des données manquantes. 
+
+
+6. INTERFACES EXTERNES 
+
+6.1. SCRIPTOR 
+
+L’interface SCRIPTOR permet la connexion de STONES à la baie d’entraînement par le biais du PC SCRIPTOR. 
+
+Cette interface doit être configurée dans le fichier interfaces.jsonc conformément à la description du §5.4.5. 
+
+6.2. SG_TPS 
+
+6.2.1. Généralité 
+
+L’interface SG_TPS est nécessaire pour synchroniser le simulateur STONES avec le temps diffusé par le service 
+SG_TPS. 
+
+Cette interface s’appuie sur la librairie SG_TPS. Elle requiert qu’un AGENT soit exécuté localement sur l’ordinateur 
+(ou la machine virtuelle) accueillant STONES. 
+
+Cet AGENT doit être lancé avant l’initialisation de STONES. 
+
+La mise en oeuvre de cette synchronisation nécessite : 
+
+- La configuration de cette interface dans le fichier interfaces.jsonc conformément à la description du 
+§5.4.5. 
+- La source de temps « tu_source » dans mission.jsonc ne doit pas être renseignée. 
+
+
+6.2.2. Synchronisation 
+
+Comme pour tout simulateur événementiel, la synchronisation réalisée par STONES est réalisée par avance rapide 
+de son temps simulé jusqu’à atteindre la date de synchronisation. 
+
+Le principe de synchronisation est le suivant : 
+
+- STONES détermine une date à atteindre. Celle-ci doit être postérieure à la date TU_LOCAL diffusée par le 
+SG_TPS. Cette date constitue le point de synchronisation entre le simulateur et le SG_TPS. 
+- STONES cherche alors à atteindre cette date en passant en vitesse accélérée (au maximum des capacités 
+du PC / de la machine virtuelle qui l’exécute). 
+- Une fois la date atteinte, STONES passe en pause. 
+- STONES se réveille à l’instant précis où le TU_LOCAL atteint ce point de synchronisation : les deux lignes 
+de temps sont alors synchronisées. 
+
+
+La synchronisation intervient automatiquement au démarrage du simulateur. 
+
+Le point de synchronisation se situe au minimum 5 secondes au-delà du TU_LOCAL (valeur par défaut). 
+
+
+6.3. LIAISONS EIR 
+
+STONES permet la connexion des radars simulés auprès de logiciels EIR (v8.1.0). Cette connexion a pour objectifs : 
+
+1. La réception des paquets DESI fournissant la désignation d’objectif, 
+2. L’émission de paquets LOC vers l’EIR contenant les mesures et états du radar simulé. 
+
+
+La mise en oeuvre des liaisons EIR se fait en deux temps : 
+
+1. Chaque liaison disponible doit être définie et paramétrée au sein du fichier interfaces.jsonc 
+a. Dans ce fichier, chaque liaison EIR disponible est associé à un ID unique. 
+
+
+
+2. Chaque radar devant être connecté à un logiciel doit indiquer dans sa configuration (radar_XXX.jsonc) l’ID 
+de la liaison EIR à mettre en oeuvre, et la nature du sous-protocole à utiliser (BRx ou AMZ). 
+
+
+La liaison EIR est réalisée de façon automatique dès le lancement de STONES. 
+
+L’émission des paquets LOC et la réception des paquets DESI sont réalisées par UDP. Ceci a pour conséquence 
+qu’en l’absence de logiciel EIR en réception, les paquets LOC sont perdus de façon silencieuse. 
+
+6.4. LIAISONS CORTEX 
+
+6.4.1. Généralités 
+
+STONES peut être configuré pour simuler des équipements CORTEX (CRT) au sein des STATIONS TM. 
+
+Ces équipements implémentent le protocole CORTEX CRT, permettant leur communication avec les systèmes déjà 
+présents au CSG (nommément SETTERS STATION v1.5.0 et REGATES v2.54R10). 
+
+Les liens suivants sont pris en charge (voir ci-après pour le détail de la représentativité) : 
+
+- MON : Transfert des tables de monitoring contenant les différents statuts. 
+- CTRL : Traitement de téléactions émises à destination du RX3. 
+- TM : Transfert des trames de télémétrie sous forme de flux. 
+- RST : Permet la réinitialisation des connexions réseau. 
+- LOG : Permet l'émission de messages de LOG. 
+
+
+Ceci permet la réaliser des transmissions de données de télémétrie et la réalisation de comportement dans la limite 
+de la représentativité décrite ci-après. 
+
+6.4.2. Connexions 
+
+Chaque liaison (MON, CTRL, TM, etc.) est associée à un PORT. Le système CORTEX est en charge de fournir les 
+serveurs, donc sa simulation par STONES fait de même. 
+
+STONES doit donc être configuré pour spécifier les ports associés à chaque lien, pour chaque équipement CORTEX 
+de chaque stations TM. Se référer au §5.4.5.3.4 . 
+
+6.4.3. Représentativité 
+
+Les tables suivantes sont gérées pour le protocole MON : 
+
+
+- Configuration Names 
+- CORTEX CRT 
+- CORTEX Series 
+- Diversity Combining Unit 
+- Embedded Frequency Converter 
+- Global CORTEX CRT 
+- Global CORTEX Series 
+- IF Modulator 
+- IF Receiver Extension 
+- IF Receiver 
+- Telecommand Unit 
+- Telemetry Unit 
+- Diversity Combining Unit 
+
+
+Toutes les entrées de ces tables ne sont pas altérables par une téléaction (TA) de Configuration (protocole CTRL). 
+Notamment les entrées associées à des datations, qui sont calculées automatiquement, ne tiennent pas compte des 
+TA de mise à jour. 
+
+L'émission de la télémétrie sur le lien TM gère les modes suivants : 
+
+- Emission du flux continu (instantané) 
+- Emission d'une trame unique (instantanée) 
+- Emission d'un flux continu de trames "dummy" 
+
+
+Les messages de LOG émis sont : 
+
+- ConfigurationEvent. 
+
+
+6.5. FLUX SIMPLIFIES 
+
+6.5.1. LOC_STREAM_SIMPLE et TM_STREAM_SIMPLE 
+
+La génération des flux simplifiés permet d’émettre des données de simulation via un socket UDP. 
+
+Les flux disponibles sont LOC_STREAM_SIMPLE et TM_STREAM_SIMPLE et sont indépendants l’un de l’autre : 
+
+• Le lien LOC_STREAM_SIMPLE instancie autant de flux que d’équipements radar configurés dans le 
+scénario. 
+• Le lien TM_STREAM_SIMPLE est unique. 
+
+
+6.5.2. Données 
+
+Les données contenues dans les paquets émis sont configurables via le fichier interfaces.jsonc (conformément 
+à la description du §5.4.5). 
+
+Il existe trois types de données pouvant être émises par les flux : 
+
+- Les paramètres qui sont directement issus des sorties des modèles instanciés dans le simulateur. 
+- Les éphémérides qui sont des données provenant d’un fichier tabulé. 
+
+
+ 
+
+
+6.5.2.1. Paramètres 
+
+Les paramètres sont configurées dans le champ "parameters" au travers de la configuration d’un flux dans le 
+fichier interfaces.jsonc. 
+
+Chaque paramètre doit comporter un couple clé/valeur où la clé correspond à un nom unique, et la valeur au chemin 
+BASILES de la donnée. 
+
+Dans la valeur des paramètres, la variable "{name}" est mise à disposition pour identifier les systèmes. En effet, 
+elle permet de remplacer automatiquement le nom par l’instance en question, par exemple l’instance d’un radar (ex : 
+BR1). Voici un exemple d’utilisation "SITE" : "Radars/{name}/StationControl.siteTarget" 
+
+Exemples : 
+
+• En indiquant la valeur "Radars/{name}/StationControl.siteTarget", la sortie sera automatiquement : 
+o Un flux pour BR1 avec "Radars/BR1/StationControl.siteTarget" 
+o Un flux pour BR2 avec "Radars/BR2/StationControl.siteTarget" 
+
+
+
+• En indiquant la valeur "Radars/BR1/StationControl.siteTarget", la sortie sera uniquement : 
+o Le flux de BR1 et celui de BR2 présenteront tous les deux la valeur de 
+"Radars/BR1/StationControl.siteTarget" 
+
+
+
+
+
+6.5.2.2. Ephémérides 
+
+Les éphémérides sont configurées dans le champ "ephemeris" au travers de la configuration d’un flux dans le 
+fichier interfaces.jsonc. Cette configuration doit comporter un couple clé/valeur où la clé correspond à un nom 
+unique, et la valeur au chemin vers le fichier d’éphéméride. 
+
+Le fichier d’éphémérides est un fichier tabulé (.tsv) comprenant deux colonnes de données : 
+
+• 1ère colonne : le TD 
+• 2ème colonne : la donnée à diffuser. La nature de la donnée est automatiquement déterminée. Cette donnée 
+peut être un entier, un double ou bien une chaîne de caractères (SANS espace ou tabulation dans la chaîne). 
+La présence d’un espace ou d’une tabulation implique que le texte est perçu comme une autre colonne, et 
+est donc ignoré. 
+
+
+Toutes autres colonnes présentes dans le fichier d’éphémérides sont ignorées. 
+
+6.5.3. Format d’une trame 
+
+Les trames générées contiennent tous les paramètres configurés. 
+
+Les paramètres sont encodés en UTF-8. 
+
+Chaque trame démarre par le nom de l’équipement mesuré : 
+
+• radar pour le lien LOC_STREAM_SIMPLE 
+• lanceur pour le lien TM_STREAM_SIMPLE. 
+
+
+Les paramètres sont séparés par le caractère ";". 
+
+Ci-dessous se trouve une trame de localisation d’exemple générée pour un lien BR1 : 
+
+BR1;DATE=-125300000000;SITE=0.01018439810164882;GISEMENT=2.143646849781771;SPEED_SITE=0.0; 
+
+
+SPEED_GISEMENT=0.0;SNR=0.0;
+
+
+ANNEXE A : SCHEMAS DES FICHIERS XML DIAGRAMMES 
+
+Le schéma XSD suivant permet de valider les fichiers XML destinés à représenter les diagrammes d’antenne. 
+
+Repères pour les diagrammes STATION : 
+
+Les diagrammes STATION sont exprimés dans le repère de l’ANTENNE. 
+
+Repères pour les diagrammes BORD : 
+
+Les diagrammes BORD sont exprimés dans le repère du LANCEUR. Pour un équipement donné (exemple : RTC1), 
+un diagramme complet (sphère complète) correspond à l’ensemble des antennes de cet équipement (exemple : 
+RTC1.1 + RTC1.2). 
+
+Format : 
+
+Globalement, pour une grille discrétisée en N x M points (pour les dimensions PHI x THETA dans l’ordre), le fichier 
+XML doit contenir : 
+
+- Un noeud « data » par valeur de THETA (il y a donc N noeuds « data ») 
+- Chaque noeud « data » contient une chaîne de caractère contenant M valeurs de PHI (nombre flottant), 
+séparés par un espace). 
+
+
+Le fichier décrit les caractéristiques pour chacune des deux dimension PHI et THETA : 
+
+- L’intervalle couvert, via les attributs min et max. 
+- Le pas de discrétisation via l’attribut step. 
+
+
+Le type de schéma est toujours « radiation ». 
+
+Le namespace du XML doit être celui renseigné dans le schéma ci-dessous. 
+
+Les numéros de version doivent être : 
+
+- major : 1 
+- minor : 0 
+
+
+ 
+
+1 
+
+<?xml version="1.0" encoding="UTF-8"?> 
+
+2 
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+
+3 
+
+xmlns="http://www.cnes-csg.fr/2022/sbb" 
+
+4 
+
+targetNamespace="http://www.cnes-csg.fr/2022/sbb" 
+
+5 
+
+xmlns:p="http://www.cnes-csg.fr/2022/sbb-processor" 
+
+6 
+
+elementFormDefault="qualified"> 
+
+7 
+
+ 
+
+8 
+
+<!-- Declaration of complex types for various elements --> 
+
+9 
+
+<xs:complexType name="versionType"> 
+
+10 
+
+<xs:attribute name="major" type="xs:unsignedInt" use="required"/> 
+
+11 
+
+<xs:attribute name="minor" type="xs:unsignedInt" use="required"/> 
+
+12 
+
+</xs:complexType> 
+
+13 
+
+ 
+
+14 
+
+<xs:complexType name="phiType"> 
+
+15 
+
+<xs:attribute name="max" type="xs:decimal" use="required"/> 
+
+16 
+
+<xs:attribute name="min" type="xs:decimal" use="required"/> 
+
+
+
+
+17 
+
+<xs:attribute name="step" type="xs:decimal" use="required"/> 
+
+18 
+
+</xs:complexType> 
+
+19 
+
+ 
+
+20 
+
+<xs:complexType name="thetaType"> 
+
+21 
+
+<xs:attribute name="max" type="xs:decimal" use="required"/> 
+
+22 
+
+<xs:attribute name="min" type="xs:decimal" use="required"/> 
+
+23 
+
+<xs:attribute name="step" type="xs:decimal" use="required"/> 
+
+24 
+
+</xs:complexType> 
+
+25 
+
+ 
+
+26 
+
+<xs:complexType name="dataType"> 
+
+27 
+
+<xs:simpleContent> 
+
+28 
+
+<xs:extension base="xs:string"> 
+
+29 
+
+<!-- List of PHI values separated by a space: one value per PHI angle --> 
+
+30 
+
+</xs:extension> 
+
+31 
+
+</xs:simpleContent> 
+
+32 
+
+</xs:complexType> 
+
+33 
+
+ 
+
+34 
+
+<!-- Root element --> 
+
+35 
+
+<xs:element name="root"> 
+
+36 
+
+<xs:complexType> 
+
+37 
+
+<xs:sequence> 
+
+38 
+
+<xs:element name="version" type="versionType"/> 
+
+39 
+
+<xs:element name="content"> 
+
+40 
+
+<xs:complexType> 
+
+41 
+
+<xs:sequence> 
+
+42 
+
+<xs:element name="schema"> 
+
+43 
+
+<xs:complexType> 
+
+44 
+
+<xs:attribute name="type" type="xs:string" use="required"/> 
+
+45 
+
+</xs:complexType> 
+
+46 
+
+</xs:element> 
+
+47 
+
+<xs:element name="phi" type="phiType"/> 
+
+48 
+
+<xs:element name="theta" type="thetaType"/> 
+
+49 
+
+<!-- One "data" node per THETA angle. --> 
+
+50 
+
+<xs:element name="data" type="dataType" maxOccurs="unbounded"/> 
+
+51 
+
+</xs:sequence> 
+
+52 
+
+</xs:complexType> 
+
+53 
+
+</xs:element> 
+
+54 
+
+</xs:sequence> 
+
+55 
+
+</xs:complexType> 
+
+56 
+
+</xs:element> 
+
+57 
+
+</xs:schema> 
+
+
+
+
+
+
+ANNEXE B : FORMAT DES FICHIERS MASQUES 
+
+Le format des fichiers MASQUES est le suivant. Ce format doit être respecté strictement. 
+
+Les fichiers MASQUES représentent un masque couvrant 360° d’azimut sous la forme d’une fonction : 
+
+SITE LIMITE = f(AZIMUT) 
+
+Pour une valeur d’AZIMUT donnée, le masque est considéré : 
+
+- PASSANT si le site de mesure est SUPERIEUR au site limite donné dans le masque. 
+- OCCULTANT si le site de mesure est INFERIEUR ou EGAL au site limite donné dans le masque. 
+
+
+Les règles définissant le format du fichier sont les suivantes : 
+
+1. Le fichier est au format TEXTE encodé en UTF-8. 
+2. Le fichier est structuré sous forme de COLONNES et de LIGNES. 
+3. Le fichier doit contenir deux colonnes : 
+a. Une 1ère colonne spécifiant un AZIMUT 
+b. Une 2ème colonne spécifiant le de SITE LIMITE associé à cet AZIMUT. 
+
+
+
+4. Les valeurs d’AZIMUT doivent être entrée de façon strictement croissante. 
+5. Les colonnes sont séparées par des tabulations ou des espaces. 
+6. Le fichier accepte des lignes de commentaires en préambule du fichier. 
+7. Les commentaires sont préfixés par '#' en début de ligne. 
+8. Les valeurs de SITE et d’AZIMUT doivent être renseignées : 
+a. En degrés 
+b. Sous la forme de nombres flottants (signés ou non, notation classique ou exponentielle) 
+c. Le séparateur décimal doit être un point « . » 
+
+
+
+9. Les lignes vides sont ignorées et ne constituent pas une erreur 
+10. Les espaces en début et fin de lignes sont ignorés 
+11. Les retours à la ligne sont des retours UNIX (= \n) (et non Windows = \r\n) 
+
+
+Les mesures réalisées sont interpolées linéairement à partir des données fournies dans les masques. 
+
+Repères pour les masques STATION : 
+
+Le repère utilisé pour les masques est le repère TOPOCENTRIQUE EST : 
+
+- AZIMUT 0° = NORD 
+- AZIMUT 90° = EST 
+
+
+Le SITE est orienté ainsi : 
+
+- SITE 0° = HORIZON 
+- SITE +90° = ZENITH 
+- SITE -90° = NADIR 
+
+
+Repères pour les masques BORD : 
+
+Les masques BORD sont exprimés dans le repère du LANCEUR. Pour un équipement donné (exemple : RTC1), un 
+masque complet (sphère complète) correspond à l’ensemble des antennes de cet équipement (exemple : RTC1.1 + 
+RTC1.2).Les mesures réalisées sont interpolées linéairement à partir des données fournies dans les masques.
+
+ 
+
+
