@@ -1,0 +1,718 @@
+Date: 12/05/2026 03:11:49
+BSL_GENEXE -i /home/martinspi/simulators/STONES_v6.0/STONES/simulators/stones/S_MISSION/GEN/stones.dts clean (8) fin
+ CMake is scanning full simulator sources files
+ Cleaning all Models
+
+ Cleaning simulator
+
+
+Suppression de /home/martinspi/simulators/STONES_v6.0/STONES/simulators/stones/S_MISSION/GEN/simulateur
+Nettoyage de 'simulators/stones/S_MISSION/GEN/stones.dts' - FIN
+Date: 12/05/2026 03:11:54
+BSL_GENEXE -i /home/martinspi/simulators/STONES_v6.0/STONES/simulators/stones/S_MISSION/GEN/stones.dts optim (706) fin
+Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/CommandAt/CommandAt.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'filePathAES'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/DevPlayer_AES/DevPlayer_AES.dtm :Arret du programme
+Debug: nom du modele excedant les 25 caracteres
+Erreur rts="0"Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'cartesianCoord'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoEllipsoid_Sphere/GeoEllipsoid_Sphere.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'cartesianCoord'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoEllipsoid_WGS84/GeoEllipsoid_WGS84.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'inputsPositions'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'outputsPositions'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'inputRotation'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'outputRotation'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoFrame_Projector/GeoFrame_Projector.dtm :Arret du programme
+Erreur rts="0"Attention la variable currentParentTransformationIndex est plus longue que les 31 caractères autorisés
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'projector'
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoFrame_Router/GeoFrame_Router.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoTransfo_ERF/GeoTransfo_ERF.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoTransfo_Identity/GeoTransfo_Identity.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoTransfo_J2000/GeoTransfo_J2000.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoTransfo_Rotation/GeoTransfo_Rotation.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoTransfo_SGD/GeoTransfo_SGD.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoTransfo_Translation/GeoTransfo_Translation.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/GeoTransfo_ZEN/GeoTransfo_ZEN.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'parentT0'
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'parentT0'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'offsetTU'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'offsetTD'
+
+Erreur : Type indéfini pour la variable 'currentT0'
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'currentT0'
+
+Erreur : Type indéfini pour la variable 'currentTU'
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'currentTU'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'currentOffsetTU'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'currentOffsetTD'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'currentTD'
+
+Erreur : Type indéfini pour la variable 'return'
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/LocalTimeProvider/LocalTimeProvider.dtm :Arret du programme
+Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'last_event_name'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'last_event_metadata'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'events_counter'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'callbacks_counter'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'metadata'
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/MissionEvents/MissionEvents.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'script'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'libName'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_Common/Pipe_Common.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input1'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input2'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input3'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input4'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input5'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'output'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_Int8/Pipe_Int8.dtm :Arret du programme
+Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input1'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input2'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input3'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input4'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input5'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'output'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_Int16/Pipe_Int16.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input1'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input2'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input3'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input4'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input5'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'output'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_Int64/Pipe_Int64.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input1'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input2'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input3'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input4'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input5'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'output'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_UInt8/Pipe_UInt8.dtm :Arret du programme
+Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input1'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input2'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input3'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input4'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input5'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'output'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_UInt16/Pipe_UInt16.dtm :Arret du programme
+Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input1'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input3'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input4'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input5'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'output'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input2'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_UInt32/Pipe_UInt32.dtm :Arret du programme
+Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input1'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input2'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input3'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input4'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'input5'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'output'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/Pipe_UInt64/Pipe_UInt64.dtm :Arret du programme
+Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/ServiceLog/ServiceLog.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/TorsorEstimator/TorsorEstimator.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/TorsorOperation/TorsorOperation.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'date'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/UtilClock/UtilClock.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"Erreur : Type indéfini pour la variable 'position'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/UtilGravityProvider/UtilGravityProvider.dtm :Arret du programme
+Erreur rts="0"Erreur : Type indéfini pour la variable 'ReturnParameter'
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/UtilInertialCylinder/UtilInertialCylinder.dtm :Arret du programme
+Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'seed'
+
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/UtilNoise/UtilNoise.dtm :Arret du programme
+Erreur rts="0"Erreur rts="0"Erreur rts="0"Erreur rts="0"ERREUR : Seules les variables de type standard sont autorisées
+Les erreurs précédentes concernent la variable 'currentSignalIndex'
+
+ERREUR : Seules les variables de type standard sont autorisées
+Erreur: /home/martinspi/simulators/STONES_v6.0/STONES/models/UtilSignalSwitcher/UtilSignalSwitcher.dtm :Arret du programme
+make : on entre dans le répertoire « /home/martinspi/simulators/STONES_v6.0/STONES/simulators/stones/S_MISSION/GEN/simulateur »
+ CMake is scanning full simulator sources files
+ CMake is building objects directories
+ CMake is generating the Makefile
+-- The C compiler identification is GNU 8.2.0
+-- The CXX compiler identification is GNU 8.2.0
+-- The Fortran compiler identification is GNU 4.4.7
+-- Check for working C compiler: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/gcc-8.2.0/bin/cc
+-- Check for working C compiler: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/gcc-8.2.0/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/BASILES/lp/bin/gcc_wrapper
+-- Check for working CXX compiler: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/BASILES/lp/bin/gcc_wrapper -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check for working Fortran compiler: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/gfortran-4.4/bin/gfortran
+-- Check for working Fortran compiler: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/gfortran-4.4/bin/gfortran  -- works
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Checking whether /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/gfortran-4.4/bin/gfortran supports Fortran 90
+-- Checking whether /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/gfortran-4.4/bin/gfortran supports Fortran 90 -- yes
+-- Found Java: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/jdk1.8.0_121/bin/java (found version "1.8.0_121") 
+-- Found JNI: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/jdk1.8.0_121/jre/lib/amd64/libjawt.so  
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:12 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:12 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:12 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:12 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:12 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:12 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found Boost: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/boost-1.79.0/include (found suitable exact version "1.79.0") found components:  filesystem thread context chrono date_time atomic 
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:22 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:22 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:22 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:22 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:22 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+CMake Warning at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1125 (message):
+  New Boost version may have incorrect or missing dependencies and imported
+  targets
+Call Stack (most recent call first):
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1247 (_Boost_COMPONENT_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/cmake-3.15/share/cmake-3.15/Modules/FindBoost.cmake:1885 (_Boost_MISSING_DEPENDENCIES)
+  /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/libraries.cmake:22 (find_package)
+  CMakeLists.txt:26 (include)
+
+
+-- Found Boost: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/boost-1.79.0_oldcxxabi/include (found suitable exact version "1.79.0") found components:  filesystem thread context chrono date_time atomic 
+-- Looking for tcl8.6
+-- Looking for tcl8.6 - found
+-- Looking for tcl.h
+-- Looking for tcl.h - found
+-- Looking for libtcl8.6.so
+-- Looking for libtcl8.6.so - found
+-- Looking for libtclstub8.6.a
+-- Looking for libtclstub8.6.a - found
+-- Found SWIG: /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/outils_basiles_4.3_bin/linux_64bits/swig/bin/swig (found version "1.3.31") 
+-- Configuring done
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: CommandAt
+Call Stack (most recent call first):
+  cmake_wrapper/CommandAt/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: DevPlayer_AES
+Call Stack (most recent call first):
+  cmake_wrapper/DevPlayer_AES/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: EllipsoidCollisionDetector
+Call Stack (most recent call first):
+  cmake_wrapper/EllipsoidCollisionDetector/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoEllipsoid_Sphere
+Call Stack (most recent call first):
+  cmake_wrapper/GeoEllipsoid_Sphere/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoEllipsoid_WGS84
+Call Stack (most recent call first):
+  cmake_wrapper/GeoEllipsoid_WGS84/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoFrame_Projector
+Call Stack (most recent call first):
+  cmake_wrapper/GeoFrame_Projector/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoFrame_Router
+Call Stack (most recent call first):
+  cmake_wrapper/GeoFrame_Router/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoTransfo_ERF
+Call Stack (most recent call first):
+  cmake_wrapper/GeoTransfo_ERF/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoTransfo_Identity
+Call Stack (most recent call first):
+  cmake_wrapper/GeoTransfo_Identity/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoTransfo_J2000
+Call Stack (most recent call first):
+  cmake_wrapper/GeoTransfo_J2000/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoTransfo_Rotation
+Call Stack (most recent call first):
+  cmake_wrapper/GeoTransfo_Rotation/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoTransfo_SGD
+Call Stack (most recent call first):
+  cmake_wrapper/GeoTransfo_SGD/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoTransfo_Translation
+Call Stack (most recent call first):
+  cmake_wrapper/GeoTransfo_Translation/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: GeoTransfo_ZEN
+Call Stack (most recent call first):
+  cmake_wrapper/GeoTransfo_ZEN/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: LocalTimeProvider
+Call Stack (most recent call first):
+  cmake_wrapper/LocalTimeProvider/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: MissionEvents
+Call Stack (most recent call first):
+  cmake_wrapper/MissionEvents/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_Common
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_Common/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_Int8
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_Int8/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_Int16
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_Int16/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_Int64
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_Int64/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_UInt8
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_UInt8/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_UInt16
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_UInt16/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_UInt32
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_UInt32/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: Pipe_UInt64
+Call Stack (most recent call first):
+  cmake_wrapper/Pipe_UInt64/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: ServiceLog
+Call Stack (most recent call first):
+  cmake_wrapper/ServiceLog/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: TorsorEstimator
+Call Stack (most recent call first):
+  cmake_wrapper/TorsorEstimator/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: TorsorOperation
+Call Stack (most recent call first):
+  cmake_wrapper/TorsorOperation/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: UtilClock
+Call Stack (most recent call first):
+  cmake_wrapper/UtilClock/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: UtilGravityProvider
+Call Stack (most recent call first):
+  cmake_wrapper/UtilGravityProvider/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: UtilInertialCylinder
+Call Stack (most recent call first):
+  cmake_wrapper/UtilInertialCylinder/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: UtilNoise
+Call Stack (most recent call first):
+  cmake_wrapper/UtilNoise/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Error at /home/martinspi/BASILES/Basiles_4.3.5_binaire_RH8.3_64b/atelier_4.3_bin/lib/CMAKE/models.cmake:140 (add_library):
+  No SOURCES given to target: UtilSignalSwitcher
+Call Stack (most recent call first):
+  cmake_wrapper/UtilSignalSwitcher/CMakeLists.txt:33 (bsl_declare_model)
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+make: *** [Makefile:40: precompil] Error 1
+make : on quitte le répertoire « /home/martinspi/simulators/STONES_v6.0/STONES/simulators/stones/S_MISSION/GEN/simulateur »
+Compilation en (optim) de 'simulators/stones/S_MISSION/GEN/stones.dts' - FIN
